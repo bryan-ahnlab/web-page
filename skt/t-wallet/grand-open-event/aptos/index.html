@@ -1,719 +1,754 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T Wallet Grand Open Event</title>
-    <style>
-      @font-face {
-        font-family: "GangwonEduPower";
-        src: url("https://d3t2jtphafqeye.cloudfront.net/events/skt/aptos/GangwonEduPower.woff2")
-          format("woff2");
-      }
-      @font-face {
-        font-family: "Pretendard";
-        src: url("https://d3t2jtphafqeye.cloudfront.net/events/skt/aptos/Pretendard-Regular.woff2")
-          format("woff2");
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
-      .container {
-        width: 100%;
-        background-color: #3617cd;
-      }
-      .header {
-        background-color: transparent;
-        color: #fff;
-        padding: 60px 0px 190px 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-      .header-image-container {
-        background-color: transparent;
-        max-width: 120px;
-        min-height: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 0px 30px;
-      }
-      .header-image-container img {
-        width: 100%;
-        height: 100%;
-      }
-      .header-text-container {
-        background-color: transparent;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 0px 30px;
-        gap: 16px;
-      }
-      .header-text-container .x-image-container {
-        background-color: transparent;
-        max-width: 15px;
-        min-height: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      .header-text-container .x-image-container img {
-        width: 100%;
-        height: 100%;
-      }
-      .header-text-container h1 {
-        color: #fff;
-        font-family: GangwonEduPower;
-        font-size: 46px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-      }
 
-      .first-section-container {
-        border-radius: 40px 40px 0px 0px;
-        background-color: #fff;
-        padding: 40px 0px 70px 0px;
-      }
-      .first-section-container .first-image-container {
-        max-width: 300px;
-        min-height: 300px;
-        height: 250px;
-        margin: -210px auto 0;
-      }
-      .first-section-container .first-image-container img {
-        width: 100%;
-        height: 100%;
-      }
-      .first-section-container .first-text-container {
-        background-color: transparent;
-      }
-      .first-section-container .first-text-container .descriptions {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0px 30px;
-      }
-      .first-section-container .first-text-container .descriptions h2 {
-        color: #0c0c0c;
-        font-family: GangwonEduPower;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        text-align: center;
-        margin: 0;
-        word-break: break-word;
-        padding: 20px 30px;
-      }
-      .first-section-container .first-text-container .descriptions h2:after {
-        content: "";
-        display: block;
-        border-bottom: 2px solid #bcbcbc;
-        width: 50px;
-        margin: 10px auto;
-      }
-      .first-section-container
-        .first-text-container
-        .descriptions
-        .highlight-container {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .first-section-container
-        .first-text-container
-        .descriptions
-        .highlight-container
-        .highlight-black {
-        color: #000;
-        font-family: GangwonEduPower;
-        font-size: 46px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        word-break: break-word;
-      }
-      .first-section-container
-        .first-text-container
-        .descriptions
-        .highlight-container
-        .highlight-blue {
-        color: #346efc;
-        font-family: GangwonEduPower;
-        font-size: 46px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        word-break: break-word;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T Wallet Grand Open Event</title>
+  <style>
+    @font-face {
+      font-family: "GangwonEduPower";
+      src: url("https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/GangwonEduPower.woff2") format("woff2");
+    }
 
-      .first-section-container
-        .first-text-container
-        .descriptions
-        .information-container {
-        padding: 30px 0px 30px 0px;
-        text-align: center;
-      }
-      .first-section-container
-        .first-text-container
-        .descriptions
-        .information-container
-        .contents {
-        display: flex;
-        flex-direction: column;
-      }
-      .first-section-container
-        .first-text-container
-        .descriptions
-        .information-container
-        .content {
-        display: flex;
-        flex-direction: row;
-        padding: 2px 0px;
-        justify-content: center;
-      }
-      .first-section-container
-        .first-text-container
-        .descriptions
-        .information-container
-        .title {
-        padding: 4px 5px;
-        color: #346efc;
-        font-family: Pretendard;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 800;
-        margin: 0;
-        word-break: break-word;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-width: 60px;
-      }
-      .first-section-container
-        .first-text-container
-        .descriptions
-        .information-container
-        .description {
-        padding: 4px 5px;
-        color: #000;
-        font-family: Pretendard;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        word-break: break-word;
-      }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/Pretendard-Regular.woff2") format("woff2");
+    }
 
-      .first-section-container .first-text-container .missions {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0px 30px;
-        gap: 15px;
-      }
-      .first-section-container .first-text-container .missions .contents {
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        padding: 20px 30px;
-        border-radius: 16px;
-        width: 100%;
-        max-width: 570px;
-        text-align: center;
-        word-break: break-word;
-        background: #dde5fd;
-      }
-      .first-section-container .first-text-container .missions .title {
-        display: flex;
-        flex-direction: row;
-        margin: 0px 0px 10px 0px;
-        justify-content: center;
-        align-items: center;
-      }
-      .first-section-container
-        .first-text-container
-        .missions
-        .title
-        .delimiter {
-        border-radius: 16px;
-        background: #346efc;
-        padding: 4px 12px;
-        margin: 0px 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #f0f4ff;
-        font-family: Pretendard;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        word-break: break-word;
-        min-width: 55px;
-      }
-      .first-section-container .first-text-container .missions .title .text {
-        color: #000;
-        font-family: Pretendard;
-        font-size: 23px;
-        font-style: normal;
-        font-weight: 700;
-        word-break: break-word;
-        margin: 0px 5px;
-        display: flex;
-        align-self: center;
-      }
-      .first-section-container .first-text-container .missions .content {
-        color: #000;
-        text-align: center;
-        font-family: Pretendard;
-        font-size: 23px;
-        font-style: normal;
-        font-weight: 500;
-        margin: 0;
-        word-break: break-word;
-      }
-      .first-section-container .first-text-container .missions .content .text {
-        color: #000;
-        text-align: center;
-        font-family: Pretendard;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 500;
-        margin: 0;
-        word-break: break-word;
-      }
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-      .first-section-container .first-text-container .rewards {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0px 30px;
-      }
-      .first-section-container
-        .first-text-container
-        .rewards
-        .highlight-container {
-        padding: 40px 0px 20px 0px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .first-section-container
-        .first-text-container
-        .rewards
-        .highlight-container
-        .highlight-black {
-        color: #000;
-        text-align: center;
-        font-family: GangwonEduPower;
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 400;
-        color: #000;
-        margin: 0;
-        word-break: break-word;
-      }
-      .first-section-container
-        .first-text-container
-        .rewards
-        .highlight-container
-        .highlight-blue {
-        color: #3617cd;
-        font-family: GangwonEduPower;
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        word-break: break-word;
-      }
-      .first-text-container .rewards .information-container {
-        padding: 10px 0px;
-        text-align: center;
-      }
-      .first-section-container
-        .first-text-container
-        .rewards
-        .information-container
-        p {
-        color: #000;
-        text-align: center;
-        font-family: Pretendard;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        word-break: break-word;
-      }
+    .container {
+      width: 100%;
+      background-color: #3617cd;
+    }
 
-      .second-section-container {
-        background-color: #c0d0fc;
-        padding: 70px 0px;
-      }
+    .header {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      background-color: transparent;
+      padding: 50px 0px 90px 0px;
+    }
 
-      .second-section-container .second-text-container {
-        background-color: transparent;
-      }
-      .second-section-container .second-text-container .descriptions {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 30px 20px 30px;
-      }
-      .second-section-container .second-text-container .descriptions h2 {
-        color: #0c0c0c;
-        font-family: GangwonEduPower;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        text-align: center;
-        margin: 0;
-        word-break: break-word;
-        padding: 10px 0px;
-      }
-      .second-section-container .second-text-container .descriptions h2:after {
-        content: "";
-        display: block;
-        border-bottom: 2px solid #bcbcbc;
-        width: 50px;
-        margin: 10px auto;
-      }
+    .header .header-first-sub-container {
+      display: flex;
+      padding: 0px 2px 0px 10px;
+      height: 100%;
+    }
 
-      .second-section-container .second-image-container {
-        max-width: 220px;
-        min-height: 220px;
-        height: 220px;
-        margin: 0 auto 0;
-      }
-      .second-section-container .second-image-container img {
-        width: 100%;
-        height: 100%;
-      }
+    .header .header-first-sub-container .image-container {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100px;
+      min-height: 130px;
+    }
 
-      .second-section-container .second-text-container .notice {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0px 30px;
-      }
+    .header .header-first-sub-container .image-container img {
+      width: 100%;
+      height: 100%;
+    }
 
-      .second-section-container
-        .second-text-container
-        .notice
-        .highlight-container {
-        padding: 40px 0px 10px 0px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .second-section-container
-        .second-text-container
-        .notice
-        .highlight-container
-        .highlight-black {
-        color: #000;
-        font-family: GangwonEduPower;
-        font-size: 35px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        word-break: break-word;
-      }
-      .second-section-container
-        .second-text-container
-        .notice
-        .highlight-container
-        .highlight-blue {
-        color: #3617cd;
-        font-family: GangwonEduPower;
-        font-size: 35px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        word-break: break-word;
-      }
+    .header .header-main-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-      .footer {
-        padding: 80px 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 45px;
-        background-color: #f1f1f1;
-      }
-      .footer .footer-section-container {
-        background-color: transparent;
-      }
-      .footer .footer-section-container .footer-text-container {
-        background-color: transparent;
-      }
-      .footer .footer-section-container .footer-text-container .notice {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 30px;
-        max-width: 520px;
-      }
-      .footer
-        .footer-section-container
-        .footer-text-container
-        .notice
-        .text-container {
-        margin: 0;
-        width: 100%;
-      }
-      .footer
-        .footer-section-container
-        .footer-text-container
-        .notice
-        .text-container
-        .title {
-        color: #000;
-        font-family: Pretendard;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 700;
-        text-align: center;
-        padding: 0px 0px 40px 0px;
-        margin: 0;
-        word-break: break-word;
-      }
-      .footer
-        .footer-section-container
-        .footer-text-container
-        .notice
-        .text-container
-        .contents {
-        display: flex;
-        flex-direction: column;
-      }
-      .footer
-        .footer-section-container
-        .footer-text-container
-        .notice
-        .text-container
-        .content {
-        display: flex;
-        flex-direction: row;
-      }
-      .footer
-        .footer-section-container
-        .footer-text-container
-        .notice
-        .text-container
-        .content
-        .text {
-        color: #000;
-        font-family: Pretendard;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        word-break: break-word;
-        padding: 0px 0px 12px 0px;
-        line-height: 130%;
-      }
+    .header .header-second-sub-container {
+      display: flex;
+      padding: 200px 10px 0px 0px;
+      height: 100%;
+    }
 
-      .button-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .button {
-        display: flex;
-        text-decoration: none;
-        border-radius: 60px;
-        background-color: #3b45ff;
-        color: #fff;
-        text-align: center;
-        font-family: GangwonEduPower;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-        padding: 15px 105px;
-        max-width: 350px;
-        width: 100%;
-        box-sizing: border-box;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <div class="header-image-container">
+    .header .header-second-sub-container .image-container {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 70px;
+      min-height: 55px;
+    }
+
+    .header .header-second-sub-container .image-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .header .header-main-container .image-container {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 115px;
+      min-height: 25px;
+    }
+
+    .header .header-main-container .image-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .header .header-main-container .text-container {
+      background-color: transparent;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header .header-main-container .text-container h1 {
+      color: #FFF;
+      text-align: center;
+      font-family: GangwonEduPower;
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 1.32px;
+      margin: 0;
+    }
+
+    .first-section-container {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 40px 40px 0px 0px;
+      padding: 0px 0px 100px 0px;
+    }
+
+    .first-section-container .first-image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 385px;
+      min-height: 275px;
+      margin: -160px auto 0;
+      padding: 0px 20px;
+    }
+
+    .first-section-container .first-image-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .first-section-container .first-title-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 20px 30px 20px;
+    }
+
+    .first-section-container .first-title-container .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      max-width: 180px;
+      min-height: 65px;
+    }
+
+    .first-section-container .first-title-container .image-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .first-section-container .first-content-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .first-section-container .first-content-container .descriptions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px 20px;
+    }
+
+    .first-section-container .first-content-container .descriptions .title-container {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: center;
+    }
+
+    .first-section-container .first-content-container .descriptions .title-container .black {
+      color: #000;
+      text-align: center;
+      font-family: GangwonEduPower;
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .first-section-container .first-content-container .descriptions .title-container .blue {
+      color: #346efc;
+      text-align: center;
+      font-family: GangwonEduPower;
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .first-section-container .first-content-container .descriptions .content-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0px;
+      gap: 5px;
+    }
+
+    .first-section-container .first-content-container .descriptions .content-container .item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .first-section-container .first-content-container .descriptions .content-container .title {
+      min-width: 60px;
+      color: #346efc;
+      font-family: Pretendard;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 800;
+      margin: 0;
+      word-break: break-all;
+      padding: 0px 5px;
+    }
+
+    .first-section-container .first-content-container .descriptions .content-container .content {
+      color: #000;
+      font-family: Pretendard;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      word-break: break-all;
+      padding: 0px 5px;
+    }
+
+    .first-section-container .first-content-container .missions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px 20px;
+    }
+
+    .first-section-container .first-content-container .missions .item {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 20px 30px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 570px;
+      text-align: center;
+      word-break: break-all;
+      background-color: #dde5fd;
+      margin: 4px 0px;
+    }
+
+    .first-section-container .first-content-container .missions .title {
+      display: flex;
+      flex-direction: row;
+      padding: 0px 0px 10px 0px;
+      justify-content: center;
+    }
+
+    .first-section-container .first-content-container .missions .title .delimiter-container {
+      height: 100%;
+      border-radius: 16px;
+      background-color: #346efc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      word-break: break-all;
+      min-width: 80px;
+      margin: 0px 5px 0px 0px
+    }
+
+    .first-section-container .first-content-container .missions .title .delimiter-container .delimiter {
+      padding: 4px 12px;
+      color: #f0f4ff;
+      font-family: Pretendard;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      word-break: break-all;
+      margin: 0px;
+    }
+
+    .first-section-container .first-content-container .missions .title .text-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0px 0px 0px 5px;
+      min-height: 32px;
+    }
+
+    .first-section-container .first-content-container .missions .title .text-container .text {
+      color: #000;
+      font-family: Pretendard;
+      font-size: 23px;
+      font-style: normal;
+      font-weight: 700;
+      word-break: break-all;
+      margin: 0px;
+    }
+
+    .first-section-container .first-content-container .missions .content {
+      color: #000;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 23px;
+      font-style: normal;
+      font-weight: 500;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .first-section-container .first-content-container .missions .content .text {
+      color: #000;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .first-section-container .first-content-container .rewards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px 20px;
+    }
+
+    .first-section-container .first-content-container .rewards .title-container {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: center;
+      padding: 30px 0px 10px 0px;
+    }
+
+    .first-section-container .first-content-container .rewards .title-container .black {
+      color: #000;
+      text-align: center;
+      font-family: GangwonEduPower;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .first-section-container .first-content-container .rewards .title-container .blue {
+      color: #3617cd;
+      text-align: center;
+      font-family: GangwonEduPower;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .first-content-container .rewards .content-container {
+      display: flex;
+      flex-direction: column;
+      padding: 0px;
+    }
+
+    .first-section-container .rewards .content-container .text {
+      color: #000;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .second-section-container {
+      display: flex;
+      flex-direction: column;
+      background-color: #c0d0fc;
+      padding: 100px 0px;
+    }
+
+    .second-section-container .second-title-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 20px 0px 20px;
+    }
+
+    .second-section-container .second-title-container .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      max-width: 180px;
+      min-height: 65px;
+    }
+
+    .second-section-container .second-title-container .image-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .second-section-container .second-content-container {
+      background-color: transparent;
+    }
+
+    .second-section-container .second-content-container .descriptions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    .second-section-container .second-content-container .descriptions .title-container {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: center;
+    }
+
+    .second-section-container .second-content-container .descriptions .title-container .black {
+      color: #000;
+      text-align: center;
+      font-family: GangwonEduPower;
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .second-section-container .second-content-container .descriptions .title-container .blue {
+      color: #346efc;
+      text-align: center;
+      font-family: GangwonEduPower;
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .second-section-container .second-image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 220px;
+      min-height: 220px;
+      margin: 0 auto 0;
+      padding: 0px 20px;
+    }
+
+    .second-section-container .second-image-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f1f1f1;
+      padding: 100px 0px;
+      gap: 60px;
+    }
+
+    .footer .footer-section-container {
+      background-color: transparent;
+    }
+
+    .footer .footer-section-container .footer-text-container {
+      background-color: transparent;
+    }
+
+    .footer .footer-section-container .footer-text-container .notice {
+      display: flex;
+      flex-direction: column;
+      padding: 0px 20px;
+      max-width: 520px;
+    }
+
+    .footer .footer-section-container .footer-text-container .notice .text-container {
+      margin: 0;
+      width: 100%;
+    }
+
+    .footer .footer-section-container .footer-text-container .notice .text-container .title {
+      color: #000;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      padding: 0px 0px 30px 0px;
+      margin: 0;
+      word-break: break-all;
+    }
+
+    .footer .footer-section-container .footer-text-container .notice .text-container .contents {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer .footer-section-container .footer-text-container .notice .text-container .content {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .footer .footer-section-container .footer-text-container .notice .text-container .content .text {
+      color: #2B2B2B;
+      font-family: Pretendard;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      word-break: break-all;
+      margin: 6px 0px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 10px;
+    }
+
+    .button {
+      display: flex;
+      text-decoration: none;
+      border-radius: 60px;
+      background-color: #3617CD;
+      color: #fff;
+      text-align: center;
+      font-family: GangwonEduPower;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+      padding: 15px 105px;
+      max-width: 350px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-first-sub-container">
+        <div class="image-container">
           <img
-            src="https://d3t2jtphafqeye.cloudfront.net/events/skt/aptos/twallet_logo_image.svg"
-            alt="T Wallet Logo"
-          />
-        </div>
-        <div class="header-text-container">
-          <div class="x-image-container">
-            <img
-              src="https://d3t2jtphafqeye.cloudfront.net/events/skt/aptos/x_image.svg"
-              alt="X"
-            />
-          </div>
-          <h1>그랜드 오픈 이벤트</h1>
-          <div class="x-image-container">
-            <img
-              src="https://d3t2jtphafqeye.cloudfront.net/events/skt/aptos/x_image.svg"
-              alt="X"
-            />
-          </div>
+            src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/decorate-1-image.svg"
+            alt="Decorate" />
         </div>
       </div>
-      <div class="first-section-container">
-        <div class="first-image-container">
-          <img
-            src="https://d3t2jtphafqeye.cloudfront.net/events/skt/aptos/season_1_image.svg"
-            alt="Event Image"
-          />
-        </div>
-        <div class="first-text-container">
-          <div class="descriptions">
-            <h2>Season 1</h2>
-            <div class="highlight-container">
-              <p class="highlight-black">선착순 2만명,</p>
-              <p class="highlight-blue">1 APT & 30 KANA 제공</p>
-            </div>
-            <div class="information-container">
-              <div class="contents">
-                <div class="content">
-                  <div class="title">•&nbsp;기간</div>
-                  <div class="description">2024. 07. 01 - 2024. 07. 22</div>
-                </div>
-                <div class="content">
-                  <div class="title">•&nbsp;대상</div>
-                  <div class="description">
-                    T wallet 국내 회원 (대한민국 국적 보유자에 한함)
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="missions">
-            <div class="contents">
-              <div class="title">
-                <div class="delimiter">미션 1</div>
-                <div class="text">T wallet 가입 & X팔로잉 하기</div>
-              </div>
-              <div class="content">
-                <div class="text">T wallet 가입하고,</div>
-                <div class="text">
-                  T wallet / Aptos / Kana Labs / ABC SNS 팔로잉
-                </div>
-              </div>
-            </div>
-            <div class="contents">
-              <div class="title">
-                <div class="delimiter">미션 2</div>
-                <div class="text">Kana Labs dApp에서 Swap하기</div>
-              </div>
-              <div class="content">
-                <div class="text">Kana labs에서 T wallet 이용하여 Swap</div>
-              </div>
-            </div>
+      <div class="header-main-container">
+        <div class="image-container">
+          <img
+            src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/t-wallet-logo-image.svg"
+            alt="T Wallet Logo" />
+        </div>
+        <div class="text-container">
+          <h1>그랜드 오픈 이벤트</h1>
+        </div>
+      </div>
+
+      <div class="header-second-sub-container">
+        <div class="image-container">
+          <img
+            src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/decorate-2-image.svg"
+            alt="Decorate" />
+        </div>
+      </div>
+
+    </div>
+    <div class="first-section-container">
+      <div class="first-image-container">
+        <img src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/season-1-image.svg"
+          alt="Event Image" />
+      </div>
+      <div class="first-title-container">
+        <div class="image-container">
+          <img
+            src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/season-1-title.svg"
+            alt="Season 1" />
+        </div>
+      </div>
+      <div class="first-content-container">
+        <div class="descriptions">
+          <div class="title-container">
+            <p class="black">선착순 2만명,</p>
+            <p class="blue">1 APT & 30 KANA 제공</p>
           </div>
-          <div class="rewards">
-            <div class="highlight-container">
-              <p class="highlight-black">미션 1, 미션 2 모두 수행 시,</p>
-              <p class="highlight-blue">앱토스(APT) 및 카나(Kana) 토큰 제공</p>
+          <div class="content-container">
+            <div class="item">
+              <p class="title">•&nbsp;기간</p>
+              <p class="content">2024. 07. 01 - 2024. 07. 22</p>
             </div>
-            <div class="information-container">
-              <p>
-                ※ 이벤트 종료 후 대상자에 대해 7일 내 일괄 지급 (지급 일정은
-                추후 공지)
+            <div class="item">
+              <p class="title">•&nbsp;대상</p>
+              <p class="content">
+                T wallet 국내 회원 (대한민국 국적 보유자에 한함)
               </p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="second-section-container">
-        <div class="second-text-container">
-          <div class="descriptions">
-            <h2>Season 2</h2>
+
+        <div class="missions">
+          <div class="item">
+            <div class="title">
+              <div class="delimiter-container">
+                <p class="delimiter">미션 1</p>
+              </div>
+              <div class="text-container">
+                <p class="text">T wallet 가입 & SNS 팔로잉 하기</p>
+              </div>
+            </div>
+            <div class="content">
+              <p class="text">T wallet 가입하고,</p>
+              <p class="text">
+                T wallet / Aptos / Kana Labs / ABC SNS 팔로잉
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="second-image-container">
-          <img
-            src="https://d3t2jtphafqeye.cloudfront.net/events/skt/aptos/season_2_image.svg"
-            alt="Event Image"
-          />
-        </div>
-        <div class="second-text-container">
-          <div class="notice">
-            <div class="highlight-container">
-              <p class="highlight-black">미션1,미션2 참여 완료자에게</p>
-              <p class="highlight-blue">우선 참여의 기회</p>
+          <div class="item">
+            <div class="title">
+              <div class="delimiter-container">
+                <p class="delimiter">미션 2</p>
+              </div>
+              <div class="text-container">
+                <p class="text">Kana Labs dApp에서 Swap하기</p>
+              </div>
+            </div>
+            <div class="content">
+              <p class="text">Kana Labs에서 T wallet 이용하여 Swap</p>
             </div>
           </div>
         </div>
+        <div class="rewards">
+          <div class="title-container">
+            <p class="black">미션 1, 미션 2 모두 수행 시,</p>
+            <p class="blue">앱토스(APT) 및 카나(Kana) 토큰 제공</p>
+          </div>
+          <div class="content-container">
+            <p class="text">
+              ※ 이벤트 종료 후 대상자에 대해 7일 내 일괄 지급 (지급 일정은
+              추후 공지)
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="footer">
-        <div class="footer-section-container">
-          <div class="footer-text-container">
-            <div class="notice">
-              <div class="text-container">
-                <div class="title">유의사항</div>
-                <div class="contents">
-                  <div class="content">
-                    <div class="text">•&nbsp;</div>
-                    <div class="text">
-                      선착순 물량이 소진되면 동시에 이벤트는 종료됩니다.
-                    </div>
-                  </div>
-                  <div class="content">
-                    <div class="text">•&nbsp;</div>
-                    <div class="text">
-                      대상자 취합 과정에서 미션 미수행/요건 미충족(국적 등) 확인
-                      시 Aptos 지급이 취소 될 수 있습니다.
-                    </div>
-                  </div>
-                  <div class="content">
-                    <div class="text">•&nbsp;</div>
-                    <div class="text">
-                      미션 1은 이벤트 페이지 하단 ‘미션 수행하기’ 버튼 클릭하여
-                      Galxe에서 미션 수행 할 수 있습니다.
-                    </div>
-                  </div>
-                  <div class="content">
-                    <div class="text">•&nbsp;</div>
-                    <div class="text">
-                      미션 2는 ‘T wallet > Aptos 네트워크 연결 > 전체 메뉴 >
-                      dApp. > Kana Labs’를 클릭하여 Kana Labs에서 미션 수행 할
-                      수 있습니다.
-                    </div>
-                  </div>
-                  <div class="content">
-                    <div class="text">•&nbsp;</div>
-                    <div class="text">
-                      추가 미션 완료 시 Season2 우선 참가 자격을 얻으실 수
-                      있습니다.
-                    </div>
-                  </div>
+    </div>
+    <div class="second-section-container">
+      <div class="second-title-container">
+        <div class="image-container">
+          <img
+            src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/season-2-title.svg"
+            alt="Season 2" />
+        </div>
+      </div>
+      <div class="second-content-container">
+        <div class="descriptions">
+          <div class="title-container">
+            <p class="black">미션1,미션2 참여 완료자에게</p>
+            <p class="blue">우선 참여의 기회</p>
+          </div>
+        </div>
+      </div>
+      <div class="second-image-container">
+        <img src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/season-2-image.svg"
+          alt="Event Image" />
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-section-container">
+        <div class="footer-text-container">
+          <div class="notice">
+            <div class="text-container">
+              <p class="title">유의사항</p>
+              <div class="contents">
+                <div class="content">
+                  <p class="text">•&nbsp;</p>
+                  <p class="text">선착순 물량이 소진됨과 동시에 이벤트는 종료됩니다.
+                  </p>
+                </div>
+                <div class="content">
+                  <p class="text">•&nbsp;</p>
+                  <p class="text">
+                    대상자 취합 과정에서 미션 미수행/요건 미충족(국적 등) 확인
+                    시 Aptos 지급이 취소 될 수 있습니다.
+                  </p>
+                </div>
+                <div class="content">
+                  <p class="text">•&nbsp;</p>
+                  <p class="text">
+                    미션 1은 이벤트 페이지 하단 ‘미션 수행하기’ 버튼 클릭하여
+                    Galxe에서 미션 수행 할 수 있습니다.
+                  </p>
+                </div>
+                <div class="content">
+                  <p class="text">•&nbsp;</p>
+                  <p class="text">
+                    미션 2는 ‘T wallet > Aptos 네트워크 연결 > 전체 메뉴 >
+                    dApp. > Kana Labs’를 클릭하여 Kana Labs에서 미션 수행 할
+                    수 있습니다.
+                  </p>
+                </div>
+                <div class="content">
+                  <p class="text">•&nbsp;</p>
+                  <p class="text">
+                    추가 미션 완료 시 Season2 우선 참가 자격을 얻으실 수
+                    있습니다.
+                  </p>
+                </div>
+                <div class="content">
+                  <p class="text">•&nbsp;</p>
+                  <p class="text">
+                    카나(Kana) 토큰은 8월 중 지급 예정입니다.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="button-container">
-          <a href="#" class="button">미션 수행 하기</a>
-        </div>
+      </div>
+      <div class="button-container">
+        <a href="#" class="button">미션 수행 하기</a>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
