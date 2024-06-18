@@ -26,11 +26,14 @@
         padding: 0;
         display: flex;
         min-height: 100vh;
+        min-width: 280px;
       }
 
       .container {
         width: 100%;
         background-color: #3617cd;
+        position: relative;
+        z-index: 1;
       }
 
       .header {
@@ -38,27 +41,7 @@
         justify-content: center;
         flex-direction: row;
         background-color: transparent;
-        padding: 50px 0px 90px 0px;
-      }
-
-      .header .header-first-sub-container {
-        display: flex;
-        padding: 0px 2px 0px 10px;
-        height: 100%;
-      }
-
-      .header .header-first-sub-container .image-container {
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 100px;
-        min-height: 130px;
-      }
-
-      .header .header-first-sub-container .image-container img {
-        width: 100%;
-        height: 100%;
+        padding: 80px 0px 290px 0px;
       }
 
       .header .header-main-container {
@@ -67,26 +50,6 @@
         justify-content: center;
         flex-direction: column;
         gap: 16px;
-      }
-
-      .header .header-second-sub-container {
-        display: flex;
-        padding: 200px 10px 0px 0px;
-        height: 100%;
-      }
-
-      .header .header-second-sub-container .image-container {
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 70px;
-        min-height: 55px;
-      }
-
-      .header .header-second-sub-container .image-container img {
-        width: 100%;
-        height: 100%;
       }
 
       .header .header-main-container .image-container {
@@ -120,6 +83,7 @@
         font-weight: 400;
         letter-spacing: 1.32px;
         margin: 0;
+        word-break: keep-all;
       }
 
       .first-section-container {
@@ -127,7 +91,7 @@
         flex-direction: column;
         background-color: #fff;
         border-radius: 40px 40px 0px 0px;
-        padding: 0px 0px 100px 0px;
+        padding: 0px 0px 80px 0px;
       }
 
       .first-section-container .first-image-container {
@@ -135,22 +99,24 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        max-width: 385px;
-        min-height: 320px;
-        margin: -160px auto 0;
-        padding: 0px 20px;
+        max-width: 360px;
+        min-height: 420px;
+        margin: -250px auto 0;
       }
 
       .first-section-container .first-image-container img {
         width: 100%;
         height: 100%;
+        position: static;
+        z-index: -5;
       }
 
       .first-section-container .first-title-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px 20px 30px 20px;
+        padding: 0px 20px 30px 20px;
+        margin: -50px 0px 0px 0px;
       }
 
       .first-section-container .first-title-container .image-container {
@@ -180,7 +146,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0px 20px;
       }
 
       .first-section-container
@@ -205,7 +170,7 @@
         font-style: normal;
         font-weight: 400;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .first-section-container
@@ -220,7 +185,7 @@
         font-style: normal;
         font-weight: 400;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .first-section-container
@@ -257,7 +222,7 @@
         font-style: normal;
         font-weight: 800;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .first-section-container
@@ -272,7 +237,8 @@
         font-style: normal;
         font-weight: 500;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
+        text-align: center;
       }
 
       .first-section-container .first-content-container .missions {
@@ -280,7 +246,9 @@
         flex-direction: column;
         align-items: center;
         gap: 27px;
-        width: 100%;
+        padding: 0px 12px;
+        max-width: 562px;
+        width: calc(100% - 24px);
       }
 
       .first-section-container .first-content-container .missions .item {
@@ -291,10 +259,9 @@
         border-radius: 16px;
         width: 100%;
         text-align: center;
-        word-break: break-word;
+        word-break: keep-all;
         background-color: #dde5fd;
         position: relative;
-        max-width: 540px;
       }
       .first-section-container .first-content-container .missions .item .title {
         display: flex;
@@ -319,7 +286,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .first-section-container
@@ -335,7 +302,7 @@
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
-        word-break: break-word;
+        word-break: keep-all;
         margin: 0px;
       }
 
@@ -364,7 +331,7 @@
         font-size: 23px;
         font-style: normal;
         font-weight: 700;
-        word-break: break-word;
+        word-break: keep-all;
         margin: 0px;
       }
 
@@ -380,7 +347,7 @@
         font-style: normal;
         font-weight: 500;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
         gap: 5px;
         display: flex;
         flex-direction: column;
@@ -399,7 +366,7 @@
         font-style: normal;
         font-weight: 500;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .first-section-container .first-content-container .rewards {
@@ -432,7 +399,7 @@
         font-style: normal;
         font-weight: 400;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .first-section-container
@@ -447,7 +414,7 @@
         font-style: normal;
         font-weight: 400;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .first-content-container .rewards .content-container {
@@ -458,21 +425,21 @@
       }
 
       .first-section-container .rewards .content-container .text {
-        color: #000;
+        color: #5a5a5a;
         text-align: center;
         font-family: Pretendard;
-        font-size: 18px;
+        font-size: 16px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .second-section-container {
         display: flex;
         flex-direction: column;
         background-color: #c0d0fc;
-        padding: 100px 0px;
+        padding: 80px 0px;
       }
 
       .second-section-container .second-title-container {
@@ -531,7 +498,7 @@
         font-style: normal;
         font-weight: 400;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .second-section-container
@@ -546,7 +513,7 @@
         font-style: normal;
         font-weight: 400;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .second-section-container .second-image-container {
@@ -570,8 +537,8 @@
         flex-direction: column;
         align-items: center;
         background-color: #f1f1f1;
-        padding: 100px 0px;
-        gap: 60px;
+        padding: 80px 0px;
+        gap: 40px;
       }
 
       .footer .footer-section-container {
@@ -585,8 +552,8 @@
       .footer .footer-section-container .footer-text-container .notice {
         display: flex;
         flex-direction: column;
-        padding: 0px 20px;
-        max-width: 500px;
+        padding: 0px 12px;
+        max-width: 578px;
       }
 
       .footer
@@ -612,7 +579,7 @@
         font-weight: 700;
         padding: 0px 0px 30px 0px;
         margin: 0;
-        word-break: break-word;
+        word-break: keep-all;
       }
 
       .footer
@@ -673,7 +640,7 @@
         font-weight: 400;
         margin: 0;
         padding: 15px 60px;
-        max-width: 350px;
+        max-width: 280px;
         width: 100%;
         margin: 0px 10px;
       }
@@ -683,15 +650,6 @@
   <body>
     <div class="container">
       <div class="header">
-        <div class="header-first-sub-container">
-          <div class="image-container">
-            <img
-              src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/decorate-1-image.svg"
-              alt="Decorate"
-            />
-          </div>
-        </div>
-
         <div class="header-main-container">
           <div class="image-container">
             <img
@@ -701,15 +659,6 @@
           </div>
           <div class="text-container">
             <h1>그랜드 오픈 이벤트</h1>
-          </div>
-        </div>
-
-        <div class="header-second-sub-container">
-          <div class="image-container">
-            <img
-              src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/decorate-2-image.svg"
-              alt="Decorate"
-            />
           </div>
         </div>
       </div>
@@ -731,17 +680,19 @@
         <div class="first-content-container">
           <div class="descriptions">
             <div class="title-container">
-              <p class="black">선착순 2만 명,</p>
-              <p class="blue">1 APT & 30 KANA 제공</p>
+              <p class="black">선착순 2만&nbsp;명</p>
+              <p class="blue">1&nbsp;APT & 30&nbsp;KANA 증정</p>
             </div>
             <div class="content-container">
               <div class="item">
                 <p class="title">•&nbsp;기간</p>
-                <p class="content">2024. 7. 1.(월) - 7. 22.(월)</p>
+                <p class="content">
+                  2024.&nbsp;7.&nbsp;1.(월) - 7.&nbsp;22.(월)
+                </p>
               </div>
               <div class="item">
                 <p class="title">•&nbsp;대상</p>
-                <p class="content">T wallet 국내 고객님</p>
+                <p class="content">T&nbsp;wallet 국내 고객님</p>
                 <p class="content">(대한민국 국적에 한함)</p>
               </div>
             </div>
@@ -755,8 +706,8 @@
                 </div>
               </div>
               <div class="content">
-                <p class="text">T wallet 가입하고, T wallet /</p>
-                <p class="text">Aptos / Kana Labs /</p>
+                <p class="text">T&nbsp;wallet 가입하고, T&nbsp;wallet /</p>
+                <p class="text">Aptos / Kana&nbsp;Labs /</p>
                 <p class="text">ABC SNS 팔로우하기</p>
               </div>
             </div>
@@ -767,14 +718,14 @@
                 </div>
               </div>
               <div class="content">
-                <p class="text">Kana Labs에서</p>
-                <p class="text">T wallet을 이용해 Swap 하기</p>
+                <p class="text">Kana&nbsp;Labs에서</p>
+                <p class="text">T wallet을 이용해 Swap&nbsp;하기</p>
               </div>
             </div>
           </div>
           <div class="rewards">
             <div class="title-container">
-              <p class="black">미션 1, 2 모두 수행 시,</p>
+              <p class="black">미션 1, 2 모두 수행&nbsp;시</p>
               <p class="blue">앱토스(APT)와</p>
               <p class="blue">카나(KANA) 토큰 증정</p>
             </div>
@@ -801,7 +752,7 @@
         <div class="second-content-container">
           <div class="descriptions">
             <div class="title-container">
-              <p class="black">Season 1 미션</p>
+              <p class="black">Season&nbsp;1 미션</p>
               <p class="black">완료 고객님께</p>
               <p class="blue">우선 참여 기회 제공</p>
             </div>
