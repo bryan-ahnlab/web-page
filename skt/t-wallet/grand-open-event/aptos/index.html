@@ -203,10 +203,9 @@
         .content-container
         .item {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
-        gap: 5px;
+        gap: 10px;
       }
 
       .first-section-container
@@ -329,7 +328,7 @@
         font-family: Pretendard;
         font-size: 23px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 500;
         word-break: keep-all;
         margin: 0px;
       }
@@ -356,13 +355,30 @@
         .missions
         .item
         .content
-        .text {
+        .black {
         color: #000;
         text-align: center;
         font-family: Pretendard;
         font-size: 21px;
         font-style: normal;
         font-weight: 500;
+        margin: 0;
+        word-break: keep-all;
+        line-height: 2rem;
+      }
+
+      .first-section-container
+        .first-content-container
+        .missions
+        .item
+        .content
+        .blue {
+        color: #3617cd;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
         margin: 0;
         word-break: keep-all;
         line-height: 2rem;
@@ -630,7 +646,7 @@
         display: block;
         box-sizing: border-box;
         text-decoration: none;
-        border-radius: 60px;
+        border-radius: 10px;
         background-color: #3617cd;
         color: #fff;
         text-align: center;
@@ -681,7 +697,7 @@
           <div class="descriptions">
             <div class="title-container">
               <p class="black">선착순 2만&nbsp;명</p>
-              <p class="blue">1&nbsp;APT & 30&nbsp;KANA 증정</p>
+              <p class="blue">1&nbsp;APT&nbsp;& Special&nbsp;NFT 증정</p>
             </div>
             <div class="content-container">
               <div class="item">
@@ -692,8 +708,9 @@
               </div>
               <div class="item">
                 <p class="title">•&nbsp;대상</p>
-                <p class="content">T&nbsp;wallet 국내 고객님</p>
-                <p class="content">(대한민국 국적에 한함)</p>
+                <p class="content">
+                  T&nbsp;wallet 국내 고객님 (대한민국 국적에 한함)
+                </p>
               </div>
             </div>
           </div>
@@ -706,12 +723,8 @@
                 </div>
               </div>
               <div class="content">
-                <p class="text">
-                  T&nbsp;wallet 로그인하고, T&nbsp;wallet&nbsp;/
-                </p>
-                <p class="text">Aptos&nbsp;/ Kana&nbsp;Labs&nbsp;/</p>
-                <p class="text">ABC SNS 팔로우하기</p>
-                <p class="text">* 미션 1 완료&nbsp;시 0.5&nbsp;APT&nbsp;증정</p>
+                <p class="black">T&nbsp;wallet 생성하고 로그인하기</p>
+                <p class="blue">미션 1 완료&nbsp;시 0.5&nbsp;APT&nbsp;증정</p>
               </div>
             </div>
             <div class="item">
@@ -721,23 +734,24 @@
                 </div>
               </div>
               <div class="content">
-                <p class="text">Kana&nbsp;Labs에서</p>
-                <p class="text">T wallet을 이용해 Swap&nbsp;하기</p>
-                <p class="text">* 미션 2 완료&nbsp;시 0.5&nbsp;APT&nbsp;증정</p>
+                <p class="black">
+                  Kana&nbsp;Labs에서 T&nbsp;wallet을 이용해 Swap&nbsp;하기
+                </p>
+                <p class="blue">미션 2 완료&nbsp;시 0.5&nbsp;APT&nbsp;증정</p>
               </div>
             </div>
           </div>
           <div class="rewards">
             <div class="title-container">
               <p class="black">미션 1, 2 모두 수행&nbsp;시</p>
-              <p class="blue">카나(KANA) 토큰 증정</p>
+              <p class="blue">Special NFT 증정</p>
             </div>
             <div class="content-container">
               <p class="text">
-                ※ 앱토스 토큰은 미션 완료 후 24시간 내 대상 고객님께 일괄 증정
+                ※ 앱토스 코인은 미션 완료 후 24시간 내 대상 고객님께 일괄 증정
               </p>
               <p class="text">
-                ※ 카나 토큰은 미션 완료 후 8월 중 대상 고객님께 일괄 증정
+                ※ Special NFT는 8월 중 카나(KANA) 코인으로 교환 가능
               </p>
             </div>
           </div>
@@ -758,8 +772,7 @@
         <div class="second-content-container">
           <div class="descriptions">
             <div class="title-container">
-              <p class="black">Season&nbsp;1 미션</p>
-              <p class="black">완료 고객님께</p>
+              <p class="black">Season&nbsp;1 미션 완료 고객님께</p>
               <p class="blue">우선 참여 기회&nbsp;제공</p>
             </div>
           </div>
@@ -792,16 +805,9 @@
                   <div class="content">
                     <p class="text">•&nbsp;</p>
                     <p class="text">
-                      미션 1은 이벤트 페이지 아래 ‘미션 수행하기‘ 버튼을 눌러
-                      Galxe에서 참여하실 수 있습니다.
-                    </p>
-                  </div>
-                  <div class="content">
-                    <p class="text">•&nbsp;</p>
-                    <p class="text">
-                      미션 2는 T wallet 앱 > ‘Aptos mainnet‘ 네트워크 전환 >
-                      전체 메뉴(오른쪽 아래 ‘≡‘) > dApp ‘Kana Labs’에서 참여하실
-                      수 있습니다.
+                      미션 참여 및 코인 수령은 이벤트 페이지 아래 '미션
+                      수행하기'를 통해 연결된 Kana Labs 이벤트 페이지에서
+                      진행하실 수 있습니다.
                     </p>
                   </div>
                   <div class="content">
@@ -813,7 +819,7 @@
                   <div class="content">
                     <p class="text">•&nbsp;</p>
                     <p class="text">
-                      카나(KANA) 토큰은 8월 중 보내 드릴 예정입니다.
+                      카나(KANA) 코인은 8월 중 보내 드릴 예정입니다.
                     </p>
                   </div>
                 </div>
