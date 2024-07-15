@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T Wallet Grand Open Event</title>
+    <link
+      rel="icon"
+      href="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/favicon.ico"
+    />
+    <style>
+      @font-face {
+        font-family: "GangwonEduPower";
+        src: url("https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/GangwonEduPower.woff2")
+          format("woff2");
+      }
+
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/Pretendard-Regular.woff2")
+          format("woff2");
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        min-height: 100vh;
+        min-width: 280px;
+      }
+
+      .container {
+        width: 100%;
+        background-color: #3617cd;
+        position: relative;
+        z-index: 1;
+      }
+
+      .header {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 80px 0px 260px 0px;
+      }
+
+      .header .header-main-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .header .header-main-container .image-container {
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 115px;
+        min-height: 25px;
+      }
+
+      .header .header-main-container .image-container img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .header .header-main-container .text-container {
+        background-color: transparent;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header .header-main-container .text-container h1 {
+        color: #fff;
+        text-align: center;
+        font-family: GangwonEduPower;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .first-section-container {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 40px 40px 0px 0px;
+        padding: 0px 0px 80px 0px;
+      }
+
+      .first-section-container .first-image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 360px;
+        min-height: 420px;
+        margin: -255px auto 0;
+      }
+
+      .first-section-container .first-image-container img {
+        width: 100%;
+        height: 100%;
+        position: static;
+        z-index: -5;
+      }
+
+      .first-section-container .first-title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 30px 20px;
+        margin: -100px 0px 0px 0px;
+      }
+
+      .first-section-container .first-title-container .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        max-width: 220px;
+        min-height: 80px;
+        width: 100%;
+      }
+
+      .first-section-container .first-title-container .image-container img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .first-section-container .first-content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .first-section-container .first-content-container .descriptions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .first-section-container
+        .first-content-container
+        .descriptions
+        .title-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+      }
+
+      .first-section-container
+        .first-content-container
+        .descriptions
+        .title-container
+        .black {
+        color: #000;
+        text-align: center;
+        font-family: GangwonEduPower;
+        font-size: 43px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .first-section-container
+        .first-content-container
+        .descriptions
+        .title-container
+        .blue {
+        color: #346efc;
+        text-align: center;
+        font-family: GangwonEduPower;
+        font-size: 43px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .first-section-container
+        .first-content-container
+        .descriptions
+        .content-container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0px 40px 0px;
+        gap: 16px;
+      }
+
+      .first-section-container
+        .first-content-container
+        .descriptions
+        .content-container
+        .item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .first-section-container
+        .first-content-container
+        .descriptions
+        .content-container
+        .item
+        .title {
+        color: #346efc;
+        font-family: Pretendard;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 800;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .first-section-container
+        .first-content-container
+        .descriptions
+        .content-container
+        .item
+        .content {
+        color: #000;
+        font-family: Pretendard;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        margin: 0;
+        word-break: keep-all;
+        text-align: center;
+      }
+
+      .first-section-container .first-content-container .missions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 27px;
+        padding: 0px 12px;
+        max-width: 562px;
+        width: calc(100% - 24px);
+      }
+
+      .first-section-container .first-content-container .missions .item {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 32px 20px 24px 20px;
+        border-radius: 16px;
+        width: 100%;
+        text-align: center;
+        word-break: keep-all;
+        background-color: #dde5fd;
+        position: relative;
+      }
+      .first-section-container .first-content-container .missions .item .title {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+        top: -17px;
+        left: 0;
+        right: 0;
+      }
+
+      .first-section-container
+        .first-content-container
+        .missions
+        .item
+        .title
+        .delimiter-container {
+        height: 100%;
+        border-radius: 16px;
+        background-color: #346efc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        word-break: keep-all;
+      }
+
+      .first-section-container
+        .first-content-container
+        .missions
+        .item
+        .title
+        .delimiter-container
+        .delimiter {
+        padding: 5px 25px;
+        color: #f0f4ff;
+        font-family: Pretendard;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        word-break: keep-all;
+        margin: 0px;
+      }
+
+      .first-section-container
+        .first-content-container
+        .missions
+        .item
+        .title
+        .text-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px 0px 0px 5px;
+        min-height: 32px;
+      }
+
+      .first-section-container
+        .first-content-container
+        .missions
+        .item
+        .title
+        .text-container
+        .text {
+        color: #000;
+        font-family: Pretendard;
+        font-size: 23px;
+        font-style: normal;
+        font-weight: 500;
+        word-break: keep-all;
+        margin: 0px;
+      }
+
+      .first-section-container
+        .first-content-container
+        .missions
+        .item
+        .content {
+        color: #000;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 23px;
+        font-style: normal;
+        font-weight: 500;
+        margin: 0;
+        word-break: keep-all;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .first-section-container
+        .first-content-container
+        .missions
+        .item
+        .content
+        .black {
+        color: #000;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 500;
+        margin: 0;
+        word-break: keep-all;
+        line-height: 2rem;
+      }
+
+      .first-section-container
+        .first-content-container
+        .missions
+        .item
+        .content
+        .blue {
+        color: #3617cd;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        margin: 0;
+        word-break: keep-all;
+        line-height: 2rem;
+      }
+
+      .first-section-container .first-content-container .rewards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 20px;
+      }
+
+      .first-section-container
+        .first-content-container
+        .rewards
+        .title-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+        padding: 35px 0px 15px 0px;
+      }
+
+      .first-section-container
+        .first-content-container
+        .rewards
+        .title-container
+        .black {
+        color: #000;
+        text-align: center;
+        font-family: GangwonEduPower;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .first-section-container
+        .first-content-container
+        .rewards
+        .title-container
+        .blue {
+        color: #3617cd;
+        text-align: center;
+        font-family: GangwonEduPower;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .first-content-container .rewards .content-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        gap: 5px;
+      }
+
+      .first-section-container .rewards .content-container .text {
+        color: #5a5a5a;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .second-section-container {
+        display: flex;
+        flex-direction: column;
+        background-color: #c0d0fc;
+        padding: 80px 0px;
+      }
+
+      .second-section-container .second-title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+      }
+
+      .second-section-container .second-title-container .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        max-width: 220px;
+        min-height: 80px;
+        width: 100%;
+      }
+
+      .second-section-container .second-title-container .image-container img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .second-section-container .second-content-container {
+        background-color: transparent;
+      }
+
+      .second-section-container .second-content-container .descriptions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+      }
+
+      .second-section-container
+        .second-content-container
+        .descriptions
+        .title-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+      }
+
+      .second-section-container
+        .second-content-container
+        .descriptions
+        .title-container
+        .black {
+        color: #000;
+        text-align: center;
+        font-family: GangwonEduPower;
+        font-size: 43px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .second-section-container
+        .second-content-container
+        .descriptions
+        .title-container
+        .blue {
+        color: #346efc;
+        text-align: center;
+        font-family: GangwonEduPower;
+        font-size: 43px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .second-section-container .second-image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 220px;
+        min-height: 220px;
+        margin: 0 auto 0;
+        padding: 0px 20px;
+      }
+
+      .second-section-container .second-image-container img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f1f1f1;
+        padding: 80px 0px;
+        gap: 40px;
+      }
+
+      .footer .footer-section-container {
+        background-color: transparent;
+      }
+
+      .footer .footer-section-container .footer-text-container {
+        background-color: transparent;
+      }
+
+      .footer .footer-section-container .footer-text-container .notice {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 12px;
+        max-width: 578px;
+      }
+
+      .footer
+        .footer-section-container
+        .footer-text-container
+        .notice
+        .text-container {
+        margin: 0;
+        width: 100%;
+      }
+
+      .footer
+        .footer-section-container
+        .footer-text-container
+        .notice
+        .text-container
+        .title {
+        color: #000;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        padding: 0px 0px 30px 0px;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .footer
+        .footer-section-container
+        .footer-text-container
+        .notice
+        .text-container
+        .contents {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .footer
+        .footer-section-container
+        .footer-text-container
+        .notice
+        .text-container
+        .content {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .footer
+        .footer-section-container
+        .footer-text-container
+        .notice
+        .text-container
+        .content
+        .text {
+        color: #2b2b2b;
+        font-family: Pretendard;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        word-break: keep-all;
+        line-height: 2rem;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 40px 0px 0px 0px;
+      }
+
+      .button {
+        display: block;
+        box-sizing: border-box;
+        text-decoration: none;
+        border-radius: 10px;
+        background-color: #3617cd;
+        color: #fff;
+        text-align: center;
+        font-family: GangwonEduPower;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        padding: 15px 60px;
+        max-width: 280px;
+        width: 100%;
+        margin: 0px 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-main-container">
+          <div class="image-container">
+            <img
+              src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/t-wallet-logo-image.svg"
+              alt="T Wallet Logo"
+            />
+          </div>
+          <div class="text-container">
+            <h1>그랜드 오픈 이벤트</h1>
+          </div>
+        </div>
+      </div>
+      <div class="first-section-container">
+        <div class="first-image-container">
+          <img
+            src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/season-1-image.png"
+            alt="Event Image"
+          />
+        </div>
+        <div class="first-title-container">
+          <div class="image-container">
+            <img
+              src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/season-1-title.svg"
+              alt="Season 1"
+            />
+          </div>
+        </div>
+        <div class="first-content-container">
+          <div class="descriptions">
+            <div class="title-container">
+              <p class="black">선착순 2만&nbsp;명</p>
+              <p class="blue">1&nbsp;APT&nbsp;& Special&nbsp;NFT 증정</p>
+            </div>
+            <div class="content-container">
+              <div class="item">
+                <p class="title">•&nbsp;기간</p>
+                <p class="content">
+                  2024.&nbsp;7.&nbsp;8.(월) ~ 7.&nbsp;28.(일)
+                </p>
+              </div>
+              <div class="item">
+                <p class="title">•&nbsp;대상</p>
+                <p class="content">
+                  T&nbsp;wallet 국내 고객님 (대한민국 국적에 한함)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="missions">
+            <div class="item">
+              <div class="title">
+                <div class="delimiter-container">
+                  <p class="delimiter">미션 1</p>
+                </div>
+              </div>
+              <div class="content">
+                <p class="black">T&nbsp;wallet 생성하고 로그인하기</p>
+                <p class="blue">미션 1 완료&nbsp;시 0.5&nbsp;APT&nbsp;증정</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="title">
+                <div class="delimiter-container">
+                  <p class="delimiter">미션 2</p>
+                </div>
+              </div>
+              <div class="content">
+                <p class="black">
+                  Kana&nbsp;Labs에서 T&nbsp;wallet을 이용해 Swap&nbsp;하기
+                </p>
+                <p class="blue">미션 2 완료&nbsp;시 0.5&nbsp;APT&nbsp;증정</p>
+              </div>
+            </div>
+          </div>
+          <div class="rewards">
+            <div class="title-container">
+              <p class="black">미션 1, 2 모두 수행&nbsp;시</p>
+              <p class="blue">Special NFT 증정</p>
+            </div>
+            <div class="content-container">
+              <p class="text">
+                ※ 앱토스 코인은 미션 완료 후 24시간 내 대상 고객님께 일괄 증정
+              </p>
+              <p class="text">
+                ※ Special NFT는 8월 중 카나(KANA) 코인으로 교환 가능
+              </p>
+            </div>
+          </div>
+          <div class="button-container">
+            <a href="#" class="button">미션 수행하기</a>
+          </div>
+        </div>
+      </div>
+      <div class="second-section-container">
+        <div class="second-title-container">
+          <div class="image-container">
+            <img
+              src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/season-2-title.svg"
+              alt="Season 2"
+            />
+          </div>
+        </div>
+        <div class="second-content-container">
+          <div class="descriptions">
+            <div class="title-container">
+              <p class="black">Season&nbsp;1 미션 완료 고객님께</p>
+              <p class="blue">우선 참여 기회&nbsp;제공</p>
+            </div>
+          </div>
+        </div>
+        <div class="second-image-container">
+          <img
+            src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/season-2-image.svg"
+            alt="Event Image"
+          />
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-section-container">
+          <div class="footer-text-container">
+            <div class="notice">
+              <div class="text-container">
+                <p class="title">유의사항</p>
+                <div class="contents">
+                  <div class="content">
+                    <p class="text">•&nbsp;</p>
+                    <p class="text">이 이벤트는 선착순 마감 시 종료됩니다.</p>
+                  </div>
+                  <div class="content">
+                    <p class="text">•&nbsp;</p>
+                    <p class="text">
+                      이벤트 대상 조건(국적 등)에 해당하지 않거나 미션을
+                      완료하지 못한 경우 경품 증정이 취소될 수 있습니다.
+                    </p>
+                  </div>
+                  <div class="content">
+                    <p class="text">•&nbsp;</p>
+                    <p class="text">
+                      미션 참여 및 코인 수령은 이벤트 페이지 아래 '미션
+                      수행하기'를 통해 연결된 Kana Labs 이벤트 페이지에서
+                      진행하실 수 있습니다.
+                    </p>
+                  </div>
+                  <div class="content">
+                    <p class="text">•&nbsp;</p>
+                    <p class="text">
+                      미션 1, 2 완료 시 Season 2에 우선 참여하실 수 있습니다.
+                    </p>
+                  </div>
+                  <div class="content">
+                    <p class="text">•&nbsp;</p>
+                    <p class="text">
+                      카나(KANA) 코인은 8월 중 보내 드릴 예정입니다.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
