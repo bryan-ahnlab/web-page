@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T wallet KBW 2024 Event</title>
+    <link
+      rel="icon"
+      href="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/grand-open-event/aptos/closed/favicon.ico"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+
+      /* General layout and styling */
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .relative {
+        position: relative;
+      }
+
+      .absolute {
+        position: absolute;
+      }
+
+      .z-10 {
+        z-index: 10;
+      }
+
+      .center-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .rounded-full {
+        border-radius: 50%;
+      }
+
+      .bg-black {
+        background-color: #000;
+      }
+
+      .text-white {
+        color: #fff;
+      }
+
+      .font-bold {
+        font-weight: bold;
+      }
+
+      .button {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      /* Event Section */
+      .event-section {
+        text-align: center;
+        padding: 20px;
+        background-color: #fff;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .event-container {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .wallet-logo {
+        width: 50px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .event-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .event-subtitle {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .wallet-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4a90e2;
+        color: #ffffff;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-bottom: 20px;
+      }
+
+      .reward-details {
+        font-size: 14px;
+        color: #888888;
+        margin-bottom: 20px;
+      }
+
+      .apt-balance {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .event-status {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #e5e5e5;
+        padding-top: 20px;
+      }
+
+      .status-item {
+        flex: 1;
+        text-align: center;
+      }
+
+      .status-label {
+        font-size: 14px;
+        color: #888888;
+      }
+
+      .status-value {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      /* Event Opportunity Section */
+      .event-opportunity-section,
+      .event-ranking-section,
+      .event-footer-section {
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .event-opportunity-container,
+      .ranking-container {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .opportunity-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .opportunity-count {
+        color: #4a90e2;
+      }
+
+      .opportunity-subtext {
+        font-size: 14px;
+        color: #666666;
+        margin-top: 10px;
+      }
+
+      .ranking-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .ranking-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      .ranking-table th,
+      .ranking-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      .ranking-table th {
+        background-color: #f4f4f4;
+      }
+
+      .ranking-table td {
+        background-color: #ffffff;
+      }
+
+      /* Footer Section */
+      .event-footer-section {
+        background-color: #e9e9e9;
+      }
+
+      .footer-notes {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .footer-notes li {
+        font-size: 14px;
+        color: #666666;
+        margin-bottom: 10px;
+      }
+
+      .event-footer-section h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Event Section -->
+    <section class="event-section">
+      <div class="event-container">
+        <img
+          src="https://path/to/logo.png"
+          alt="T wallet Logo"
+          class="wallet-logo"
+        />
+        <h1 class="event-title">KBW2024 기념 이벤트</h1>
+        <p class="event-subtitle">친구에게 앱토스 선물하고 앱토스 받아가세요</p>
+        <a href="#" class="wallet-link">T wallet 연동하기</a>
+        <p class="reward-details">
+          T wallet 연동하고 더 많은 친구를 초대할수록 쌓아지는 혜택
+        </p>
+        <div class="apt-balance">
+          <span>잔여 수량</span> <span>19,850.0 APT</span>
+        </div>
+        <div class="event-status">
+          <div class="status-item">
+            <span class="status-label">최대 수락한 친구</span>
+            <span class="status-value">0명</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">이벤트 참여 횟수</span>
+            <span class="status-value">0회</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">누적 리워드</span>
+            <span class="status-value">0 APT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roulette Section -->
+    <div class="flex flex-col items-center" style="padding: 10px">
+      <div class="relative flex">
+        <span id="selector" class="absolute z-10"></span>
+        <canvas id="rouletteCanvas" width="0" height="0"></canvas>
+        <div class="center-content rounded-full">
+          <button
+            id="spinButton"
+            class="button bg-black text-white rounded-full"
+          >
+            <span class="font-bold">Spin</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Opportunity Section -->
+    <section class="event-opportunity-section">
+      <div class="event-opportunity-container">
+        <div class="opportunity-header">
+          <h2>내 이벤트 참여 기회</h2>
+          <span class="opportunity-count">0 / 5회</span>
+        </div>
+        <p class="opportunity-subtext">
+          T wallet 최초 가입 시 추가 기회 +1 <br />
+          친구가 이벤트에 참여하면 최대 5번의 추가 기회
+        </p>
+      </div>
+    </section>
+
+    <!-- Event Ranking Section -->
+    <section class="event-ranking-section">
+      <h2>
+        초대할수록 더 많은 혜택!<br />
+        ✔ 초대왕 5명에게 앱토스 추가 지급!
+      </h2>
+      <div class="ranking-container">
+        <div class="ranking-header">
+          <span>초대왕 랭킹 5</span>
+          <a href="#">전체 보기 &gt;</a>
+        </div>
+        <table class="ranking-table">
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>지갑주소</th>
+              <th>초대 수</th>
+              <th>추가 혜택</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>abcd...1234</td>
+              <td>145명</td>
+              <td>+ 50 APT</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>def2...ff43</td>
+              <td>105명</td>
+              <td>+ 40 APT</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>de32...aabb</td>
+              <td>98명</td>
+              <td>+ 30 APT</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>12ab...34cd</td>
+              <td>60명</td>
+              <td>+ 20 APT</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>ec01...a1b2</td>
+              <td>21명</td>
+              <td>+ 10 APT</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="event-footer-section">
+      <h2>꼭! 읽어주세요</h2>
+      <ul class="footer-notes">
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat.
+        </li>
+        <li>
+          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+          suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+        </li>
+        <li>
+          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+          vero eros et accumsan et iusto odio dignissim qui blandit praesent
+          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        </li>
+      </ul>
+    </section>
+
+    <script src="roulette.js"></script>
+  </body>
+</html>
