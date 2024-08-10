@@ -126,15 +126,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  const fetchSpinResult = async () => {
+    try {
+      const response = await fetch("https://example.com/api/spinResult");
+      const data = await response.json();
+      return data.winningIndex;
+    } catch (error) {
+      console.error("Error fetching spin result:", error);
+      return null;
+    }
+  };
+
   const spin = async () => {
     spinning = true;
     updateButtonState();
 
-    const spins = 20;
-    const degreesPerSpin = 360;
     const randomSpin = Math.floor(Math.random() * list.length);
+    let winningIndex = await fetchSpinResult();
+
+    if (winningIndex === null) {
+      winningIndex = randomSpin;
+    }
+
+    const spins = 30;
+    const degreesPerSpin = 360;
     const degreesPerOption = 360 / list.length;
-    const rotationForFixedResult = randomSpin * degreesPerOption;
+    const rotationForFixedResult = winningIndex * degreesPerOption;
     const additionalSpins = spins * degreesPerSpin + rotationForFixedResult;
 
     rotate += additionalSpins;
