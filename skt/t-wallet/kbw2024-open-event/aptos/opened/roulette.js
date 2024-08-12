@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const selector = document.getElementById("selector");
 
   const tempAssetsPath =
-    "file:///Users/bryan/Workspace/web-page/web-page/skt/t-wallet/kbw2024-open-event/opened/assets/";
+    "https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/";
   const images = {
     arb: tempAssetsPath + "arb.png",
     bnb: tempAssetsPath + "bnb.png",
