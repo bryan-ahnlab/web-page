@@ -6,14 +6,36 @@
     <title>T wallet KBW 2024 Event</title>
     <link
       rel="icon"
-      href="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/favicon.ico"
+      href="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/images/favicon.ico"
     />
     <style>
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://abcwallet-web.s3.ap-northeast-2.amazonaws.com/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/fonts/GmarketSansTTFLight.ttf")
+          format("truetype");
+        font-weight: 300;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://abcwallet-web.s3.ap-northeast-2.amazonaws.com/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/fonts/GmarketSansTTFMedium.ttf")
+          format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://abcwallet-web.s3.ap-northeast-2.amazonaws.com/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/fonts/GmarketSansTTFBold.ttf")
+          format("truetype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
       body,
       html {
         height: 100%;
         margin: 0;
-        font-family: Arial, sans-serif;
+        font-family: "Gmarket Sans", sans-serif;
         background-color: #f5f5f5;
         color: #333;
       }
@@ -60,6 +82,10 @@
         background-color: #000;
       }
 
+      .bg-blue {
+        background-color: #3617cd;
+      }
+
       .text-white {
         color: #fff;
       }
@@ -77,27 +103,248 @@
         cursor: pointer;
       }
 
-      /* Event Section */
-      .event-section {
+      /* First Section */
+      .first-section {
         margin: 20px auto;
-        max-width: 600px;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 320px;
       }
 
-      .event-container {
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        margin-bottom: 20px;
+      .first-section .first-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .wallet-logo {
-        width: 130px;
-        height: auto;
-        margin-bottom: 20px;
+      .first-section .title-wallet-logo {
+        width: 97px;
+        margin-bottom: 30px;
+      }
+
+      .first-section .title-event-text-1 {
+        width: 265px;
+        margin-bottom: 15px;
+      }
+      .first-section .title-event-text-2 {
+        width: 314px;
+        margin-bottom: 10px;
+      }
+
+      .first-section .title-event-image {
+        width: 248px;
+        margin-bottom: 30px;
+      }
+
+      .first-section .content-event-text-1 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 38px;
+
+        margin-bottom: 16px;
+      }
+      .first-section .content-event-text-2 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+
+        margin-bottom: 28px;
+      }
+
+      .first-section .content-event-button {
+        display: flex;
+        padding: 16px 0px;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 12px;
+        background: #3617cd;
+
+        border: none;
+        gap: 8px;
+        width: 225px;
+        cursor: pointer;
+        margin-bottom: 28px;
+        min-height: 55px;
+      }
+      .first-section .content-event-button-image {
+        width: 23px;
+      }
+      .first-section .content-event-button-text {
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .first-section .content-invitation-text {
+        color: #5a5a5a;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: underline;
+        text-underline-offset: 4px;
+
+        margin-bottom: 40px;
+        cursor: pointer;
+      }
+
+      /*  */
+
+      /* Second Section */
+      .second-section {
+        margin: 20px auto;
+      }
+
+      .second-section .second-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .second-section .balance-container {
+        display: flex;
+        padding: 36px 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+
+        background: #3617cd;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+      .second-section .balance-title-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      .second-section .balance-content-container {
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .second-section .balance-text-1 {
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+      }
+      .second-section .balance-text-2 {
+        color: #fff;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+      .second-section .balance-text-3 {
+        color: #fff;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .second-section .current-container {
+        display: flex;
+        padding: 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        background: transparent;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .second-section .current-title-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      .second-section .current-title-text {
+        color: #2b2b2b;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px;
+      }
+
+      .second-section .current-content-container {
+        display: flex;
+        flex-direction: row;
+        padding: 20px 0px;
+        align-items: center;
+        justify-content: center;
+
+        gap: 4px;
+      }
+
+      .second-section .current-content-box {
+        display: flex;
+        padding: 20px 0px;
+        flex-direction: column;
+        align-items: center;
+
+        border-radius: 12px;
+        background: #eee;
+
+        width: 100px;
+        gap: 8px;
+      }
+      .second-section .current-content-text {
+        color: #000;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+      }
+      .second-section .current-content-bold-text {
+        color: #000;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .second-section .current-content-unit-text {
+        color: #000;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
       }
 
       .event-title {
@@ -252,50 +499,97 @@
   </head>
   <body>
     <!-- Event Section -->
-    <section class="event-section">
-      <div class="event-container">
+    <section class="first-section">
+      <div class="first-container">
         <img
-          src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/title.png"
-          alt="T wallet Logo"
-          class="wallet-logo"
+          src="assets/images/title_wallet_logo.svg"
+          alt="title_wallet_logo"
+          class="title-wallet-logo"
         />
-        <h1 class="event-title">KBW2024 기념 이벤트</h1>
-        <p class="event-subtitle">친구에게 앱토스 선물하고 앱토스 받아가세요</p>
-        <a href="#" class="wallet-link">T wallet 연동하기</a>
-        <p class="reward-details">
-          T wallet 연동하고 더 많은 친구를 초대할수록 쌓아지는 혜택
-        </p>
-        <div class="apt-balance">
-          <span>잔여 수량</span> <span>19,850.0 APT</span>
+        <img
+          src="assets/images/title_event_text_1.svg"
+          alt="title_event_text_1"
+          class="title-event-text-1"
+        />
+        <img
+          src="assets/images/title_event_text_2.svg"
+          alt="title_event_text_2"
+          class="title-event-text-2"
+        />
+        <img
+          src="assets/images/title_event_image.svg"
+          alt="title_event_image"
+          class="title-event-image"
+        />
+        <span class="content-event-text-1"
+          >친구에게 앱토스 선물하고<br />앱토스 받아가세요</span
+        >
+        <span class="content-event-text-2"
+          >T wallet 연동하고<br />더 많은 친구를 초대할수록<br />쏟아지는
+          혜택!</span
+        >
+        <button class="content-event-button" id="connect-wallet">
+          <img
+            class="content-event-button-image"
+            src="assets/images/title_wallet_favicon.svg"
+            alt="title_wallet_favicon"
+          />
+          <span class="content-event-button-text">T wallet 연결하기</span>
+        </button>
+        <a class="content-invitation-text"> 초대 코드를 받으셨나요? </a>
+      </div>
+    </section>
+
+    <section class="second-section">
+      <div class="second-container">
+        <div class="balance-container">
+          <div class="balance-title-container">
+            <span class="balance-text-1">잔여 수량</span>
+          </div>
+          <div class="balance-content-container">
+            <span class="balance-text-2"
+              >18,850.0<span class="balance-text-3">&nbsp;APT</span></span
+            >
+          </div>
         </div>
-        <div class="event-status">
-          <div class="status-item">
-            <span class="status-label">최대 수락한 친구</span>
-            <span class="status-value">0명</span>
+      </div>
+
+      <div class="current-container">
+        <div class="current-title-container">
+          <span class="current-title-text">내 이벤트 참여 현황</span>
+        </div>
+
+        <div class="current-content-container">
+          <div class="current-content-box">
+            <span class="current-content-text">초대<br />수락한 친구</span>
+            <span class="current-content-bold-text">4명</span>
           </div>
-          <div class="status-item">
-            <span class="status-label">이벤트 참여 횟수</span>
-            <span class="status-value">0회</span>
+          <div class="current-content-box">
+            <span class="current-content-text">이벤트<br />참여 횟수</span>
+            <span class="current-content-bold-text">2회</span>
           </div>
-          <div class="status-item">
-            <span class="status-label">누적 리워드</span>
-            <span class="status-value">0 APT</span>
+          <div class="current-content-box">
+            <span class="current-content-text">누적<br />리워드</span>
+            <span class="current-content-bold-text"
+              >600.7<span class="current-content-unit-text">&nbsp;APT</span>
+            </span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Roulette Section -->
-    <div class="flex flex-col items-center" style="padding: 10px">
+    <div class="flex flex-col items-center">
       <div class="relative flex">
         <span id="selector" class="absolute z-10"></span>
         <canvas id="rouletteCanvas" width="0" height="0"></canvas>
         <div class="center-content rounded-full">
           <button
             id="spinButton"
-            class="button bg-black text-white rounded-full"
+            class="button text-white rounded-full bg-blue"
+            style="border: 8px solid #edebf7"
           >
-            <span class="font-bold">Spin</span>
+            <span class="font-bold">START</span>
           </button>
         </div>
       </div>
@@ -375,24 +669,36 @@
     <section class="event-footer-section">
       <h2>꼭! 읽어주세요</h2>
       <ul class="footer-notes">
+        <li>이 이벤트는 선착순 마감 시 종료됩니다.</li>
         <li>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat.
+          이벤트 대상 조건(국적 등)에 해당하지 않거나 미션을 완료하지 못한 경우
+          경품 증정이 취소될 수 있습니다.
+        </li>
+        <li>초대 코드 등록은 최초 1회만 가능합니다.</li>
+        <li>
+          친구의 “초대 코드 링크”를 통해 웹페이지에 접속하여 지갑을 연동했을
+          경우 자동으로 친구의 초대 코드가 등록됩니다.
         </li>
         <li>
-          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-          suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+          내 “초대 코드 링크”로 초대한 친구가 이미 다른 초대 코드를 등록한
+          상태라면 나의 초대를 수락할 수 없습니다.
+        </li>
+        <li>Special NFT는 이벤트 종료 후 일괄 증정됩니다.</li>
+        <li>
+          이벤트가 종료되었을 경우 남아있는 룰렛 참여 기회가 자동 소멸됩니다.
         </li>
         <li>
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-          vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+          네트워크 상황에 따라 룰렛을 돌린 후 경품 증정에 다소 시간이 소요될 수
+          있습니다.
         </li>
+        <li>
+          초대왕 이벤트의 초대 수가 동일할 경우 먼저 도달한 고객님의 순위가
+          올라갑니다.
+        </li>
+        <li>초대왕 이벤트 경품은 이벤트 종료 후 일괄 증정됩니다.</li>
       </ul>
     </section>
 
-    <script src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/scripts/roulette.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
