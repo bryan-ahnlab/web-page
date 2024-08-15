@@ -38,6 +38,9 @@
         font-family: "Gmarket Sans", sans-serif;
         background-color: #f5f5f5;
         color: #333;
+
+        overflow: overlay;
+        min-width: 320px;
       }
 
       /* General layout and styling */
@@ -83,7 +86,7 @@
       }
 
       .bg-blue {
-        background-color: #3617cd;
+        background-color: #3617ce;
       }
 
       .text-white {
@@ -105,8 +108,8 @@
 
       /* First Section */
       .first-section {
-        margin: 20px auto;
-        max-width: 320px;
+        margin: 20px auto 40px;
+        padding: 0px 12px;
       }
 
       .first-section .first-container {
@@ -116,8 +119,8 @@
       }
 
       .first-section .title-wallet-logo {
-        width: 97px;
-        margin-bottom: 30px;
+        height: 20px;
+        margin-bottom: 24px;
       }
 
       .first-section .title-event-text-1 {
@@ -125,36 +128,47 @@
         margin-bottom: 15px;
       }
       .first-section .title-event-text-2 {
-        width: 314px;
-        margin-bottom: 10px;
+        width: 281px;
+        margin-bottom: 12px;
+      }
+      .first-section .title-event-text-3 {
+        color: #5b5b5b;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-bottom: 22px;
       }
 
       .first-section .title-event-image {
         width: 248px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
 
       .first-section .content-event-text-1 {
         color: #000;
         text-align: center;
         font-family: "Gmarket Sans";
-        font-size: 28px;
+        font-size: 25px;
         font-style: normal;
         font-weight: 700;
-        line-height: 38px;
+        line-height: 32px;
 
-        margin-bottom: 16px;
+        margin-bottom: 12px;
       }
       .first-section .content-event-text-2 {
         color: #000;
         text-align: center;
         font-family: "Gmarket Sans";
-        font-size: 18px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 28px;
+        line-height: 24px;
 
-        margin-bottom: 28px;
+        margin-bottom: 20px;
       }
 
       .first-section .content-event-button {
@@ -164,17 +178,16 @@
         align-items: center;
 
         border-radius: 12px;
-        background: #3617cd;
+        background: #3617ce;
 
         border: none;
-        gap: 8px;
+        gap: 10px;
         width: 225px;
         cursor: pointer;
-        margin-bottom: 28px;
         min-height: 55px;
       }
       .first-section .content-event-button-image {
-        width: 23px;
+        width: 24px;
       }
       .first-section .content-event-button-text {
         color: #fff;
@@ -186,18 +199,81 @@
         line-height: normal;
       }
 
-      .first-section .content-invitation-text {
-        color: #5a5a5a;
+      .first-section .invite-code-container {
+        box-sizing: border-box;
+        display: flex;
+        padding: 24px 12px;
+        flex-direction: column;
+        justify-content: center;
+
+        border-radius: 16px;
+        background: #fff;
+
+        margin-top: 32px;
+      }
+
+      .first-section .invite-code-text {
+        color: #000;
         text-align: center;
         font-family: "Gmarket Sans";
-        font-size: 15px;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 25px;
+
+        margin-bottom: 16px;
+      }
+
+      .first-section .invite-code-input-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 272px;
+      }
+
+      .first-section .invite-code-input {
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        text-decoration-line: underline;
-        text-underline-offset: 4px;
 
-        margin-bottom: 40px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        background: #fff;
+
+        width: 100%;
+        height: 48px;
+
+        margin: 0px;
+        padding: 0px;
+        flex: 1;
+        min-width: 176px;
+        max-width: 205px;
+      }
+
+      .first-section .invite-code-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        border-radius: 12px;
+        background: #3617ce;
+
+        width: 90px;
+        height: 48px;
+
+        border: 1px solid #3617ce;
         cursor: pointer;
       }
 
@@ -216,15 +292,13 @@
 
       .second-section .balance-container {
         display: flex;
-        padding: 36px 0px;
+        padding: 40px 0px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 12px;
 
-        background: #3617cd;
+        background: #ffffff;
         width: 100%;
-        margin-bottom: 40px;
       }
       .second-section .balance-title-container {
         display: flex;
@@ -234,266 +308,364 @@
       }
       .second-section .balance-content-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 2px;
         align-items: center;
         justify-content: center;
       }
 
       .second-section .balance-text-1 {
-        color: #fff;
+        color: #000;
         text-align: center;
         font-family: "Gmarket Sans";
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
         line-height: 28px;
+
+        margin-bottom: 8px;
       }
       .second-section .balance-text-2 {
-        color: #fff;
+        color: #000;
         text-align: center;
-        font-family: Pretendard;
-        font-size: 34px;
+        font-family: "Gmarket Sans";
+        font-size: 24px;
         font-style: normal;
-        font-weight: 800;
+        font-weight: 700;
         line-height: normal;
+
+        margin-bottom: 20px;
       }
       .second-section .balance-text-3 {
-        color: #fff;
+        color: #000;
         text-align: center;
-        font-family: Pretendard;
-        font-size: 30px;
+        font-family: "Gmarket Sans";
+        font-size: 24px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-bottom: 20px;
+      }
+      .second-section .balance-text-4 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
         line-height: normal;
       }
 
       .second-section .current-container {
         display: flex;
-        padding: 0px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 20px;
 
         background: transparent;
         width: 100%;
-        margin-bottom: 40px;
+        padding: 38px 0px 20px;
       }
 
       .second-section .current-title-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
       }
+      .second-section .current-title-image {
+        display: flex;
+        width: 140px;
+        margin-bottom: 14px;
+      }
       .second-section .current-title-text {
-        color: #2b2b2b;
+        color: #000;
         text-align: center;
-        font-family: Pretendard;
-        font-size: 22px;
+        font-family: "Gmarket Sans";
+        font-size: 25px;
         font-style: normal;
         font-weight: 700;
-        line-height: 36px;
+        line-height: 32px;
+        letter-spacing: -0.5px;
+
+        margin-bottom: 12px;
+      }
+
+      .second-section .roulette-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .second-section .current-status-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .second-section .current-opportunity-content {
+        display: flex;
+        padding: 8px 20px;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 12px;
+        background: #fff;
+
+        margin-bottom: 18px;
+      }
+
+      .second-section .current-opportunity-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+      }
+      .second-section .current-opportunity-bold-text {
+        color: #3617ce;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .second-section .current-information-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 18px;
+      }
+
+      .second-section .current-information-content-image {
+        width: 24px;
+        height: 24px;
+
+        margin-right: 5px;
+      }
+
+      .second-section .current-information-content-text {
+        display: flex;
+
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
       }
 
       .second-section .current-content-container {
         display: flex;
-        flex-direction: row;
-        padding: 20px 0px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .second-section .current-content-event-container {
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
 
+        margin-bottom: 12px;
+      }
+
+      .second-section .current-content-event-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-bottom: 13px;
+      }
+
+      .second-section .current-content-event-box-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 12px;
         gap: 4px;
       }
-
-      .second-section .current-content-box {
+      .second-section .current-content-event-box {
         display: flex;
-        padding: 20px 0px;
+        padding: 16px 0px;
         flex-direction: column;
         align-items: center;
-
-        border-radius: 12px;
-        background: #eee;
-
-        width: 100px;
+        justify-content: center;
         gap: 8px;
+
+        border-radius: 10px;
+        background: #fff;
+        min-width: 96px;
       }
-      .second-section .current-content-text {
+      .second-section .current-content-event-box-text {
         color: #000;
         text-align: center;
-        font-family: Pretendard;
-        font-size: 16px;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
         font-style: normal;
-        font-weight: 500;
-        line-height: 20px;
+        font-weight: 400;
+        line-height: 18px;
       }
-      .second-section .current-content-bold-text {
-        color: #000;
+      .second-section .current-content-event-box-bold-text {
+        color: #3617ce;
         text-align: center;
-        font-family: Pretendard;
-        font-size: 18px;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
       }
-      .second-section .current-content-unit-text {
-        color: #000;
+      .second-section .current-content-event-box-bold-unit-text {
+        color: #3617ce;
         text-align: center;
-        font-family: Pretendard;
-        font-size: 14px;
+        font-family: "Gmarket Sans";
+        font-size: 12px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
       }
 
-      .event-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .event-subtitle {
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-
-      .wallet-link {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #4a90e2;
-        color: #ffffff;
-        border-radius: 5px;
-        text-decoration: none;
-        margin-bottom: 20px;
-      }
-
-      .reward-details {
-        font-size: 14px;
-        color: #888888;
-        margin-bottom: 20px;
-      }
-
-      .apt-balance {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-
-      .event-status {
+      .second-section .current-content-invitation-container {
         display: flex;
-        justify-content: space-between;
-        border-top: 1px solid #e5e5e5;
-        padding-top: 20px;
-      }
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 0px;
 
-      .status-item {
-        flex: 1;
+        width: 296px;
+        border-radius: 12px;
+        background: #fff;
+      }
+      .second-section .current-content-invitation-title {
+        color: #000;
         text-align: center;
-      }
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
 
-      .status-label {
-        font-size: 14px;
-        color: #888888;
+        margin-bottom: 12px;
       }
-
-      .status-value {
-        font-size: 18px;
-        font-weight: bold;
-      }
-
-      /* Event Opportunity Section */
-      .event-opportunity-section,
-      .event-ranking-section,
-      .event-footer-section {
-        margin: 20px auto;
-        max-width: 600px;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .event-opportunity-container,
-      .ranking-container {
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        margin-bottom: 20px;
-      }
-
-      .opportunity-header {
+      .second-section .current-content-invitation-text-container {
         display: flex;
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
+
+        gap: 4px;
+        margin-bottom: 16px;
+      }
+      .second-section .current-content-invitation-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
         font-size: 18px;
-        font-weight: bold;
-      }
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-decoration-line: underline;
 
-      .opportunity-count {
-        color: #4a90e2;
+        text-underline-offset: 4px;
       }
+      .second-section .current-content-invitation-image {
+        width: 18px;
+        height: 18px;
 
-      .opportunity-subtext {
-        font-size: 14px;
-        color: #666666;
-        margin-top: 10px;
+        cursor: pointer;
       }
-
-      .ranking-header {
+      .second-section .current-content-invitation-button {
         display: flex;
-        justify-content: space-between;
+        padding: 14px 28px;
+        justify-content: center;
         align-items: center;
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      .ranking-view {
-        font-size: 14px;
-        color: #9d9d9d;
+
+        border: none;
+        border-radius: 12px;
+        background: #3617ce;
+        cursor: pointer;
+
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
       }
 
-      .ranking-table {
+      /* TODO */
+
+      .footer-section {
+        margin: 0px auto;
+      }
+      .footer-section .first-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-section .notice-container {
+        display: flex;
+        flex-direction: column;
+        padding: 60px 0px;
+        justify-content: center;
+        align-items: center;
+        background: #eee;
+
         width: 100%;
-        border-collapse: collapse;
-        font-size: 14px;
       }
 
-      .ranking-table th,
-      .ranking-table td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: left;
+      .footer-section .notice-container-title {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+
+        margin: 0px 0px 28px 0px;
       }
 
-      .ranking-table th {
-        background-color: #f4f4f4;
-      }
+      .footer-section .notice-container-content ul {
+        color: #2b2b2b;
+        font-family: "Gmarket Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
 
-      .ranking-table td {
-        background-color: #ffffff;
+        margin: 0px;
+        padding: 0px 20px 0px 30px;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
       }
-
-      /* Footer Section */
-      .event-footer-section {
-        background-color: #e9e9e9;
-      }
-
-      .footer-notes {
-        list-style-type: disc;
-        padding-left: 20px;
-      }
-
-      .footer-notes li {
-        font-size: 14px;
-        color: #666666;
-        margin-bottom: 10px;
-      }
-
-      .event-footer-section h2 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
+      .footer-section .notice-container-content li {
+        color: #2b2b2b;
+        font-family: "Gmarket Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
       }
     </style>
   </head>
@@ -516,6 +688,7 @@
           alt="title_event_text_2"
           class="title-event-text-2"
         />
+        <span class="title-event-text-3"> 2024. 09. 01 ~ 09. 30 </span>
         <img
           src="assets/images/title_event_image.svg"
           alt="title_event_image"
@@ -525,8 +698,7 @@
           >친구에게 앱토스 선물하고<br />앱토스 받아가세요</span
         >
         <span class="content-event-text-2"
-          >T wallet 연동하고<br />더 많은 친구를 초대할수록<br />쏟아지는
-          혜택!</span
+          >T wallet 연동하고 더 많은 친구를<br />초대할수록 쏟아지는 혜택!</span
         >
         <button class="content-event-button" id="connect-wallet">
           <img
@@ -536,7 +708,25 @@
           />
           <span class="content-event-button-text">T wallet 연결하기</span>
         </button>
-        <a class="content-invitation-text"> 초대 코드를 받으셨나요? </a>
+        <div
+          class="invite-code-container"
+          style="display: none"
+          id="invite-code-pannel"
+        >
+          <span class="invite-code-text">
+            친구에게 받은<br />초대 코드가 있으면 입력해주세요.
+          </span>
+          <div class="invite-code-input-wrapper">
+            <input
+              type="text"
+              class="invite-code-input"
+              placeholder="예) D43X98AD"
+            />
+            <button class="invite-code-button" id="verify-invite-code">
+              확인
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -550,153 +740,167 @@
             <span class="balance-text-2"
               >18,850.0<span class="balance-text-3">&nbsp;APT</span></span
             >
+            <span class="balance-text-4"
+              >* 잔여 수량 모두 소진 시 이벤트가 종료됩니다.</span
+            >
           </div>
         </div>
-      </div>
 
-      <div class="current-container">
-        <div class="current-title-container">
-          <span class="current-title-text">내 이벤트 참여 현황</span>
-        </div>
-
-        <div class="current-content-container">
-          <div class="current-content-box">
-            <span class="current-content-text">초대<br />수락한 친구</span>
-            <span class="current-content-bold-text">4명</span>
+        <div class="current-container">
+          <div class="current-title-container">
+            <img
+              class="current-title-image"
+              src="assets/images/event_1_title_image.svg"
+            />
+            <span class="current-title-text"
+              >친구 초대하고<br />100% 당첨 룰렛 돌리기</span
+            >
           </div>
-          <div class="current-content-box">
-            <span class="current-content-text">이벤트<br />참여 횟수</span>
-            <span class="current-content-bold-text">2회</span>
+
+          <!-- Roulette Section -->
+          <div class="roulette-container">
+            <div class="relative flex">
+              <span id="selector" class="absolute z-10"></span>
+              <canvas id="rouletteCanvas" width="0" height="0"></canvas>
+              <div class="center-content rounded-full">
+                <button
+                  id="spinButton"
+                  class="button text-white rounded-full bg-blue"
+                  style="border: 8px solid #edebf7"
+                >
+                  <span class="font-bold">START</span>
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="current-content-box">
-            <span class="current-content-text">누적<br />리워드</span>
-            <span class="current-content-bold-text"
-              >600.7<span class="current-content-unit-text">&nbsp;APT</span>
-            </span>
+
+          <div class="current-status-container">
+            <div class="current-opportunity-content">
+              <span class="current-opportunity-text">
+                내 이벤트 참여 기회
+                <span class="current-opportunity-bold-text">4회</span
+                >&nbsp;/&nbsp;6회
+              </span>
+            </div>
+            <div class="current-information-content">
+              <span class="current-information-content-text"
+                ><img
+                  class="current-information-content-image"
+                  src="assets/images/checked_icon.svg"
+                />
+                T wallet 연동만 해도</span
+              >
+              <span class="current-information-content-text"
+                >룰렛 돌리기 3번 제공 (최초 1회)</span
+              >
+            </div>
+            <div class="current-information-content">
+              <span class="current-information-content-text"
+                ><img
+                  class="current-information-content-image"
+                  src="assets/images/checked_icon.svg"
+                />
+                내 초대 코드로 새로운 친구를 초대할</span
+              >
+              <span class="current-information-content-text"
+                >때마다 룰렛 돌리기 3번 추가 제공</span
+              >
+            </div>
+
+            <div class="current-content-container">
+              <div class="current-content-event-container">
+                <span class="current-content-event-text"
+                  >내 이벤트 참여 현황</span
+                >
+                <div class="current-content-event-box-container">
+                  <div class="current-content-event-box">
+                    <span class="current-content-event-box-text"
+                      >초대<br />수락한 친구</span
+                    >
+                    <span class="current-content-event-box-bold-text">4명</span>
+                  </div>
+                  <div class="current-content-event-box">
+                    <span class="current-content-event-box-text"
+                      >이벤트<br />참여 횟수</span
+                    >
+                    <span class="current-content-event-box-bold-text"
+                      >28회</span
+                    >
+                  </div>
+                  <div class="current-content-event-box">
+                    <span class="current-content-event-box-text"
+                      >누적<br />리워드</span
+                    >
+                    <span class="current-content-event-box-bold-text"
+                      >88.8
+                      <span class="current-content-event-box-bold-unit-text"
+                        >APT</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="current-content-invitation-container">
+                <span class="current-content-invitation-title"
+                  >내 초대 코드</span
+                >
+                <div class="current-content-invitation-text-container">
+                  <span class="current-content-invitation-text">D43X98AD</span>
+                  <img
+                    class="current-content-invitation-image"
+                    src="assets/images/copy_icon.svg"
+                  />
+                </div>
+                <button class="current-content-invitation-button">
+                  초대 링크 복사
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Roulette Section -->
-    <div class="flex flex-col items-center">
-      <div class="relative flex">
-        <span id="selector" class="absolute z-10"></span>
-        <canvas id="rouletteCanvas" width="0" height="0"></canvas>
-        <div class="center-content rounded-full">
-          <button
-            id="spinButton"
-            class="button text-white rounded-full bg-blue"
-            style="border: 8px solid #edebf7"
-          >
-            <span class="font-bold">START</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Event Opportunity Section -->
-    <section class="event-opportunity-section">
-      <div class="event-opportunity-container">
-        <div class="opportunity-header">
-          <h2>내 이벤트 참여 기회</h2>
-          <span class="opportunity-count">0 / 5회</span>
-        </div>
-        <p class="opportunity-subtext">
-          T wallet 최초 가입 시 추가 기회 +1 <br />
-          친구가 이벤트에 참여하면 최대 5번의 추가 기회
-        </p>
-      </div>
-    </section>
-
-    <!-- Event Ranking Section -->
-    <section class="event-ranking-section">
-      <h2>
-        초대할수록 더 많은 혜택!<br />
-        ✔ 초대왕 5명에게 앱토스 추가 지급!
-      </h2>
-      <div class="ranking-container">
-        <div class="ranking-header">
-          <span>초대왕 랭킹 5</span>
-          <a href="#" class="ranking-view">전체 보기 &gt;</a>
-        </div>
-        <table class="ranking-table">
-          <thead>
-            <tr>
-              <th>순위</th>
-              <th>지갑주소</th>
-              <th>초대 수</th>
-              <th>추가 혜택</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>abcd...1234</td>
-              <td>145명</td>
-              <td>+ 50 APT</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>def2...ff43</td>
-              <td>105명</td>
-              <td>+ 40 APT</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>de32...aabb</td>
-              <td>98명</td>
-              <td>+ 30 APT</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>12ab...34cd</td>
-              <td>60명</td>
-              <td>+ 20 APT</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>ec01...a1b2</td>
-              <td>21명</td>
-              <td>+ 10 APT</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
     <!-- Footer Section -->
-    <section class="event-footer-section">
-      <h2>꼭! 읽어주세요</h2>
-      <ul class="footer-notes">
-        <li>이 이벤트는 선착순 마감 시 종료됩니다.</li>
-        <li>
-          이벤트 대상 조건(국적 등)에 해당하지 않거나 미션을 완료하지 못한 경우
-          경품 증정이 취소될 수 있습니다.
-        </li>
-        <li>초대 코드 등록은 최초 1회만 가능합니다.</li>
-        <li>
-          친구의 “초대 코드 링크”를 통해 웹페이지에 접속하여 지갑을 연동했을
-          경우 자동으로 친구의 초대 코드가 등록됩니다.
-        </li>
-        <li>
-          내 “초대 코드 링크”로 초대한 친구가 이미 다른 초대 코드를 등록한
-          상태라면 나의 초대를 수락할 수 없습니다.
-        </li>
-        <li>Special NFT는 이벤트 종료 후 일괄 증정됩니다.</li>
-        <li>
-          이벤트가 종료되었을 경우 남아있는 룰렛 참여 기회가 자동 소멸됩니다.
-        </li>
-        <li>
-          네트워크 상황에 따라 룰렛을 돌린 후 경품 증정에 다소 시간이 소요될 수
-          있습니다.
-        </li>
-        <li>
-          초대왕 이벤트의 초대 수가 동일할 경우 먼저 도달한 고객님의 순위가
-          올라갑니다.
-        </li>
-        <li>초대왕 이벤트 경품은 이벤트 종료 후 일괄 증정됩니다.</li>
-      </ul>
+    <section class="footer-section">
+      <div class="first-container">
+        <div class="notice-container">
+          <span class="notice-container-title">꼭! 읽어주세요</span>
+          <div class="notice-container-content">
+            <ul>
+              <li>이 이벤트는 선착순 마감 시 종료됩니다.</li>
+              <li>
+                이벤트 대상 조건(국적 등)에 해당하지 않거나 미션을 완료하지 못한
+                경우 경품 증정이 취소될 수 있습니다.
+              </li>
+              <li>초대 코드 등록은 최초 1회만 가능합니다.</li>
+              <li>
+                친구의 “초대 코드 링크”를 통해 웹페이지에 접속하여 지갑을
+                연동했을 경우 자동으로 친구의 초대 코드가 등록됩니다.
+              </li>
+              <li>
+                내 “초대 코드 링크”로 초대한 친구가 이미 다른 초대 코드를 등록한
+                상태라면 나의 초대를 수락할 수 없습니다.
+              </li>
+              <li>Special NFT는 이벤트 종료 후 일괄 증정됩니다.</li>
+              <li>
+                이벤트가 종료되었을 경우 남아있는 룰렛 참여 기회가 자동
+                소멸됩니다.
+              </li>
+              <li>
+                네트워크 상황에 따라 룰렛을 돌린 후 경품 증정에 다소 시간이
+                소요될 수 있습니다.
+              </li>
+              <li>
+                초대왕 이벤트의 초대 수가 동일할 경우 먼저 도달한 고객님의
+                순위가 올라갑니다.
+              </li>
+              <li>초대왕 이벤트 경품은 이벤트 종료 후 일괄 증정됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script src="script.js"></script>
