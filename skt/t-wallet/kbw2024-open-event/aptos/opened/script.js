@@ -204,12 +204,12 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const list = [
-    { id: "roulette_6", image: images.aptos_03, text: "0.3 APT 5" },
-    { id: "roulette_5", image: images.aptos_02, text: "0.2 APT 4" },
-    { id: "roulette_4", image: images.aptos_01, text: "0.1 APT 3" },
-    { id: "roulette_3", image: images.aptos_03, text: "0.3 APT 2" },
-    { id: "roulette_2", image: images.aptos_02, text: "0.2 APT 1" },
-    { id: "roulette_1", image: images.aptos_01, text: "0.1 APT 0" },
+    { id: "roulette_6", image: images.aptos_03, text: "0.3 APT" },
+    { id: "roulette_5", image: images.aptos_02, text: "0.2 APT" },
+    { id: "roulette_4", image: images.aptos_01, text: "0.1 APT" },
+    { id: "roulette_3", image: images.aptos_03, text: "0.3 APT" },
+    { id: "roulette_2", image: images.aptos_02, text: "0.2 APT" },
+    { id: "roulette_1", image: images.aptos_01, text: "0.1 APT" },
   ];
 
   const colors = [
