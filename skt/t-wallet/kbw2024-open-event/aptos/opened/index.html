@@ -42,6 +42,13 @@
         overflow: overlay;
         min-width: 320px;
       }
+      ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      tbody::-webkit-scrollbar {
+        display: none; /* Webkit 브라우저에서 스크롤바 숨기기 */
+      }
 
       /* General layout and styling */
       .flex {
@@ -612,16 +619,172 @@
       }
 
       .third-section {
-        margin: 20px auto 40px;
+        margin: 20px auto 0px;
       }
-      .third-section .thrid-container {
+
+      .third-section .third-container {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
 
+      .third-section .ranking-container {
+        display: flex;
+        padding: 60px 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+        width: 100%;
+      }
+
+      .third-section .current-title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .third-section .current-title-image {
+        display: flex;
+        width: 140px;
+        margin-bottom: 14px;
+      }
+      .third-section .current-title-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: -0.5px;
+
+        margin-bottom: 16px;
+      }
+
+      .third-section .event-description {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-bottom: 40px;
+      }
+
+      .third-section .ranking-title {
+        color: #3617ce;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        margin-bottom: 16px;
+      }
+
+      .third-section .ranking-table-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .third-section .ranking-table {
+        border-radius: 12px;
+        background: #edebf7;
+        box-sizing: border-box;
+        border-collapse: collapse;
+        table-layout: fixed; /* 모든 열의 너비가 동일하게 고정 */
+      }
+
+      .third-section .ranking-table thead {
+        border-bottom: 1px solid #4c4c4c;
+      }
+
+      .third-section .ranking-table tbody {
+        display: block;
+        max-height: 370px;
+        overflow-y: overlay;
+      }
+
+      .third-section .ranking-table tbody::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      .third-section .ranking-table tbody {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .third-section .ranking-table tbody::-webkit-scrollbar {
+        display: none; /* Webkit 브라우저에서 스크롤바 숨기기 */
+      }
+
+      .third-section .ranking-table thead tr {
+        display: table;
+        width: 100%;
+      }
+
+      .third-section .ranking-table tbody tr {
+        display: table;
+        width: 100%;
+      }
+
+      .third-section .ranking-table th {
+        color: #4c4c4c;
+        font-family: "Gmarket Sans";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: left;
+        padding: 16px 10px;
+        border: none;
+        /* width: 25%; */ /* 각 열 너비를 동일하게 설정 */
+      }
+
+      .third-section .ranking-table td {
+        color: #4c4c4c;
+        font-family: "Gmarket Sans";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: left;
+        padding: 10px 12px;
+        border: none;
+        /* width: 25%; */ /* 각 열 너비를 동일하게 설정 */
+      }
+
+      .third-section .ranking-table th:nth-child(1),
+      .third-section .ranking-table td:nth-child(1) {
+        box-sizing: border-box;
+        min-width: 55px; /* 첫 번째 열의 너비 설정 */
+      }
+
+      .third-section .ranking-table th:nth-child(2),
+      .third-section .ranking-table td:nth-child(2) {
+        box-sizing: border-box;
+        min-width: 105px; /* 두 번째 열의 너비 설정 */
+      }
+
+      .third-section .ranking-table th:nth-child(3),
+      .third-section .ranking-table td:nth-child(3) {
+        box-sizing: border-box;
+        min-width: 70px; /* 세 번째 열의 너비 설정 */
+      }
+
+      .third-section .ranking-table th:nth-child(4),
+      .third-section .ranking-table td:nth-child(4) {
+        box-sizing: border-box;
+        min-width: 85px; /* 네 번째 열의 너비 설정 */
+      }
+
+      /*  */
+
       .footer-section {
-        margin: 20px auto 40px;
+        margin: 0px auto 40px;
       }
       .footer-section .footer-container {
         display: flex;
@@ -869,7 +1032,112 @@
       </div>
     </section>
 
-    <section class="third-section">G</section>
+    <section class="third-section">
+      <div class="third-container">
+        <div class="ranking-container">
+          <div class="current-title-container">
+            <img
+              class="current-title-image"
+              src="assets/images/event_2_title_image.svg"
+            />
+            <span class="current-title-text"
+              >초대할수록<br />더 많은 혜택!</span
+            >
+          </div>
+          <span class="event-description"
+            >초대왕 100명에게 앱토스 추가 지급</span
+          >
+          <span class="ranking-title">초대왕 랭킹 100</span>
+          <div class="ranking-table-container">
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th>순위</th>
+                  <th>지갑주소</th>
+                  <th>초대 수</th>
+                  <th>추가 혜택</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>def2...ff43</td>
+                  <td>145명</td>
+                  <td>+50APT</td>
+                </tr>
+                <!-- 추가 항목 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer Section -->
     <section class="footer-section">
