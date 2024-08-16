@@ -1,44 +1,398 @@
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjg2OTc1NzAsImlhdCI6MTcyMzUwOTY3MCwic3ViIjp7InVzZXJfaWQiOiI4ZGYxZjcxZi0zNDY0LTRmODItYjZjYS01OWQ3ZWIyNDMyNDMiLCJvbGRfdXNlcl9pZCI6IjM4OWRkNDcyLTQ2MTUtNDkwYy1iMjhlLTkzMWM0NmYwNTIwYiIsImFiY191aWQiOiI0NzAwMjFmZGM5NDU0NzEzOTZhOWUxNmFiMzIwYzAxNyIsImVtYWlsIjoic3R3a3R3dm4rMTNAZ21haWwuY29tIiwibmlja19uYW1lIjpudWxsLCJwaG90b191cmwiOm51bGwsImV2bV9hY2NvdW50IjpbeyJpZCI6ImNlODA1OTViLTQ5NmItNGJlMy04ZTM1LTc4OGQ0YmEwMGM4MCIsInVzZXJfaWQiOiI4ZGYxZjcxZi0zNDY0LTRmODItYjZjYS01OWQ3ZWIyNDMyNDMiLCJhZGRyZXNzIjoiMHgxMTlkODRBNjhDMDk4ZTUzM0MzMGQzNTE2RkFkZDczQWZCRDExZDNiIiwicHVia2V5IjoiMHgwMzQ2ODM4NGI3MzI5NjU3ZGYxNTI1YWFkNmRkNmJlOGU5YmNjMGMwOTcyZDg5ZmIyMDA4MDdiNWZhODY1MmJhZDUiLCJtcGMiOiJkZWtleSIsIndhbGxldCI6InQiLCJjcmVhdGVkX2F0IjoiMjAyNC0wOC0xMlQwNjozMjowNi4zMzk3NzUiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wOC0xMlQwNjozMjowNi4zMzk3NzUiLCJleHRyYV9pbmZvIjpudWxsfSx7ImlkIjoiMjhjZWFjODUtYzE4OS00ODczLWFmYTUtYmM0MjVjY2RmYjY5IiwidXNlcl9pZCI6IjhkZjFmNzFmLTM0NjQtNGY4Mi1iNmNhLTU5ZDdlYjI0MzI0MyIsImFkZHJlc3MiOiIweDY0OTM1YTk1NzE3ZTM2MDFBQmQ2MDQ3MjVkNzczRWVhNDQ4NTZCY0IiLCJwdWJrZXkiOiIweDAyZmU5ZDllY2Q2NmI0ZGMyNGY3YzJmM2U4Y2ZkZGE1MzI4YThhYjk3MGZmNjkwYjVkMjJlYTJiY2IwYTcyYzk4MyIsIm1wYyI6ImRla2V5Iiwid2FsbGV0IjoiYWJjIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDgtMDJUMTM6NTM6MDQuNjAwODc4IiwidXBkYXRlZF9hdCI6IjIwMjQtMDgtMDJUMTM6NTM6MDQuNjAwODc4IiwiZXh0cmFfaW5mbyI6bnVsbH1dLCJhcHRvc19hY2NvdW50IjpbeyJpZCI6ImE2NjBjZDE1LTVlY2QtNGU0OS1iZDQ5LTljNjM5Y2ZkMjU0YiIsInVzZXJfaWQiOiI4ZGYxZjcxZi0zNDY0LTRmODItYjZjYS01OWQ3ZWIyNDMyNDMiLCJhZGRyZXNzIjoiMHgwYmViNTA2MTk0MWYxODk5YTA0ZTNhYTRjOWVhZjEzZDJlZmZmOWUyNGRkNzllZDMxN2RhMDVjYWZjMWFmNDhiIiwicHVia2V5IjoiMHgwMmZlOWQ5ZWNkNjZiNGRjMjRmN2MyZjNlOGNmZGRhNTMyOGE4YWI5NzBmZjY5MGI1ZDIyZWEyYmNiMGE3MmM5ODMiLCJtcGMiOiJkZWtleSIsIndhbGxldCI6ImFiYyIsImNyZWF0ZWRfYXQiOiIyMDI0LTA4LTAyVDEzOjUzOjA0LjgwNjU2MSIsInVwZGF0ZWRfYXQiOiIyMDI0LTA4LTAyVDEzOjUzOjA0LjgwNjU2MSIsImV4dHJhX2luZm8iOm51bGx9LHsiaWQiOiI3Mjk4Zjc1NC0yYjkwLTQ4MjUtODNkZC1hZDFhMTk5MjA2NDIiLCJ1c2VyX2lkIjoiOGRmMWY3MWYtMzQ2NC00ZjgyLWI2Y2EtNTlkN2ViMjQzMjQzIiwiYWRkcmVzcyI6IjB4ODZjOTY3MWNmMjQ2ZGMyNDQ5MzVlMDMxM2Y2MjQ4ZmNkMTJjNmYxYzdiMWFhMDM1ZTcyM2Y2MDlkMzM2NGZmNiIsInB1YmtleSI6IjB4MDM0NjgzODRiNzMyOTY1N2RmMTUyNWFhZDZkZDZiZThlOWJjYzBjMDk3MmQ4OWZiMjAwODA3YjVmYTg2NTJiYWQ1IiwibXBjIjoiZGVrZXkiLCJ3YWxsZXQiOiJ0IiwiY3JlYXRlZF9hdCI6IjIwMjQtMDgtMTJUMDY6MzI6MDYuNTA0NTc2IiwidXBkYXRlZF9hdCI6IjIwMjQtMDgtMTJUMDY6MzI6MDYuNTA0NTc2IiwiZXh0cmFfaW5mbyI6bnVsbH1dLCJidGNfYWNjb3VudCI6W3siaWQiOiIwZjljMGExYy0wMzI0LTQ0NGMtOWUzNy00OTUzZGY5Mzg0YTEiLCJ1c2VyX2lkIjoiOGRmMWY3MWYtMzQ2NC00ZjgyLWI2Y2EtNTlkN2ViMjQzMjQzIiwiYWRkcmVzcyI6ImJjMXFjcTczMmp5bXNlZjY3emRnNHh1emdmNXhkZHlmOGhrOHl6bmtkeiIsInB1YmtleSI6IjB4MDJmZTlkOWVjZDY2YjRkYzI0ZjdjMmYzZThjZmRkYTUzMjhhOGFiOTcwZmY2OTBiNWQyMmVhMmJjYjBhNzJjOTgzIiwibXBjIjoiZGVrZXkiLCJ3YWxsZXQiOiJhYmMiLCJjcmVhdGVkX2F0IjoiMjAyNC0wOC0wMlQxMzo1MzowNC43OTY3MzEiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wOC0wMlQxMzo1MzowNC43OTY3MzEiLCJleHRyYV9pbmZvIjp7Im5hdGl2ZV9zZWd3aXRfYWRkcmVzcyI6ImJjMXFjcTczMmp5bXNlZjY3emRnNHh1emdmNXhkZHlmOGhrOHl6bmtkeiJ9fV0sImNyZWF0ZWRfYXQiOiIyMDI0LTA4LTAyVDEzOjUzOjA0LjI4NjI3NSIsInVwZGF0ZWRfYXQiOiIyMDI0LTA4LTAyVDEzOjUzOjA0LjI4NjI3NSIsImV4dHJhX2luZm8iOm51bGx9fQ.u5czcO9LjOINV4pbNC61r3YjM84DSc-8X4RmjT7qgBA";
+const baseUrl = "https://dev-kbw-event.myabcwallet.com/";
 
 let isLogined = false;
 let isVerified = false;
+let invitingCode = "";
+let invitedCode = "";
+let appUid = "";
+let accessToken = "";
+let eventToken = "";
+let aptosBalance = 0;
+let spinLeftCount = 0;
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   /*  */
-  const connectWalletButton = document.getElementById("connect-wallet");
+  const passTwalletUrl = baseUrl + "v1/twallet/pass";
+  const signupTwalletUrl = baseUrl + "v1/twallet/signup";
+  const tokenEventUrl = baseUrl + "v1/twallet/event/token";
 
-  function handleLoginStatusChange() {
-    const inviteCodeContainer = document.getElementById("invite-code-pannel");
+  const referrralEventUrl = baseUrl + "v1/event/referral";
+  const rankingApiUrl = baseUrl + "v1/event/ranking";
+  const userInfoApiUrl = baseUrl + "v1/event/user/info";
+  const userApiUrl = baseUrl + "v1/event/user";
+  const roulettePlayApiUrl = baseUrl + "v1/event/play/roulette";
+  const rankingTableBody = document.getElementById("ranking-table-body");
 
-    if (isLogined) {
-      inviteCodeContainer.style.display = "flex";
+  /*  */
+  const currentUrl = window.location.href;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const invitedCodeFromUrl = urlParams.get("ivtcode");
+
+  const appUidFromUrl = urlParams.get("appuid");
+
+  // v1/twallet/sugbyo API 호출하여 데이터 가져오기
+  async function fetchTwalletSignup(appuid) {
+    try {
+      const params = {
+        appuid: appuid,
+      };
+      const queryString = new URLSearchParams(params).toString();
+      const urlWithParams = `${signupTwalletUrl}?${queryString}`;
+
+      const response = await fetch(urlWithParams, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      return data.access_token;
+    } catch (error) {
+      console.error("Error fetching twallet signup:", error);
+    }
+  }
+
+  // v1/twallet/event/token API 호출하여 데이터 가져오기
+  async function fetchTokenEvent(accessToken) {
+    try {
+      const response = await fetch(tokenEventUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      return data.event_token;
+    } catch (error) {
+      console.error("Error fetching token event:", error);
+    }
+  }
+
+  if (appUidFromUrl) {
+    accessToken = await fetchTwalletSignup(appUidFromUrl);
+    if (accessToken) {
+      eventToken = await fetchTokenEvent(accessToken);
+    }
+
+    if (accessToken && eventToken) {
+      isLogined = true;
     } else {
-      inviteCodeContainer.style.display = "none";
+      isLogined = false;
     }
   }
 
   /*  */
 
-  if (connectWalletButton) {
-    connectWalletButton.addEventListener("click", function () {
-      if (!isLogined) {
-        console.log("A");
+  async function registerReferralCode(invitedCode) {
+    try {
+      const response = await fetch(
+        `${referrralEventUrl}/${invitedCode}/register`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${eventToken}`,
+          },
+        }
+      );
 
-        // 버튼의 텍스트를 "친구 초대 링크 복사하기"로 변경
-        connectWalletButton.innerHTML = `    
-          <span class="content-event-button-text">친구 초대 링크 복사하기</span>
+      if (!response.ok) {
+        sessionStorage.removeItem("ivtcode");
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // 성공적으로 호출된 경우 패널 삭제
+      const invitedCodeContainer = document.getElementById(
+        "invited-code-pannel"
+      );
+      if (invitedCodeContainer) {
+        invitedCodeContainer.style.display = "none";
+      }
+    } catch (error) {
+      console.error("Error registering referral code:", error);
+    }
+  }
+
+  if (invitedCodeFromUrl) {
+    sessionStorage.setItem("ivtcode", invitedCodeFromUrl);
+  }
+
+  invitedCode = sessionStorage.getItem("ivtcode");
+
+  if (eventToken && invitedCode) {
+    await registerReferralCode(invitedCode);
+  }
+
+  /*  */
+
+  // v1/event/user/info API 호출하여 데이터 가져오기
+  async function fetchUserInfo(eventToken) {
+    try {
+      const response = await fetch(userInfoApiUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${eventToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // 받아온 데이터로 HTML 요소 채우기
+      if (data && data.event_user) {
+        document.getElementById("inviting-code").textContent =
+          data.event_user.referral_code;
+        document.getElementById("inviting-count").textContent = `${
+          data.referral_count || 0
+        }명`;
+        document.getElementById("acting-count").textContent = `${
+          data.event_user.total_roulette_spins || 0
+        }회`;
+        document.getElementById("accumulated-reward").innerHTML = `${
+          data.total_apt || 0
+        }
+                      <span class="current-content-event-box-bold-unit-text"
+                        >APT</span
+                      >
         `;
 
-        // 상태를 true로 변경하여 이후 클릭 시 복사 기능이 동작하도록 설정
-        isLogined = true;
+        document.getElementById(
+          "current_spin"
+        ).innerHTML = `내 이벤트 참여 기회 <span class="current-opportunity-bold-text">${
+          data.event_user.max_roulette_spins -
+            data.event_user.total_roulette_spins || 0
+        }회</span
+                >&nbsp;/&nbsp;${data.event_user.max_roulette_spins || 0}회
+              </span>
+              </span>
+              `;
 
-        handleLoginStatusChange();
+        spinLeftCount =
+          data.event_user.max_roulette_spins -
+            data.event_user.total_roulette_spins || 0;
+        invitingCode = data.event_user.referral_code;
+        userAccountAddress = data.event_user.account_address; // 필요한 경우 계정 주소 저장
+
+        return data.received_referral_code;
+      }
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+    }
+  }
+
+  /*  */
+
+  let userAccountAddress = null;
+
+  // 유저의 account_address 가져오기
+  async function fetchUserAccountAddress(eventToken) {
+    try {
+      const response = await fetch(userApiUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${eventToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (data && data.account_address) {
+        userAccountAddress = data.account_address;
+      }
+    } catch (error) {
+      console.error("Error fetching user account address:", error);
+    }
+  }
+
+  // 랭킹 데이터 가져오기 및 테이블 업데이트
+  async function fetchAndPopulateRanking() {
+    try {
+      const response = await fetch(rankingApiUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data && data.rankings) {
+        populateRankingTable(data.rankings);
+      }
+    } catch (error) {
+      console.error("Error fetching ranking data:", error);
+    }
+  }
+
+  function populateRankingTable(rankings) {
+    // 기존 내용을 지우고 새로운 데이터로 채웁니다.
+    rankingTableBody.innerHTML = "";
+
+    rankings.forEach((rank, index) => {
+      const row = document.createElement("tr");
+
+      const rankCell = document.createElement("td");
+      rankCell.textContent = index + 1;
+
+      const addressCell = document.createElement("td");
+      addressCell.textContent = `${rank.referrer_address.slice(
+        0,
+        4
+      )}...${rank.referrer_address.slice(-4)}`;
+
+      const countCell = document.createElement("td");
+      countCell.textContent = `${rank.referral_count}명`;
+
+      const rewardCell = document.createElement("td");
+      rewardCell.textContent = `+${rank.reward}APT`;
+
+      // 만약 현재 사용자 주소와 일치하는 행이라면 스타일을 추가합니다.
+      if (userAccountAddress && userAccountAddress === rank.referrer_address) {
+        // 각 셀에 대해 스타일을 적용합니다.
+        [rankCell, addressCell, countCell, rewardCell].forEach((cell) => {
+          cell.style.color = "#3617CE";
+          cell.style.fontFamily = "Gmarket Sans";
+          cell.style.fontSize = "14px";
+          cell.style.fontStyle = "normal";
+          cell.style.fontWeight = "700";
+          cell.style.lineHeight = "normal";
+        });
+      }
+
+      row.appendChild(rankCell);
+      row.appendChild(addressCell);
+      row.appendChild(countCell);
+      row.appendChild(rewardCell);
+
+      rankingTableBody.appendChild(row);
+    });
+  }
+
+  if (eventToken) {
+    await fetchUserAccountAddress(eventToken);
+  }
+
+  // 페이지 로드 시 랭킹 데이터 불러오기
+  await fetchAndPopulateRanking();
+
+  // 30초마다 랭킹을 업데이트
+  setInterval(fetchAndPopulateRanking, 30000);
+
+  /*  */
+
+  const balanceTextElement = document.getElementById("balance-text");
+  const apiUrl = baseUrl + "v1/event/remaining/amount";
+
+  async function updateBalance() {
+    try {
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data && data.apt) {
+        aptosBalance = data.apt;
+        const formattedApt = Number(data.apt.toFixed(1)).toLocaleString();
+        balanceTextElement.innerHTML = `${formattedApt}<span class="balance-text-3">&nbsp;APT</span>`;
+      }
+    } catch (error) {
+      console.error("Error fetching remaining amount:", error);
+    }
+  }
+
+  // 페이지 로드 시 초기 수량 업데이트
+  updateBalance();
+
+  // 5초마다 수량 업데이트
+  setInterval(updateBalance, 5000);
+
+  /*  */
+
+  /*  */
+
+  const connectWalletButton = document.getElementById("connect-wallet");
+
+  handleLoginStatusChange();
+
+  async function handleLoginStatusChange() {
+    const invitedCodeContainer = document.getElementById("invited-code-pannel");
+    const invitingCodeContainer = document.getElementById(
+      "inviting-code-pannel"
+    );
+
+    if (isLogined) {
+      invitedCodeContainer.style.display = "flex";
+      invitingCodeContainer.style.display = "flex";
+
+      // 버튼의 텍스트를 "친구 초대 링크 복사하기"로 변경
+      connectWalletButton.innerHTML = `
+      <span class="content-event-button-text">친구 초대 링크 복사하기</span>
+    `;
+
+      // 페이지 로드 시 API 호출하여 정보 가져오기
+      const receivedReferralCode = await fetchUserInfo(eventToken);
+
+      if (receivedReferralCode) {
+        invitedCodeContainer.style.display = "none";
+      }
+    } else {
+      invitedCodeContainer.style.display = "none";
+      invitingCodeContainer.style.display = "none";
+    }
+  }
+
+  if (connectWalletButton) {
+    connectWalletButton.addEventListener("click", async function () {
+      if (!isLogined) {
+        window.location.href = passTwalletUrl;
       } else {
-        // 상태가 true일 때 (즉, 두 번째 클릭부터) 클립보드 복사 기능 동작
-        const textToCopy = "https://example.com/invite"; // 복사할 텍스트를 설정
+        // 현재 URL 가져오기
+        const currentUrl = new URL(window.location.href);
 
-        navigator.clipboard.writeText(textToCopy).then(
+        // appuid 파라미터 제거
+        currentUrl.searchParams.delete("appuid");
+
+        // ivtcode 파라미터 추가 또는 수정
+        const inviteCode = invitingCode; // 원하는 초대 코드를 설정하세요
+        currentUrl.searchParams.set("ivtcode", inviteCode);
+
+        // 수정된 URL을 클립보드에 복사
+        const linkTextToCopy = currentUrl.toString();
+        navigator.clipboard.writeText(linkTextToCopy).then(
           function () {
             // 성공적으로 복사되었을 때 툴팁 표시
             showTooltip(connectWalletButton, "복사되었습니다.");
@@ -52,6 +406,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   } else {
     console.error("connect-wallet 버튼을 찾을 수 없습니다.");
+  }
+
+  const inviteWalletButton = document.getElementById("invite-event");
+
+  if (inviteWalletButton) {
+    inviteWalletButton.addEventListener("click", function () {
+      if (invitingCode) {
+        navigator.clipboard.writeText(invitingCode).then(
+          function () {
+            showTooltip(inviteWalletButton, "복사되었습니다.");
+          },
+          function (err) {
+            console.error("클립보드에 복사할 수 없습니다.", err);
+          }
+        );
+      }
+    });
+  }
+
+  /*  */
+
+  // 초대 링크 복사 버튼 이벤트 리스너
+  const copyLinkButton = document.getElementById("copy-link");
+
+  if (copyLinkButton) {
+    copyLinkButton.addEventListener("click", function () {
+      if (isLogined) {
+        const currentUrl = new URL(window.location.href);
+
+        // appuid 파라미터 제거
+        currentUrl.searchParams.delete("appuid");
+
+        // ivtcode 파라미터 추가 또는 수정
+        const inviteCode = invitingCode; // 초대 코드를 설정
+        currentUrl.searchParams.set("ivtcode", inviteCode);
+
+        // 수정된 URL을 클립보드에 복사
+        const linkTextToCopy = currentUrl.toString();
+        navigator.clipboard.writeText(linkTextToCopy).then(
+          function () {
+            showTooltip(copyLinkButton, "복사되었습니다.");
+          },
+          function (err) {
+            console.error("클립보드에 복사할 수 없습니다.", err);
+          }
+        );
+      }
+    });
   }
 
   function showTooltip(element, message) {
@@ -71,16 +473,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 툴팁의 위치를 중앙으로 맞추기 위해 요소의 크기와 위치를 계산
     const elementRect = element.getBoundingClientRect();
-    const tooltipWidth = tooltip.offsetWidth;
+    /* const tooltipWidth = tooltip.offsetWidth; */
 
     // 버튼의 중앙에 위치시키고, 아래로 5px 간격
-    tooltip.style.top = `${window.scrollY + elementRect.bottom + 5}px`;
-    tooltip.style.left = `${
-      window.scrollX +
-      elementRect.left +
-      elementRect.width / 2 -
-      tooltipWidth / 2
-    }px`;
+    tooltip.style.top = `${elementRect.height + 5}px`;
+    /* tooltip.style.left = `${tooltipWidth / 2}px`; */
 
     // 삼각형(화살표) 요소를 생성합니다.
     const arrow = document.createElement("div");
@@ -98,21 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
     tooltip.appendChild(arrow);
 
     // 툴팁을 DOM에 추가합니다.
-    document.body.appendChild(tooltip);
-
-    // 툴팁이 DOM에 추가된 후에 너비를 계산해야 합니다.
-    tooltip.style.left = `${
-      window.scrollX +
-      elementRect.left +
-      elementRect.width / 2 -
-      tooltip.offsetWidth / 2
-    }px`;
-
-    /* tooltip.style.top = `${element.offsetTop + 65}px`; // 버튼 위에 툴팁을 위치시킴
-    tooltip.style.left = `${element.offsetLeft}px`; */
-
-    // 툴팁을 DOM에 추가합니다.
-    document.body.appendChild(tooltip);
+    element.appendChild(tooltip);
 
     // 2초 후 툴팁 제거
     setTimeout(() => {
@@ -125,11 +508,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const inviteCodeButton = document.getElementById("verify-invite-code");
 
   if (inviteCodeButton) {
-    inviteCodeButton.addEventListener("click", function () {
-      const inviteCodeInput = document.querySelector(".invite-code-input");
-      const inviteCodeText = document.querySelector(".invite-code-text");
-      const inviteCodeButton = document.querySelector(".invite-code-button");
-      const inviteCodeContainer = document.getElementById("invite-code-pannel");
+    inviteCodeButton.addEventListener("click", async function () {
+      const inviteCodeInput = document.getElementById("invite-code-input");
+      const inviteCodeText = document.getElementById("invite-code-text");
+      const invitedCodeContainer = document.getElementById(
+        "invited-code-pannel"
+      );
 
       // 초대 코드 유효성 검사
       const codePattern = /^[A-Z0-9]{8}$/; // 영대문자, 숫자만 허용, 최대 8자
@@ -138,6 +522,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isVerified = false;
       } else {
         isVerified = true;
+        await registerReferralCode(inviteCodeInput.value);
       }
 
       let messageElement = document.getElementById("verify-error-message");
@@ -159,6 +544,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Input 요소 비활성화
         inviteCodeInput.disabled = true;
+        inviteCodeInput.style.color = "#B1B1B1";
 
         // 버튼 스타일 업데이트
         inviteCodeButton.style.display = "flex";
@@ -183,7 +569,7 @@ document.addEventListener("DOMContentLoaded", function () {
           messageElement.style.display = "block";
           messageElement.id = "verify-error-message"; // id 설정
 
-          inviteCodeContainer.appendChild(messageElement);
+          invitedCodeContainer.appendChild(messageElement);
         }
       }
     });
@@ -230,7 +616,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const arrowLocation = (canvasSize / 400) * 1;
     const arrowSize = (canvasSize / 400) * 60;
     const radiusSize = (canvasSize / 400) * 85;
-    const radiusPadding = (radiusSize / 85) * 95;
+    const radiusPadding = (radiusSize / 85) * 85;
     const pieceImageSize = (canvasSize / 250) * 30;
 
     selector.style.top = `${arrowLocation}px`;
@@ -321,28 +707,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  const fetchSpinResult = async () => {
+  const fetchSpinResult = async (eventToken) => {
     try {
-      /* const response = await fetch(
-        "https://dev-kbw-event.myabcwallet.com/v1/event/user",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",            
-          },
-        }
-      );
+      const response = await fetch(roulettePlayApiUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${eventToken}`,
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
-      console.log("Spin result data:", data);
 
-      /* return data.winningIndex; */
-      return null;
+      return data.score_index;
     } catch (error) {
       console.error("Error fetching spin result:", error);
       return null;
@@ -353,17 +734,21 @@ document.addEventListener("DOMContentLoaded", function () {
     spinning = true;
     updateButtonState();
 
-    const randomSpin = Math.floor(Math.random() * list.length);
-    let winningIndex = await fetchSpinResult();
+    rotate = 0; // 초기화
+    canvas.style.transition = "none"; // 초기화
+    canvas.style.transform = `rotate(${rotate}deg)`; // 초기화
 
-    if (winningIndex === null) {
-      winningIndex = randomSpin;
+    const randomSpin = Math.floor(Math.random() * list.length);
+    let selectedIndex = await fetchSpinResult(eventToken);
+
+    if (!selectedIndex) {
+      selectedIndex = randomSpin;
     }
 
     const spins = 30;
     const degreesPerSpin = 360;
     const degreesPerOption = 360 / list.length;
-    const rotationForFixedResult = winningIndex * degreesPerOption;
+    const rotationForFixedResult = selectedIndex * degreesPerOption;
     const additionalSpins = spins * degreesPerSpin + rotationForFixedResult;
 
     rotate += additionalSpins;
@@ -378,21 +763,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }, easeOut * 1000 + 100);
   };
 
-  const getResult = (finalAngle) => {
+  const getResult = async (finalAngle) => {
     const degreesPerOption = 360 / list.length;
     const adjustedAngle = (360 - finalAngle + degreesPerOption / 2) % 360;
-    let winningIndex =
+    let selectedIndex =
       Math.floor(adjustedAngle / degreesPerOption) % list.length;
 
-    if (winningIndex === 0) {
-      winningIndex = list.length - 1;
+    if (selectedIndex === 0) {
+      selectedIndex = list.length - 1;
     } else {
-      winningIndex -= 1;
+      selectedIndex -= 1;
     }
 
-    const selectedItem = list[winningIndex];
+    const selectedItem = list[selectedIndex];
     if (selectedItem) {
-      alert(`Congratulations! ${selectedItem.text}!`);
+      showPopup(`짝짝짝!<br/>${selectedItem.text}에 당첨되었어요!`);
+      await fetchUserInfo(eventToken);
     }
   };
 
@@ -406,8 +792,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  function showPopup(message) {
+    const popupOverlay = document.getElementById("popup");
+    const popupContent = document.getElementById("popup-html");
+    popupContent.innerHTML = message;
+    popupOverlay.style.display = "flex";
+  }
+
+  const closePopupButton = document.getElementById("closePopup");
+
+  closePopupButton.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+
   spinButton.addEventListener("click", () => {
-    if (!spinning) {
+    if (!isLogined) {
+      showPopup("T wallet을 연결해주세요.");
+    } else if (aptosBalance <= 0) {
+      showPopup(`이벤트가<br/>선착순 마감되었습니다.`);
+    } else if (!spinLeftCount) {
+      showPopup(
+        `이벤트 참여 기회를<br/>모두 소진했어요.<br/>더 많은 친구를 초대해보세요!`
+      );
+    } else if (!spinning) {
       spin();
     }
   });
