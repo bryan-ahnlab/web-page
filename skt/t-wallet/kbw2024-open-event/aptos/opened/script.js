@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.access_token;
     } catch (error) {
       console.error("Error fetching twallet signup:", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 
@@ -79,6 +80,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.event_token;
     } catch (error) {
       console.error("Error fetching token event:", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 
@@ -124,6 +126,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error registering referral code:", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 
@@ -195,6 +198,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching user info:", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 
@@ -223,6 +227,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching user account address:", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 
@@ -247,6 +252,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching ranking data:", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 
@@ -331,6 +337,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching remaining amount:", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 
@@ -405,7 +412,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     });
   } else {
-    console.error("connect-wallet 버튼을 찾을 수 없습니다.");
+    console.error("버튼을 찾을 수 없습니다.");
   }
 
   const inviteWalletButton = document.getElementById("invite-event");
@@ -726,6 +733,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.score_index;
     } catch (error) {
       console.error("Error fetching spin result:", error);
+      showPopup("네트워크 연결이 불안정해요.");
       return null;
     }
   };
@@ -821,3 +829,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   updateCanvasSize();
 });
+
+// 전역 범위에 함수 정의
+function initWithAccessToken(access_token) {
+  console.log("access_token, " + access_token + "!");
+}
