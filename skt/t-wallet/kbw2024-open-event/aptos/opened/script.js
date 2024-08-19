@@ -3,6 +3,7 @@ const baseUrl = "https://dev-kbw-event.myabcwallet.com/";
 const passTwalletUrl = baseUrl + "v1/twallet/pass";
 const signupTwalletUrl = baseUrl + "v1/twallet/signup";
 const tokenEventUrl = baseUrl + "v1/twallet/event/token";
+const tokenEventAbcUrl = baseUrl + "v1/abcwallet/event/token";
 
 const referrralEventUrl = baseUrl + "v1/event/referral";
 const rankingApiUrl = baseUrl + "v1/event/ranking";
@@ -192,6 +193,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (appUidFromUrl) {
     accessToken = await fetchTwalletSignup(appUidFromUrl);
+    console.log(`accessToken: ${accessToken}`);
     if (accessToken) {
       eventToken = await fetchTokenEvent(accessToken);
     }
@@ -930,6 +932,33 @@ async function fetchTokenEvent(accessToken) {
     }
   }
 }
+// v1/abcwallet/event/token API 호출하여 데이터 가져오기
+async function fetchAbcTokenEvent(accessToken) {
+  try {
+    const response = await fetch(tokenEventAbcUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return data.event_token;
+  } catch (error) {
+    console.error("Error fetching token event:", error);
+    if (userLang && !userLang.includes("ko")) {
+      showPopup("The network connection is unstable.");
+    } else {
+      showPopup("네트워크 연결이 불안정해요.");
+    }
+  }
+}
 
 function showPopup(message) {
   const popupOverlay = document.getElementById("popup");
@@ -940,9 +969,8 @@ function showPopup(message) {
 
 // 전역 범위에 함수 정의
 async function initWithAccessToken(accessToken) {
-  eventToken = await fetchTokenEvent(accessToken);
   if (accessToken) {
-    eventToken = await fetchTokenEvent(accessToken);
+    eventToken = await fetchAbcTokenEvent(accessToken);
   }
 
   if (accessToken && eventToken) {
