@@ -1,5 +1,16 @@
 const baseUrl = "https://dev-kbw-event.myabcwallet.com/";
 
+const passTwalletUrl = baseUrl + "v1/twallet/pass";
+const signupTwalletUrl = baseUrl + "v1/twallet/signup";
+const tokenEventUrl = baseUrl + "v1/twallet/event/token";
+
+const referrralEventUrl = baseUrl + "v1/event/referral";
+const rankingApiUrl = baseUrl + "v1/event/ranking";
+const userInfoApiUrl = baseUrl + "v1/event/user/info";
+const userApiUrl = baseUrl + "v1/event/user";
+const roulettePlayApiUrl = baseUrl + "v1/event/play/roulette";
+const rankingTableBody = document.getElementById("ranking-table-body");
+
 let isLogined = false;
 let isVerified = false;
 let invitingCode = "";
@@ -9,19 +20,134 @@ let accessToken = "";
 let eventToken = "";
 let aptosBalance = 0;
 let spinLeftCount = 0;
+let userLang = "ko";
 
 document.addEventListener("DOMContentLoaded", async function () {
   /*  */
-  const passTwalletUrl = baseUrl + "v1/twallet/pass";
-  const signupTwalletUrl = baseUrl + "v1/twallet/signup";
-  const tokenEventUrl = baseUrl + "v1/twallet/event/token";
+  function detectLangauge() {
+    userLang = navigator.language || navigator.userLanguage;
+    if (userLang && !userLang.includes("ko")) {
+      switchToEnglish();
+    }
+  }
 
-  const referrralEventUrl = baseUrl + "v1/event/referral";
-  const rankingApiUrl = baseUrl + "v1/event/ranking";
-  const userInfoApiUrl = baseUrl + "v1/event/user/info";
-  const userApiUrl = baseUrl + "v1/event/user";
-  const roulettePlayApiUrl = baseUrl + "v1/event/play/roulette";
-  const rankingTableBody = document.getElementById("ranking-table-body");
+  function switchToEnglish() {
+    document.querySelector(".title-event-text-1").src =
+      "assets/images/title_event_text_en_1.svg";
+    document.querySelector(".title-event-text-2").src =
+      "assets/images/title_event_text_en_2.svg";
+
+    document.querySelector(".content-event-text-1").innerHTML =
+      "Invite&nbsp;friends&nbsp;and play&nbsp;together to&nbsp;get&nbsp;Aptos";
+
+    document.querySelector(".content-event-text-2").innerHTML =
+      "Connect&nbsp;to&nbsp;T&nbsp;wallet, Invite&nbsp;More&nbsp;Friends, Get&nbsp;More&nbsp;Rewards!";
+    document.querySelector(".content-event-button-text").textContent =
+      "Connect T wallet";
+    document.querySelector(".invite-code-text").innerHTML =
+      "If&nbsp;you&nbsp;have&nbsp;the&nbsp;invitation&nbsp;code, please&nbsp;enter&nbsp;here.";
+    document.querySelector(".invite-code-input").placeholder = "e.g. D43X98AD";
+    document.querySelector("#verify-invite-code").textContent = "Confirm";
+
+    /*  */
+    document.querySelector(".balance-text-1").textContent = "Unclaimed";
+    document.querySelector(".balance-text-4").innerHTML =
+      "*&nbsp;Event&nbsp;will&nbsp;end when&nbsp;all&nbsp;rewards&nbsp;are&nbsp;claimed.";
+
+    document.querySelector(".second-section .current-title-text").innerHTML =
+      "Invite&nbsp;friends&nbsp;and spin&nbsp;100% winning&nbsp;roulette";
+
+    document.querySelector("#current_spin").innerHTML =
+      "My Opportunities <span class='current-opportunity-bold-text'>0</span>&nbsp;/&nbsp;0&nbsp;Times";
+
+    document.querySelector(
+      ".current-information-content-1"
+    ).innerHTML = `<span class="current-information-content-text"
+                ><img
+                  class="current-information-content-image"
+                  src="assets/images/checked_icon.svg"
+                />
+                Get&nbsp;3&nbsp;Spins&nbsp;for&nbsp;Connecting</span
+              >
+              <span class="current-information-content-text"
+                >T&nbsp;wallet (1&nbsp;time&nbsp;only)</span
+              >`;
+    document.querySelector(
+      ".current-information-content-2"
+    ).innerHTML = `<span class="current-information-content-text"
+    ><img
+      class="current-information-content-image"
+      src="assets/images/checked_icon.svg"
+    />
+    3&nbsp;More&nbsp;Spins</span
+  >
+  <span class="current-information-content-text"
+    >for&nbsp;an&nbsp;Every&nbsp;Friend&nbsp;You&nbsp;Invite</span
+  >`;
+
+    document.querySelector(".current-content-event-text").textContent =
+      "My Event Status";
+
+    document.querySelectorAll(".current-content-event-box-text")[0].innerHTML =
+      "Accepted<br />Invitations";
+    document.querySelector("#inviting-count").textContent = "0 Friends";
+
+    document.querySelectorAll(".current-content-event-box-text")[1].innerHTML =
+      "Event<br />Entries";
+    document.querySelector("#acting-count").textContent = "0 Times";
+
+    document.querySelectorAll(".current-content-event-box-text")[2].innerHTML =
+      "Total<br />Rewards";
+    document.querySelector("#accumulated-reward").innerHTML =
+      "0<span class='current-content-event-box-bold-unit-text'>APT</span>";
+
+    document.querySelector(".current-content-invitation-title").textContent =
+      "My Code";
+    document.querySelector(".current-content-invitation-button").textContent =
+      "Copy invite link";
+
+    /*  */
+
+    document.querySelector(".third-section .current-title-text").innerHTML =
+      "More&nbsp;Invites&nbsp;= More&nbsp;Rewards!";
+    document.querySelector(".event-description").textContent =
+      "Top 100 Inviters Get Extra Aptos";
+    document.querySelector(".ranking-title").textContent = "Top 100 Inviters";
+
+    const tableHeaders = document.querySelectorAll(".ranking-table th");
+    tableHeaders[0].textContent = "Rank";
+    tableHeaders[1].textContent = "Wallet Add";
+    tableHeaders[2].textContent = "Invites";
+    tableHeaders[3].textContent = "Extra";
+
+    document.querySelector(".notice-container-title").textContent =
+      "Important Notes";
+    const noticeItems = document.querySelectorAll(
+      ".notice-container-content li"
+    );
+    noticeItems[0].textContent =
+      "This event will end once all rewards are claimed on a first-come, first-served basis.";
+    noticeItems[1].textContent =
+      "If participants do not meet the event eligibility criteria (such as nationality) or fail to complete the mission, the rewards may be canceled.";
+    noticeItems[2].textContent =
+      "Each participant can register (accepting invite) an invite code only once, and no additional invitations can be accepted after the first one.";
+    noticeItems[3].textContent =
+      "When a wallet is connected to the event page for the first time via an invite link containing an invite code, the invitation is automatically accepted.";
+    noticeItems[4].textContent =
+      "Participants cannot register their own invite code.";
+    noticeItems[5].textContent =
+      "If the event ends, any remaining roulette participation opportunities will be automatically forfeited.";
+    noticeItems[6].textContent =
+      "Due to network conditions, there may be a delay in rewards delivery after the roulette spin.";
+    noticeItems[7].textContent =
+      "If multiple participants have the same number of invites in the Top Inviter event, the participant who reached that number first will rank higher.";
+    noticeItems[8].textContent =
+      "Rewards for the Top Inviter event will be distributed after the event ends.";
+  }
+
+  detectLangauge();
+
+  /*  */
 
   /*  */
   const currentUrl = window.location.href;
@@ -56,31 +182,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.access_token;
     } catch (error) {
       console.error("Error fetching twallet signup:", error);
-      showPopup("네트워크 연결이 불안정해요.");
-    }
-  }
-
-  // v1/twallet/event/token API 호출하여 데이터 가져오기
-  async function fetchTokenEvent(accessToken) {
-    try {
-      const response = await fetch(tokenEventUrl, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      if (userLang && !userLang.includes("ko")) {
+        showPopup("The network connection is unstable.");
+      } else {
+        showPopup("네트워크 연결이 불안정해요.");
       }
-
-      const data = await response.json();
-
-      return data.event_token;
-    } catch (error) {
-      console.error("Error fetching token event:", error);
-      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 
@@ -126,7 +232,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error registering referral code:", error);
-      showPopup("네트워크 연결이 불안정해요.");
+      if (userLang && !userLang.includes("ko")) {
+        showPopup("The network connection is unstable.");
+      } else {
+        showPopup("네트워크 연결이 불안정해요.");
+      }
     }
   }
 
@@ -141,66 +251,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   /*  */
-
-  // v1/event/user/info API 호출하여 데이터 가져오기
-  async function fetchUserInfo(eventToken) {
-    try {
-      const response = await fetch(userInfoApiUrl, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${eventToken}`,
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-
-      // 받아온 데이터로 HTML 요소 채우기
-      if (data && data.event_user) {
-        document.getElementById("inviting-code").textContent =
-          data.event_user.referral_code;
-        document.getElementById("inviting-count").textContent = `${
-          data.referral_count || 0
-        }명`;
-        document.getElementById("acting-count").textContent = `${
-          data.event_user.total_roulette_spins || 0
-        }회`;
-        document.getElementById("accumulated-reward").innerHTML = `${
-          data.total_apt || 0
-        }
-                      <span class="current-content-event-box-bold-unit-text"
-                        >APT</span
-                      >
-        `;
-
-        document.getElementById(
-          "current_spin"
-        ).innerHTML = `내 이벤트 참여 기회 <span class="current-opportunity-bold-text">${
-          data.event_user.max_roulette_spins -
-            data.event_user.total_roulette_spins || 0
-        }회</span
-                >&nbsp;/&nbsp;${data.event_user.max_roulette_spins || 0}회
-              </span>
-              </span>
-              `;
-
-        spinLeftCount =
-          data.event_user.max_roulette_spins -
-            data.event_user.total_roulette_spins || 0;
-        invitingCode = data.event_user.referral_code;
-        userAccountAddress = data.event_user.account_address; // 필요한 경우 계정 주소 저장
-
-        return data.received_referral_code;
-      }
-    } catch (error) {
-      console.error("Error fetching user info:", error);
-      showPopup("네트워크 연결이 불안정해요.");
-    }
-  }
 
   /*  */
 
@@ -227,7 +277,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching user account address:", error);
-      showPopup("네트워크 연결이 불안정해요.");
+      if (userLang && !userLang.includes("ko")) {
+        showPopup("The network connection is unstable.");
+      } else {
+        showPopup("네트워크 연결이 불안정해요.");
+      }
     }
   }
 
@@ -252,7 +306,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching ranking data:", error);
-      showPopup("네트워크 연결이 불안정해요.");
+      if (userLang && !userLang.includes("ko")) {
+        showPopup("The network connection is unstable.");
+      } else {
+        showPopup("네트워크 연결이 불안정해요.");
+      }
     }
   }
 
@@ -273,10 +331,15 @@ document.addEventListener("DOMContentLoaded", async function () {
       )}...${rank.referrer_address.slice(-4)}`;
 
       const countCell = document.createElement("td");
-      countCell.textContent = `${rank.referral_count}명`;
+
+      if (userLang && !userLang.includes("ko")) {
+        countCell.textContent = `${rank.referral_count}`;
+      } else {
+        countCell.textContent = `${rank.referral_count}명`;
+      }
 
       const rewardCell = document.createElement("td");
-      rewardCell.textContent = `+${rank.reward}APT`;
+      rewardCell.textContent = `+${rank.reward} APT`;
 
       // 만약 현재 사용자 주소와 일치하는 행이라면 스타일을 추가합니다.
       if (userAccountAddress && userAccountAddress === rank.referrer_address) {
@@ -337,7 +400,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching remaining amount:", error);
-      showPopup("네트워크 연결이 불안정해요.");
+      if (userLang && !userLang.includes("ko")) {
+        showPopup("The network connection is unstable.");
+      } else {
+        showPopup("네트워크 연결이 불안정해요.");
+      }
     }
   }
 
@@ -351,36 +418,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   /*  */
 
-  const connectWalletButton = document.getElementById("connect-wallet");
-
   handleLoginStatusChange();
 
-  async function handleLoginStatusChange() {
-    const invitedCodeContainer = document.getElementById("invited-code-pannel");
-    const invitingCodeContainer = document.getElementById(
-      "inviting-code-pannel"
-    );
-
-    if (isLogined) {
-      invitedCodeContainer.style.display = "flex";
-      invitingCodeContainer.style.display = "flex";
-
-      // 버튼의 텍스트를 "친구 초대 링크 복사하기"로 변경
-      connectWalletButton.innerHTML = `
-      <span class="content-event-button-text">친구 초대 링크 복사하기</span>
-    `;
-
-      // 페이지 로드 시 API 호출하여 정보 가져오기
-      const receivedReferralCode = await fetchUserInfo(eventToken);
-
-      if (receivedReferralCode) {
-        invitedCodeContainer.style.display = "none";
-      }
-    } else {
-      invitedCodeContainer.style.display = "none";
-      invitingCodeContainer.style.display = "none";
-    }
-  }
+  const connectWalletButton = document.getElementById("connect-wallet");
 
   if (connectWalletButton) {
     connectWalletButton.addEventListener("click", async function () {
@@ -402,7 +442,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         navigator.clipboard.writeText(linkTextToCopy).then(
           function () {
             // 성공적으로 복사되었을 때 툴팁 표시
-            showTooltip(connectWalletButton, "복사되었습니다.");
+            if (userLang && !userLang.includes("ko")) {
+              showTooltip(connectWalletButton, "Copied!");
+            } else {
+              showTooltip(connectWalletButton, "복사되었습니다.");
+            }
           },
           function (err) {
             // 복사 실패 시
@@ -422,7 +466,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (invitingCode) {
         navigator.clipboard.writeText(invitingCode).then(
           function () {
-            showTooltip(inviteWalletButton, "복사되었습니다.");
+            if (userLang && !userLang.includes("ko")) {
+              showTooltip(inviteWalletButton, "Copied!");
+            } else {
+              showTooltip(inviteWalletButton, "복사되었습니다.");
+            }
           },
           function (err) {
             console.error("클립보드에 복사할 수 없습니다.", err);
@@ -453,7 +501,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         const linkTextToCopy = currentUrl.toString();
         navigator.clipboard.writeText(linkTextToCopy).then(
           function () {
-            showTooltip(copyLinkButton, "복사되었습니다.");
+            if (userLang && !userLang.includes("ko")) {
+              showTooltip(copyLinkButton, "Copied!");
+            } else {
+              showTooltip(copyLinkButton, "복사되었습니다.");
+            }
           },
           function (err) {
             console.error("클립보드에 복사할 수 없습니다.", err);
@@ -569,7 +621,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         // 유효성 검사를 통과하지 못한 경우, 오류 메시지를 표시
         if (!messageElement) {
           messageElement = document.createElement("span");
-          messageElement.textContent = "코드를 다시 확인해주세요.";
+
+          if (userLang && !userLang.includes("ko")) {
+            messageElement.textContent = "Please check your code again.";
+          } else {
+            messageElement.textContent = "코드를 다시 확인해주세요.";
+          }
+
           messageElement.style.color = "#FF0000"; // 빨간색 텍스트
           messageElement.style.marginTop = "10px"; // 약간의 여백 추가
           messageElement.style.marginLeft = "10px"; // 약간의 여백 추가
@@ -733,7 +791,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.score_index;
     } catch (error) {
       console.error("Error fetching spin result:", error);
-      showPopup("네트워크 연결이 불안정해요.");
+      if (userLang && !userLang.includes("ko")) {
+        showPopup("The network connection is unstable.");
+      } else {
+        showPopup("네트워크 연결이 불안정해요.");
+      }
       return null;
     }
   };
@@ -785,7 +847,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const selectedItem = list[selectedIndex];
     if (selectedItem) {
-      showPopup(`짝짝짝!<br/>${selectedItem.text}에 당첨되었어요!`);
+      if (userLang && !userLang.includes("ko")) {
+        showPopup(`Congratulations!<br/>You've won ${selectedItem.text}!`);
+      } else {
+        showPopup(`짝짝짝!<br/>${selectedItem.text}에 당첨되었어요!`);
+      }
       await fetchUserInfo(eventToken);
     }
   };
@@ -800,13 +866,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
-  function showPopup(message) {
-    const popupOverlay = document.getElementById("popup");
-    const popupContent = document.getElementById("popup-html");
-    popupContent.innerHTML = message;
-    popupOverlay.style.display = "flex";
-  }
-
   const closePopupButton = document.getElementById("closePopup");
 
   closePopupButton.addEventListener("click", function () {
@@ -815,13 +874,27 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   spinButton.addEventListener("click", () => {
     if (!isLogined) {
-      showPopup("T wallet을 연결해주세요.");
+      if (userLang && !userLang.includes("ko")) {
+        showPopup("Please connect T wallet.");
+      } else {
+        showPopup("T wallet을 연결해주세요.");
+      }
     } else if (aptosBalance <= 0) {
-      showPopup(`이벤트가<br/>선착순 마감되었습니다.`);
+      if (userLang && !userLang.includes("ko")) {
+        showPopup("The event has ended.");
+      } else {
+        showPopup(`이벤트가<br/>선착순 마감되었습니다.`);
+      }
     } else if (!spinLeftCount) {
-      showPopup(
-        `이벤트 참여 기회를<br/>모두 소진했어요.<br/>더 많은 친구를 초대해보세요!`
-      );
+      if (userLang && !userLang.includes("ko")) {
+        showPopup(
+          "You've used all your event<br/>participation chances.<br/>Try invite more friends!"
+        );
+      } else {
+        showPopup(
+          `이벤트 참여 기회를<br/>모두 소진했어요.<br/>더 많은 친구를 초대해보세요!`
+        );
+      }
     } else if (!spinning) {
       spin();
     }
@@ -830,7 +903,178 @@ document.addEventListener("DOMContentLoaded", async function () {
   updateCanvasSize();
 });
 
+// v1/twallet/event/token API 호출하여 데이터 가져오기
+async function fetchTokenEvent(accessToken) {
+  try {
+    const response = await fetch(tokenEventUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return data.event_token;
+  } catch (error) {
+    console.error("Error fetching token event:", error);
+    if (userLang && !userLang.includes("ko")) {
+      showPopup("The network connection is unstable.");
+    } else {
+      showPopup("네트워크 연결이 불안정해요.");
+    }
+  }
+}
+
+function showPopup(message) {
+  const popupOverlay = document.getElementById("popup");
+  const popupContent = document.getElementById("popup-html");
+  popupContent.innerHTML = message;
+  popupOverlay.style.display = "flex";
+}
+
 // 전역 범위에 함수 정의
-function initWithAccessToken(access_token) {
-  console.log("access_token, " + access_token + "!");
+async function initWithAccessToken(accessToken) {
+  eventToken = await fetchTokenEvent(accessToken);
+  if (accessToken) {
+    eventToken = await fetchTokenEvent(accessToken);
+  }
+
+  if (accessToken && eventToken) {
+    isLogined = true;
+    await handleLoginStatusChange(); // 로그인 상태에 맞춰 UI와 데이터를 업데이트
+  } else {
+    isLogined = false;
+  }
+}
+
+async function handleLoginStatusChange() {
+  const invitedCodeContainer = document.getElementById("invited-code-pannel");
+  const invitingCodeContainer = document.getElementById("inviting-code-pannel");
+  const connectWalletButton = document.getElementById("connect-wallet");
+
+  if (isLogined) {
+    invitedCodeContainer.style.display = "flex";
+    invitingCodeContainer.style.display = "flex";
+
+    // 버튼의 텍스트를 "친구 초대 링크 복사하기"로 변경
+    if (userLang && !userLang.includes("ko")) {
+      connectWalletButton.innerHTML = `
+      <span class="content-event-button-text">Copy invite link</span>
+    `;
+    } else {
+      connectWalletButton.innerHTML = `
+      <span class="content-event-button-text">친구 초대 링크 복사하기</span>
+    `;
+    }
+
+    // 페이지 로드 시 API 호출하여 정보 가져오기
+    const receivedReferralCode = await fetchUserInfo(eventToken);
+
+    if (receivedReferralCode) {
+      invitedCodeContainer.style.display = "none";
+    }
+  } else {
+    invitedCodeContainer.style.display = "none";
+    invitingCodeContainer.style.display = "none";
+  }
+}
+
+// v1/event/user/info API 호출하여 데이터 가져오기
+async function fetchUserInfo(eventToken) {
+  try {
+    const response = await fetch(userInfoApiUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${eventToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // 받아온 데이터로 HTML 요소 채우기
+    if (data && data.event_user) {
+      document.getElementById("inviting-code").textContent =
+        data.event_user.referral_code;
+
+      if (userLang && !userLang.includes("ko")) {
+        document.getElementById("inviting-count").textContent = `${
+          data.referral_count || 0
+        }`;
+      } else {
+        document.getElementById("inviting-count").textContent = `${
+          data.referral_count || 0
+        }명`;
+      }
+
+      if (userLang && !userLang.includes("ko")) {
+        document.getElementById("acting-count").textContent = `${
+          data.event_user.total_roulette_spins || 0
+        } Times`;
+      } else {
+        document.getElementById("acting-count").textContent = `${
+          data.event_user.total_roulette_spins || 0
+        }회`;
+      }
+
+      document.getElementById("accumulated-reward").innerHTML = `${
+        data.total_apt || 0
+      }
+                    <span class="current-content-event-box-bold-unit-text"
+                      >APT</span
+                    >
+      `;
+
+      if (userLang && !userLang.includes("ko")) {
+        document.getElementById(
+          "current_spin"
+        ).innerHTML = `My Opportunities <span class="current-opportunity-bold-text">${
+          data.event_user.max_roulette_spins -
+            data.event_user.total_roulette_spins || 0
+        }</span
+                >&nbsp;/&nbsp;${
+                  data.event_user.max_roulette_spins || 0
+                }&nbsp;Times
+              </span>
+              </span>
+              `;
+      } else {
+        document.getElementById(
+          "current_spin"
+        ).innerHTML = `내 이벤트 참여 기회 <span class="current-opportunity-bold-text">${
+          data.event_user.max_roulette_spins -
+            data.event_user.total_roulette_spins || 0
+        }회</span
+                >&nbsp;/&nbsp;${data.event_user.max_roulette_spins || 0}회
+              </span>
+              </span>
+              `;
+      }
+
+      spinLeftCount =
+        data.event_user.max_roulette_spins -
+          data.event_user.total_roulette_spins || 0;
+      invitingCode = data.event_user.referral_code;
+      userAccountAddress = data.event_user.account_address; // 필요한 경우 계정 주소 저장
+
+      return data.received_referral_code;
+    }
+  } catch (error) {
+    console.error("Error fetching user info:", error);
+    if (userLang && !userLang.includes("ko")) {
+      showPopup("The network connection is unstable.");
+    } else {
+      showPopup("네트워크 연결이 불안정해요.");
+    }
+  }
 }

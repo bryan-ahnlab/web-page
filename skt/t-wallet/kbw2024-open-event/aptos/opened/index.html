@@ -250,7 +250,6 @@
         justify-content: center;
         align-items: center;
         gap: 6px;
-        width: 272px;
       }
 
       .first-section .invite-code-input {
@@ -411,6 +410,7 @@
         letter-spacing: -0.5px;
 
         margin-bottom: 12px;
+        padding: 0px 16px;
       }
 
       .second-section .roulette-container {
@@ -460,7 +460,15 @@
         line-height: normal;
       }
 
-      .second-section .current-information-content {
+      .second-section .current-information-content-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 18px;
+      }
+      .second-section .current-information-content-2 {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -688,6 +696,7 @@
         letter-spacing: -0.5px;
 
         margin-bottom: 16px;
+        padding: 0px 16px;
       }
 
       .third-section .event-description {
@@ -719,7 +728,7 @@
         flex-direction: column;
         max-width: 528px;
         width: 100%;
-        padding: 0px 16px;
+        padding: 0px 12px;
         box-sizing: border-box;
       }
 
@@ -802,7 +811,7 @@
       .third-section .ranking-table td:nth-child(1) {
         box-sizing: border-box;
         min-width: 50px; /* 첫 번째 열의 너비 설정 */
-        width: calc(50 / 290 * 100%);
+        width: calc(50 / 300 * 100%);
       }
 
       .third-section .ranking-table th:nth-child(2),
@@ -810,21 +819,21 @@
         box-sizing: border-box;
         min-width: 90px; /* 두 번째 열의 너비 설정 */
         max-width: 90px;
-        width: calc(90 / 290 * 100%);
+        width: calc(90 / 300 * 100%);
       }
 
       .third-section .ranking-table th:nth-child(3),
       .third-section .ranking-table td:nth-child(3) {
         box-sizing: border-box;
         min-width: 70px; /* 세 번째 열의 너비 설정 */
-        width: calc(70 / 290 * 100%);
+        width: calc(70 / 300 * 100%);
       }
 
       .third-section .ranking-table th:nth-child(4),
       .third-section .ranking-table td:nth-child(4) {
         box-sizing: border-box;
         min-width: 80px; /* 네 번째 열의 너비 설정 */
-        width: calc(80 / 290 * 100%);
+        width: calc(90 / 300 * 100%);
       }
 
       /*  */
@@ -965,16 +974,18 @@
           class="title-wallet-logo"
         />
         <img
-          src="assets/images/title_event_text_1.svg"
+          src="assets/images/title_event_text_ko_1.svg"
           alt="title_event_text_1"
           class="title-event-text-1"
         />
         <img
-          src="assets/images/title_event_text_2.svg"
+          src="assets/images/title_event_text_ko_2.svg"
           alt="title_event_text_2"
           class="title-event-text-2"
         />
-        <span class="title-event-text-3"> 2024. 09. 01 ~ 09. 30 </span>
+        <span class="title-event-text-3">
+          2024.&nbsp;09.&nbsp;01&nbsp;~&nbsp;09.&nbsp;30
+        </span>
         <img
           src="assets/images/title_event_image.png"
           alt="title_event_image"
@@ -1070,7 +1081,7 @@
                 >&nbsp;/&nbsp;0회
               </span>
             </div>
-            <div class="current-information-content">
+            <div class="current-information-content-1">
               <span class="current-information-content-text"
                 ><img
                   class="current-information-content-image"
@@ -1082,7 +1093,7 @@
                 >룰렛 돌리기 3번 제공 (최초 1회)</span
               >
             </div>
-            <div class="current-information-content">
+            <div class="current-information-content-2">
               <span class="current-information-content-text"
                 ><img
                   class="current-information-content-image"
@@ -1216,16 +1227,15 @@
                 이벤트 대상 조건(국적 등)에 해당하지 않거나 미션을 완료하지 못한
                 경우 경품 증정이 취소될 수 있습니다.
               </li>
-              <li>초대 코드 등록은 최초 1회만 가능합니다.</li>
               <li>
-                친구의 “초대 코드 링크”를 통해 웹페이지에 접속하여 지갑을
-                연동했을 경우 자동으로 친구의 초대 코드가 등록됩니다.
+                초대 코드 등록(초대 수락)은 1인 1회만 가능하며, 초대를 이미
+                수락한 상태에서 다른 초대를 수락할 수 없습니다.
               </li>
               <li>
-                내 “초대 코드 링크”로 초대한 친구가 이미 다른 초대 코드를 등록한
-                상태라면 나의 초대를 수락할 수 없습니다.
+                초대 코드가 포함된 초대 링크를 통해 이벤트 페이지에 최초 지갑
+                연결 시 자동으로 초대가 수락됩니다.
               </li>
-              <li>Special NFT는 이벤트 종료 후 일괄 증정됩니다.</li>
+              <li>본인의 초대 코드는 등록할 수 없습니다.</li>
               <li>
                 이벤트가 종료되었을 경우 남아있는 룰렛 참여 기회가 자동
                 소멸됩니다.
@@ -1235,7 +1245,7 @@
                 소요될 수 있습니다.
               </li>
               <li>
-                초대왕 이벤트의 초대 수가 동일할 경우 먼저 도달한 고객님의
+                초대왕 이벤트의 초대 수가 동일할 경우 먼저 도달한 참가자의
                 순위가 올라갑니다.
               </li>
               <li>초대왕 이벤트 경품은 이벤트 종료 후 일괄 증정됩니다.</li>
