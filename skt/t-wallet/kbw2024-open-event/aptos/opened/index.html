@@ -42,6 +42,11 @@
         overflow: overlay;
         min-width: 320px;
       }
+      * {
+        -webkit-tap-highlight-color: transparent; /* WebKit 기반 브라우저 */
+        -moz-tap-highlight-color: transparent; /* Firefox (지원하지 않음, 예시로 포함) */
+        -ms-tap-highlight-color: transparent; /* Microsoft Edge (구버전, 지원하지 않음, 예시로 포함) */
+      }
       ::-webkit-scrollbar {
         width: 0;
         height: 0;
@@ -123,6 +128,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 0px 74px;
       }
 
       .first-section .title-wallet-logo {
@@ -165,6 +171,9 @@
         line-height: 32px;
 
         margin-bottom: 12px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: keep-all;
       }
       .first-section .content-event-text-2 {
         color: #000;
@@ -176,6 +185,9 @@
         line-height: 24px;
 
         margin-bottom: 20px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: keep-all;
       }
 
       .first-section .content-event-button {
@@ -413,6 +425,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        width: 100%;
       }
 
       .second-section .current-opportunity-content {
@@ -479,6 +493,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        width: 100%;
+        max-width: 528px;
       }
 
       .second-section .current-content-event-container {
@@ -486,6 +503,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        width: 100%;
+        max-width: 528px;
       }
 
       .second-section .current-content-event-text {
@@ -507,6 +527,9 @@
         justify-content: center;
 
         gap: 4px;
+        width: 100%;
+        padding: 0px 16px;
+        box-sizing: border-box;
       }
       .second-section .current-content-event-box {
         display: flex;
@@ -519,6 +542,7 @@
         border-radius: 10px;
         background: #fff;
         min-width: 96px;
+        width: 100%;
       }
       .second-section .current-content-event-box-text {
         color: #000;
@@ -684,7 +708,7 @@
         font-family: "Gmarket Sans";
         font-size: 20px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 700;
         line-height: normal;
 
         margin-bottom: 16px;
@@ -693,6 +717,10 @@
       .third-section .ranking-table-container {
         display: flex;
         flex-direction: column;
+        max-width: 528px;
+        width: 100%;
+        padding: 0px 16px;
+        box-sizing: border-box;
       }
 
       .third-section .ranking-table {
@@ -700,7 +728,8 @@
         background: #edebf7;
         box-sizing: border-box;
         border-collapse: collapse;
-        table-layout: fixed; /* 모든 열의 너비가 동일하게 고정 */
+        table-layout: fixed;
+        width: 100%;
       }
 
       .third-section .ranking-table thead {
@@ -737,52 +766,65 @@
 
       .third-section .ranking-table th {
         color: #4c4c4c;
+
         font-family: "Gmarket Sans";
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        text-align: left;
+        letter-spacing: -0.14px;
+        /* text-align: left; */
         padding: 16px 10px;
         border: none;
-        /* width: 25%; */ /* 각 열 너비를 동일하게 설정 */
+        text-align: center;
       }
 
       .third-section .ranking-table td {
         color: #4c4c4c;
+
         font-family: "Gmarket Sans";
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        text-align: left;
-        padding: 10px 12px;
+        letter-spacing: -0.14px;
+        /* text-align: left; */
+        padding: 10px 10px;
         border: none;
-        /* width: 25%; */ /* 각 열 너비를 동일하게 설정 */
+        text-align: center;
+      }
+
+      .third-section .ranking-table-body {
+        padding: 16px 0px;
       }
 
       .third-section .ranking-table th:nth-child(1),
       .third-section .ranking-table td:nth-child(1) {
         box-sizing: border-box;
-        min-width: 55px; /* 첫 번째 열의 너비 설정 */
+        min-width: 50px; /* 첫 번째 열의 너비 설정 */
+        width: calc(50 / 290 * 100%);
       }
 
       .third-section .ranking-table th:nth-child(2),
       .third-section .ranking-table td:nth-child(2) {
         box-sizing: border-box;
-        min-width: 105px; /* 두 번째 열의 너비 설정 */
+        min-width: 90px; /* 두 번째 열의 너비 설정 */
+        max-width: 90px;
+        width: calc(90 / 290 * 100%);
       }
 
       .third-section .ranking-table th:nth-child(3),
       .third-section .ranking-table td:nth-child(3) {
         box-sizing: border-box;
         min-width: 70px; /* 세 번째 열의 너비 설정 */
+        width: calc(70 / 290 * 100%);
       }
 
       .third-section .ranking-table th:nth-child(4),
       .third-section .ranking-table td:nth-child(4) {
         box-sizing: border-box;
-        min-width: 85px; /* 네 번째 열의 너비 설정 */
+        min-width: 80px; /* 네 번째 열의 너비 설정 */
+        width: calc(80 / 290 * 100%);
       }
 
       /*  */
@@ -819,6 +861,17 @@
         margin: 0px 0px 28px 0px;
       }
 
+      .footer-section .notice-container-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 528px;
+        padding: 0px 16px;
+        box-sizing: border-box;
+      }
+
       .footer-section .notice-container-content ul {
         color: #2b2b2b;
         font-family: "Gmarket Sans";
@@ -828,7 +881,7 @@
         line-height: 22px;
 
         margin: 0px;
-        padding: 0px 20px 0px 30px;
+        padding: 0px 5px 0px 15px;
         gap: 16px;
         display: flex;
         flex-direction: column;
@@ -836,7 +889,7 @@
       .footer-section .notice-container-content li {
         color: #2b2b2b;
         font-family: "Gmarket Sans";
-        font-size: 16px;
+        font-size: 15px;
         font-style: normal;
         font-weight: 400;
         line-height: 22px;
@@ -928,10 +981,11 @@
           class="title-event-image"
         />
         <span class="content-event-text-1"
-          >친구에게 앱토스 선물하고<br />앱토스 받아가세요</span
+          >친구에게&nbsp;앱토스&nbsp;선물하고<br />앱토스&nbsp;받아가세요</span
         >
         <span class="content-event-text-2"
-          >T wallet 연동하고 더 많은 친구를<br />초대할수록 쏟아지는 혜택!</span
+          >T&nbsp;wallet&nbsp;연동하고&nbsp;더&nbsp;많은&nbsp;친구를
+          초대할수록&nbsp;쏟아지는&nbsp;혜택!</span
         >
         <button class="content-event-button" id="connect-wallet">
           <img
@@ -1143,7 +1197,7 @@
                   <th>추가 혜택</th>
                 </tr>
               </thead>
-              <tbody id="ranking-table-body"></tbody>
+              <tbody class="ranking-table-body" id="ranking-table-body"></tbody>
             </table>
           </div>
         </div>
