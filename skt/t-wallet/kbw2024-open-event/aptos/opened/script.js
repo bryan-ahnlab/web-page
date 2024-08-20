@@ -4,7 +4,7 @@ const passTwalletUrl = baseUrl + "v1/twallet/pass";
 const signupTwalletUrl = baseUrl + "v1/twallet/signup";
 const tokenEventUrl = baseUrl + "v1/twallet/event/token";
 const tokenEventAbcUrl = baseUrl + "v1/abcwallet/event/token";
-
+const generateWalletPassUrl = baseUrl + "v1/mpc/generate/wallet/pass";
 const referrralEventUrl = baseUrl + "v1/event/referral";
 const rankingApiUrl = baseUrl + "v1/event/ranking";
 const userInfoApiUrl = baseUrl + "v1/event/user/info";
@@ -22,6 +22,7 @@ let eventToken = "";
 let aptosBalance = 0;
 let spinLeftCount = 0;
 let userLang = "ko";
+let receivedReferralCode = "";
 
 document.addEventListener("DOMContentLoaded", async function () {
   accessToken = sessionStorage.getItem("access-token");
@@ -156,8 +157,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   detectLangauge();
 
   /*  */
-  const currentUrl = window.location.href;
-
   const urlParams = new URLSearchParams(window.location.search);
   const invitedCodeFromUrl = urlParams.get("ivtcode");
 
@@ -198,8 +197,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       // 현재 URL에서 appuid 파라미터를 제거
       const currentUrl = new URL(window.location.href);
       currentUrl.searchParams.delete("appuid");
-      console.log(currentUrl);
-      console.log(currentUrl.searchParams);
       // appuid가 제거된 URL로 리다이렉트
       window.location.href = currentUrl.toString();
     }
@@ -247,7 +244,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup("네트워크 연결이 불안정해요.");
+        showPopup("네트워크 연결이 불안정해요. (registerReferralCode)", error);
       }
     }
   }
@@ -258,7 +255,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   invitedCode = sessionStorage.getItem("ivt-code");
 
-  if (eventToken && invitedCode) {
+  if (eventToken && invitedCode && !receivedReferralCode) {
+    receivedReferralCode = await fetchUserInfo(eventToken);
     await registerReferralCode(invitedCode);
   }
 
@@ -292,7 +290,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup("네트워크 연결이 불안정해요.");
+        showPopup(
+          "네트워크 연결이 불안정해요. (fetchUserAccountAddress)",
+          error
+        );
       }
     }
   }
@@ -321,7 +322,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup("네트워크 연결이 불안정해요.");
+        showPopup(
+          "네트워크 연결이 불안정해요. (fetchAndPopulateRanking)",
+          error
+        );
       }
     }
   }
@@ -415,7 +419,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup("네트워크 연결이 불안정해요.");
+        showPopup("네트워크 연결이 불안정해요. (updateBalance)", error);
       }
     }
   }
@@ -429,8 +433,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   /*  */
 
   /*  */
-
-  handleLoginStatusChange();
+  if (accessToken && eventToken) {
+    handleLoginStatusChange();
+  }
 
   const connectWalletButton = document.getElementById("connect-wallet");
 
@@ -806,7 +811,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup("네트워크 연결이 불안정해요.");
+        showPopup("네트워크 연결이 불안정해요. (fetchSpinResult)", error);
       }
       return null;
     }
@@ -862,7 +867,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup(`Congratulations!<br/>You've won ${selectedItem.text}!`);
       } else {
-        showPopup(`짝짝짝!<br/>${selectedItem.text}에 당첨되었어요!`);
+        showPopup(
+          `짝짝짝!<br/>${selectedItem.text}에 당첨되었어요!, (getResult)`
+        );
       }
       await fetchUserInfo(eventToken);
     }
@@ -915,10 +922,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   updateCanvasSize();
 });
 
-// v1/twallet/event/token API 호출하여 데이터 가져오기
-async function fetchTokenEvent(accessToken) {
+async function fetchPassWalletGenerate(accessToken) {
   try {
-    const response = await fetch(tokenEventUrl, {
+    const response = await fetch(generateWalletPassUrl, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -935,11 +941,40 @@ async function fetchTokenEvent(accessToken) {
     sessionStorage.setItem("event-token", data.event_token);
     return data.event_token;
   } catch (error) {
+    console.error("Error fetching pass wallet generate:", error);
+    if (userLang && !userLang.includes("ko")) {
+      showPopup("The network connection is unstable.");
+    } else {
+      showPopup("네트워크 연결이 불안정해요. (fetchPassWalletGenerate)", error);
+    }
+  }
+}
+
+async function fetchTokenEvent(accessToken) {
+  try {
+    const response = await fetch(tokenEventUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (data.detail && data.detail === "User not found") {
+      eventToken = await fetchPassWalletGenerate(accessToken);
+      return eventToken;
+    } else {
+      sessionStorage.setItem("event-token", data.event_token);
+      return data.event_token;
+    }
+  } catch (error) {
     console.error("Error fetching token event:", error);
     if (userLang && !userLang.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
-      showPopup("네트워크 연결이 불안정해요.");
+      showPopup("네트워크 연결이 불안정해요. (fetchTokenEvent)", error);
     }
   }
 }
@@ -966,7 +1001,7 @@ async function fetchAbcTokenEvent(accessToken) {
     if (userLang && !userLang.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
-      showPopup("네트워크 연결이 불안정해요.");
+      showPopup("네트워크 연결이 불안정해요. (fetchAbcTokenEvent)", error);
     }
   }
 }
@@ -1013,7 +1048,7 @@ async function handleLoginStatusChange() {
     }
 
     // 페이지 로드 시 API 호출하여 정보 가져오기
-    const receivedReferralCode = await fetchUserInfo(eventToken);
+    receivedReferralCode = await fetchUserInfo(eventToken);
 
     if (receivedReferralCode) {
       invitedCodeContainer.style.display = "none";
@@ -1104,7 +1139,7 @@ async function fetchUserInfo(eventToken) {
       const invitedCodeContainer = document.getElementById(
         "invited-code-pannel"
       );
-      if (invitedCodeContainer) {
+      if (invitedCodeContainer && data.received_referral_code) {
         invitedCodeContainer.style.display = "none";
       }
 
@@ -1121,7 +1156,7 @@ async function fetchUserInfo(eventToken) {
     if (userLang && !userLang.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
-      showPopup("네트워크 연결이 불안정해요.");
+      showPopup("네트워크 연결이 불안정해요. (fetchUserInfo)", error);
     }
   }
 }
