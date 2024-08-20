@@ -188,11 +188,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.access_token;
     } catch (error) {
       console.error("Error fetching twallet signup:", error);
-      /* if (userLang && !userLang.includes("ko")) {
-        showPopup("The network connection is unstable.");
-      } else {
-        showPopup("네트워크 연결이 불안정해요.");
-      } */
 
       // 현재 URL에서 appuid 파라미터를 제거
       const currentUrl = new URL(window.location.href);
@@ -244,7 +239,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup("네트워크 연결이 불안정해요. (registerReferralCode)", error);
+        showPopup("네트워크 연결이 불안정해요.");
       }
     }
   }
@@ -290,10 +285,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup(
-          "네트워크 연결이 불안정해요. (fetchUserAccountAddress)",
-          error
-        );
+        showPopup("네트워크 연결이 불안정해요.");
       }
     }
   }
@@ -322,10 +314,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup(
-          "네트워크 연결이 불안정해요. (fetchAndPopulateRanking)",
-          error
-        );
+        showPopup("네트워크 연결이 불안정해요.");
       }
     }
   }
@@ -419,7 +408,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup("네트워크 연결이 불안정해요. (updateBalance)", error);
+        showPopup("네트워크 연결이 불안정해요.");
       }
     }
   }
@@ -811,7 +800,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
-        showPopup("네트워크 연결이 불안정해요. (fetchSpinResult)", error);
+        showPopup("네트워크 연결이 불안정해요.");
       }
       return null;
     }
@@ -945,7 +934,7 @@ async function fetchPassWalletGenerate(accessToken) {
     if (userLang && !userLang.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
-      showPopup("네트워크 연결이 불안정해요. (fetchPassWalletGenerate)", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 }
@@ -974,7 +963,7 @@ async function fetchTokenEvent(accessToken) {
     if (userLang && !userLang.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
-      showPopup("네트워크 연결이 불안정해요. (fetchTokenEvent)", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 }
@@ -1001,7 +990,7 @@ async function fetchAbcTokenEvent(accessToken) {
     if (userLang && !userLang.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
-      showPopup("네트워크 연결이 불안정해요. (fetchAbcTokenEvent)", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 }
@@ -1156,7 +1145,7 @@ async function fetchUserInfo(eventToken) {
     if (userLang && !userLang.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
-      showPopup("네트워크 연결이 불안정해요. (fetchUserInfo)", error);
+      showPopup("네트워크 연결이 불안정해요.");
     }
   }
 }
