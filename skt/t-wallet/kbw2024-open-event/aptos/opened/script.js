@@ -10,7 +10,7 @@ const fetchEventRankingUrl = baseUrl + "v1/event/ranking";
 const fetchEventRemainingAmountUrl = baseUrl + "v1/event/remaining/amount";
 const fetchEventUserInfoUrl = baseUrl + "v1/event/user/info";
 const fetchEventUserUrl = baseUrl + "v1/event/user";
-const fetchEventPlayRoulette = baseUrl + "v1/event/play/roulette";
+const fetchEventPlayRouletteUrl = baseUrl + "v1/event/play/roulette";
 
 let isLogggedIn = false;
 let isVerified = false;
@@ -20,14 +20,13 @@ let invitingCode = "";
 let appUid = "";
 let accessToken = "";
 let eventToken = "";
+let accountAddress = "";
 let aptosBalance = 0;
 let spinOpportunity = 0;
 let browserLanguage = "ko";
 let receivedReferralCode = "";
 
 document.addEventListener("DOMContentLoaded", async function () {
-  /*  */
-
   accessToken = sessionStorage.getItem("access-token");
   eventToken = sessionStorage.getItem("event-token");
 
@@ -63,15 +62,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.querySelector(".balance-text-1").textContent = "Unclaimed";
     document.querySelector(".balance-text-4").innerHTML =
       "*&nbsp;Event&nbsp;will&nbsp;end when&nbsp;all&nbsp;rewards&nbsp;are&nbsp;claimed.";
-
     document.querySelector(".second-section .current-title-text").innerHTML =
       "Invite&nbsp;friends&nbsp;and spin&nbsp;100% winning&nbsp;roulette";
-
     document.querySelector(
       ".second-section .current-opportunity-text"
     ).innerHTML =
       "My Opportunities <span class='current-opportunity-bold-text'>0</span>&nbsp;/&nbsp;0&nbsp;Times";
-
     document.querySelector(
       ".current-information-content-1"
     ).innerHTML = `<span class="current-information-content-text"
@@ -96,76 +92,76 @@ document.addEventListener("DOMContentLoaded", async function () {
   <span class="current-information-content-text"
     >for&nbsp;an&nbsp;Every&nbsp;Friend&nbsp;You&nbsp;Invite</span
   >`;
-
     document.querySelector(".current-content-event-text").textContent =
       "My Event Status";
-
     document.querySelectorAll(".current-content-event-box-text")[0].innerHTML =
       "Accepted<br />Invitations";
     document.querySelector("#inviting-count").textContent = "0 Friends";
-
     document.querySelectorAll(".current-content-event-box-text")[1].innerHTML =
       "Event<br />Entries";
     document.querySelector("#acting-count").textContent = "0 Times";
-
     document.querySelectorAll(".current-content-event-box-text")[2].innerHTML =
       "Total<br />Rewards";
     document.querySelector("#accumulated-reward").innerHTML =
       "0<span class='current-content-event-box-bold-unit-text'>APT</span>";
-
     document.querySelector(".current-content-invitation-title").textContent =
       "My Code";
     document.querySelector(".current-content-invitation-button").textContent =
       "Copy invite link";
-
     /*  */
-
     document.querySelector(".third-section .current-title-text").innerHTML =
       "More&nbsp;Invites&nbsp;= More&nbsp;Rewards!";
     document.querySelector(".event-description").textContent =
       "Top 100 Inviters Get Extra Aptos";
     document.querySelector(".ranking-title").textContent = "Top 100 Inviters";
 
-    const tableHeaders = document.querySelectorAll(".ranking-table th");
-    tableHeaders[0].textContent = "Rank";
-    tableHeaders[1].textContent = "Wallet Add";
-    tableHeaders[2].textContent = "Invites";
-    tableHeaders[3].textContent = "Extra";
+    const tableHeaderItems = document.querySelectorAll(".ranking-table th");
+    tableHeaderItems[0].textContent = "Rank";
+    tableHeaderItems[1].textContent = "Wallet Add";
+    tableHeaderItems[2].textContent = "Invites";
+    tableHeaderItems[3].textContent = "Extra";
 
     document.querySelector(".notice-container-title").textContent =
       "Important Notes";
-    const noticeItems = document.querySelectorAll(
+    const noticeBodyItems = document.querySelectorAll(
       ".notice-container-content li"
     );
-    noticeItems[0].textContent =
+    noticeBodyItems[0].textContent =
       "This event will end once all rewards are claimed on a first-come, first-served basis.";
-    noticeItems[1].textContent =
+    noticeBodyItems[1].textContent =
       "If participants do not meet the event eligibility criteria (such as nationality) or fail to complete the mission, the rewards may be canceled.";
-    noticeItems[2].textContent =
+    noticeBodyItems[2].textContent =
       "Each participant can register (accepting invite) an invite code only once, and no additional invitations can be accepted after the first one.";
-    noticeItems[3].textContent =
+    noticeBodyItems[3].textContent =
       "When a wallet is connected to the event page for the first time via an invite link containing an invite code, the invitation is automatically accepted.";
-    noticeItems[4].textContent =
+    noticeBodyItems[4].textContent =
       "Participants cannot register their own invite code.";
-    noticeItems[5].textContent =
+    noticeBodyItems[5].textContent =
       "If the event ends, any remaining roulette participation opportunities will be automatically forfeited.";
-    noticeItems[6].textContent =
+    noticeBodyItems[6].textContent =
       "Due to network conditions, there may be a delay in rewards delivery after the roulette spin.";
-    noticeItems[7].textContent =
+    noticeBodyItems[7].textContent =
       "If multiple participants have the same number of invites in the Top Inviter event, the participant who reached that number first will rank higher.";
-    noticeItems[8].textContent =
+    noticeBodyItems[8].textContent =
       "Rewards for the Top Inviter event will be distributed after the event ends.";
   }
 
   await detectLangauge();
 
   /*  */
+
   const urlParams = new URLSearchParams(window.location.search);
   const invitedCodeFromUrl = urlParams.get("ivtcode");
-
   const appUidFromUrl = urlParams.get("appuid");
 
-  // v1/twallet/sugbyo API 호출하여 데이터 가져오기
+  /*  */
+
+  if (invitedCodeFromUrl) {
+    sessionStorage.setItem("ivt-code", invitedCodeFromUrl);
+  }
+
+  /*  */
+
   async function fetchTwalletSignup(appuid) {
     try {
       const params = {
@@ -191,14 +187,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.access_token;
     } catch (error) {
       console.error("Error fetching twallet signup:", error);
-
-      // 현재 URL에서 appuid 파라미터를 제거
       const currentUrl = new URL(window.location.href);
       currentUrl.searchParams.delete("appuid");
-      // appuid가 제거된 URL로 리다이렉트
       window.location.href = currentUrl.toString();
     }
   }
+
+  /*  */
 
   if (appUidFromUrl) {
     try {
@@ -220,7 +215,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   /*  */
 
-  async function registerReferralCode(invitedCode) {
+  async function fetchEventReferral(invitedCode) {
     try {
       const response = await fetch(
         `${fetchEventReferralUrl}/${invitedCode}/register`,
@@ -233,9 +228,19 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
       );
 
-      if (!response.ok) {
+      const data = await response.json();
+
+      if (
+        data.detail &&
+        data.detail ===
+          "Referrer code cannot be the same as the user's account address"
+      ) {
+        if (browserLanguage && !browserLanguage.includes("ko")) {
+          showPopup("You cannot register with your own code.");
+        } else {
+          showPopup("자신의 코드로<br />등록할 수 없습니다.");
+        }
         sessionStorage.removeItem("ivt-code");
-        throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
       console.error("Error registering referral code:", error);
@@ -247,25 +252,19 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  if (invitedCodeFromUrl) {
-    sessionStorage.setItem("ivt-code", invitedCodeFromUrl);
-  }
+  /*  */
 
   invitedCode = sessionStorage.getItem("ivt-code");
+  /* eventToken = sessionStorage.getItem("event-token"); */
 
   if (eventToken && invitedCode && !receivedReferralCode) {
     receivedReferralCode = await fetchEventUserInfo(eventToken);
-    await registerReferralCode(invitedCode);
+    await fetchEventReferral(invitedCode);
   }
 
   /*  */
 
-  /*  */
-
-  let userAccountAddress = null;
-
-  // 유저의 account_address 가져오기
-  async function fetchUserAccountAddress(eventToken) {
+  async function fetchEventUser(eventToken) {
     try {
       const response = await fetch(fetchEventUserUrl, {
         method: "GET",
@@ -281,7 +280,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       const data = await response.json();
       if (data && data.account_address) {
-        userAccountAddress = data.account_address;
+        accountAddress = data.account_address;
       }
     } catch (error) {
       console.error("Error fetching user account address:", error);
@@ -293,8 +292,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  // 랭킹 데이터 가져오기 및 테이블 업데이트
-  async function fetchAndPopulateRanking() {
+  /*  */
+
+  async function fetchEventRanking() {
     try {
       const response = await fetch(fetchEventRankingUrl, {
         method: "GET",
@@ -322,9 +322,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
+  /*  */
+
   function populateRankingTable(rankings) {
     const rankingTableBody = document.getElementById("ranking-table-body");
-    // 기존 내용을 지우고 새로운 데이터로 채웁니다.
+
     rankingTableBody.innerHTML = "";
 
     rankings.forEach((rank, index) => {
@@ -350,9 +352,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const rewardCell = document.createElement("td");
       rewardCell.textContent = `+${rank.reward} APT`;
 
-      // 만약 현재 사용자 주소와 일치하는 행이라면 스타일을 추가합니다.
-      if (userAccountAddress && userAccountAddress === rank.referrer_address) {
-        // 각 셀에 대해 스타일을 적용합니다.
+      if (accountAddress && accountAddress === rank.referrer_address) {
         [rankCell, addressCell, countCell, rewardCell].forEach((cell) => {
           cell.style.color = "#3617CE";
           cell.style.fontFamily = "Gmarket Sans";
@@ -373,21 +373,21 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   if (eventToken) {
-    await fetchUserAccountAddress(eventToken);
+    await fetchEventUser(eventToken);
   }
-
-  // 페이지 로드 시 랭킹 데이터 불러오기
-  await fetchAndPopulateRanking();
-
-  // 30초마다 랭킹을 업데이트
-  setInterval(fetchAndPopulateRanking, 30000);
 
   /*  */
 
-  const balanceTextElement = document.getElementById("balance-text");
+  await fetchEventRanking();
 
-  async function updateBalance() {
+  setInterval(fetchEventRanking, 30000);
+
+  /*  */
+
+  async function fetchEventRemainingAmount() {
     try {
+      const balanceTextElement = document.getElementById("balance-text");
+
       const response = await fetch(fetchEventRemainingAmountUrl, {
         method: "GET",
         headers: {
@@ -417,17 +417,18 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   // 페이지 로드 시 초기 수량 업데이트
-  updateBalance();
+  fetchEventRemainingAmount();
 
   // 5초마다 수량 업데이트
-  setInterval(updateBalance, 5000);
+  setInterval(fetchEventRemainingAmount, 5000);
 
   /*  */
 
-  /*  */
   if (accessToken && eventToken) {
     handleStatus(eventToken);
   }
+
+  /*  */
 
   const connectWalletButton = document.getElementById("connect-wallet-button");
 
@@ -436,36 +437,28 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (!isLogggedIn) {
         window.location.href = fetchTwalletPassUrl;
       } else {
-        // 현재 URL 가져오기
         const currentUrl = new URL(window.location.href);
 
-        // appuid 파라미터 제거
         currentUrl.searchParams.delete("appuid");
 
-        // ivtcode 파라미터 추가 또는 수정
-        const inviteCode = invitingCode; // 원하는 초대 코드를 설정하세요
+        const inviteCode = invitingCode;
         currentUrl.searchParams.set("ivtcode", inviteCode);
 
-        // 수정된 URL을 클립보드에 복사
         const linkTextToCopy = currentUrl.toString();
         navigator.clipboard.writeText(linkTextToCopy).then(
           function () {
-            // 성공적으로 복사되었을 때 툴팁 표시
             if (browserLanguage && !browserLanguage.includes("ko")) {
               showTooltip(connectWalletButton, "Copied!");
             } else {
               showTooltip(connectWalletButton, "복사되었습니다.");
             }
           },
-          function (err) {
-            // 복사 실패 시
-            console.error("클립보드에 복사할 수 없습니다.", err);
+          function (error) {
+            console.error("Error copying clipboard:", error);
           }
         );
       }
     });
-  } else {
-    console.error("버튼을 찾을 수 없습니다.");
   }
 
   const inviteWalletButton = document.getElementById("invite-event");
@@ -481,8 +474,8 @@ document.addEventListener("DOMContentLoaded", async function () {
               showTooltip(inviteWalletButton, "복사되었습니다.");
             }
           },
-          function (err) {
-            console.error("클립보드에 복사할 수 없습니다.", err);
+          function (error) {
+            console.error("Error copying clipboard:", error);
           }
         );
       }
@@ -491,22 +484,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   /*  */
 
-  // 초대 링크 복사 버튼 이벤트 리스너
   const copyLinkButton = document.getElementById("copy-link");
 
   if (copyLinkButton) {
     copyLinkButton.addEventListener("click", function () {
       if (isLogggedIn) {
         const currentUrl = new URL(window.location.href);
-
-        // appuid 파라미터 제거
         currentUrl.searchParams.delete("appuid");
-
-        // ivtcode 파라미터 추가 또는 수정
-        const inviteCode = invitingCode; // 초대 코드를 설정
+        const inviteCode = invitingCode;
         currentUrl.searchParams.set("ivtcode", inviteCode);
 
-        // 수정된 URL을 클립보드에 복사
         const linkTextToCopy = currentUrl.toString();
         navigator.clipboard.writeText(linkTextToCopy).then(
           function () {
@@ -516,21 +503,21 @@ document.addEventListener("DOMContentLoaded", async function () {
               showTooltip(copyLinkButton, "복사되었습니다.");
             }
           },
-          function (err) {
-            console.error("클립보드에 복사할 수 없습니다.", err);
+          function (error) {
+            console.error("Error copying clipboard:", error);
           }
         );
       }
     });
   }
 
+  /*  */
+
   function showTooltip(element, message) {
-    // 툴팁을 생성합니다.
     const tooltip = document.createElement("span");
     tooltip.className = "tooltip";
     tooltip.textContent = message;
 
-    // 툴팁 스타일
     tooltip.style.position = "absolute";
     tooltip.style.backgroundColor = "#333";
     tooltip.style.color = "#fff";
@@ -539,15 +526,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     tooltip.style.fontSize = "14px";
     tooltip.style.zIndex = "10";
 
-    // 툴팁의 위치를 중앙으로 맞추기 위해 요소의 크기와 위치를 계산
     const elementRect = element.getBoundingClientRect();
-    /* const tooltipWidth = tooltip.offsetWidth; */
 
-    // 버튼의 중앙에 위치시키고, 아래로 5px 간격
     tooltip.style.top = `${elementRect.height + 5}px`;
     /* tooltip.style.left = `${tooltipWidth / 2}px`; */
 
-    // 삼각형(화살표) 요소를 생성합니다.
     const arrow = document.createElement("div");
     arrow.style.position = "absolute";
     arrow.style.top = "-5px";
@@ -557,15 +540,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     arrow.style.height = "0";
     arrow.style.borderLeft = "5px solid transparent";
     arrow.style.borderRight = "5px solid transparent";
-    arrow.style.borderBottom = "5px solid #333"; // 삼각형의 색상을 툴팁의 배경과 맞춥니다.
+    arrow.style.borderBottom = "5px solid #333";
 
-    // 툴팁에 화살표를 추가합니다.
     tooltip.appendChild(arrow);
 
-    // 툴팁을 DOM에 추가합니다.
     element.appendChild(tooltip);
 
-    // 2초 후 툴팁 제거
     setTimeout(() => {
       tooltip.remove();
     }, 2000);
@@ -581,25 +561,22 @@ document.addEventListener("DOMContentLoaded", async function () {
       const inviteCodeText = document.getElementById("invite-code-text");
       const invitedCodePannel = document.getElementById("invited-code-pannel");
 
-      // 초대 코드 유효성 검사
-      const codePattern = /^[A-Z0-9]{8}$/; // 영대문자, 숫자만 허용, 최대 8자
+      const codePattern = /^[A-Z0-9]{8}$/;
 
       if (!codePattern.test(inviteCodeInput.value)) {
         isVerified = false;
       } else {
         isVerified = true;
-        await registerReferralCode(inviteCodeInput.value);
+        await fetchEventReferral(inviteCodeInput.value);
       }
 
       let messageElement = document.getElementById("verify-error-message");
 
       if (isVerified) {
-        // 유효성 검사를 통과한 경우, 기존 메시지를 삭제
         if (messageElement) {
           messageElement.remove();
         }
 
-        // 버튼 텍스트를 "등록완료"로 변경
         inviteCodeButton.textContent = "등록완료";
         inviteCodeButton.style.border = "#E3E4E8";
         inviteCodeButton.style.backgroundColor = "#E3E4E8";
@@ -608,11 +585,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         inviteCodeText.innerHTML = "초대해 준 친구에게<br />혜택이 돌아갔어요!";
 
-        // Input 요소 비활성화
         inviteCodeInput.disabled = true;
         inviteCodeInput.style.color = "#B1B1B1";
 
-        // 버튼 스타일 업데이트
         inviteCodeButton.style.display = "flex";
         inviteCodeButton.style.padding = "16px";
         inviteCodeButton.style.justifyContent = "center";
@@ -625,7 +600,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         inviteCodeButton.style.fontWeight = "500";
         inviteCodeButton.style.lineHeight = "normal";
       } else {
-        // 유효성 검사를 통과하지 못한 경우, 오류 메시지를 표시
         if (!messageElement) {
           messageElement = document.createElement("span");
 
@@ -683,7 +657,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   let easeOut = 3;
   let spinning = false;
 
-  const updateCanvasSize = () => {
+  const renderCanvas = () => {
     const canvasSize = 300;
     const arrowLocation = (canvasSize / 400) * 1;
     const arrowSize = (canvasSize / 400) * 60;
@@ -779,9 +753,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
-  const fetchSpinResult = async (eventToken) => {
+  const fetchEventPlayRoulette = async (eventToken) => {
     try {
-      const response = await fetch(fetchEventPlayRoulette, {
+      const response = await fetch(fetchEventPlayRouletteUrl, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${eventToken}`,
@@ -807,6 +781,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
+  /*  */
+
   const spin = async () => {
     spinning = true;
     updateButtonState();
@@ -816,7 +792,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     canvas.style.transform = `rotate(${rotate}deg)`; // 초기화
 
     const randomSpin = Math.floor(Math.random() * list.length);
-    let selectedIndex = await fetchSpinResult(eventToken);
+    let selectedIndex = await fetchEventPlayRoulette(eventToken);
 
     if (!selectedIndex) {
       selectedIndex = randomSpin;
@@ -855,13 +831,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     const selectedItem = list[selectedIndex];
     if (selectedItem) {
       if (browserLanguage && !browserLanguage.includes("ko")) {
-        showPopup(`Congratulations!<br/>You've won ${selectedItem.text}!`);
+        showPopup(`Congratulations!<br />You've won ${selectedItem.text}!`);
       } else {
-        showPopup(`짝짝짝!<br/>${selectedItem.text}에 당첨되었어요!`);
+        showPopup(`짝짝짝!<br />${selectedItem.text}에 당첨되었어요!`);
       }
       await fetchEventUserInfo(eventToken);
     }
   };
+
+  /*  */
 
   const updateButtonState = () => {
     if (spinning) {
@@ -873,11 +851,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
-  const closePopupButton = document.getElementById("closePopup");
+  /*  */
+
+  const closePopupButton = document.getElementById("close-popup");
 
   closePopupButton.addEventListener("click", function () {
     popup.style.display = "none";
   });
+
+  /*  */
 
   spinButton.addEventListener("click", () => {
     if (!isLogggedIn) {
@@ -890,16 +872,16 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The event has ended.");
       } else {
-        showPopup(`이벤트가<br/>선착순 마감되었습니다.`);
+        showPopup(`이벤트가<br />선착순 마감되었습니다.`);
       }
     } else if (!spinOpportunity) {
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup(
-          "You've used all your event<br/>participation chances.<br/>Try invite more friends!"
+          "You've used all your event<br />participation chances.<br />Try invite more friends!"
         );
       } else {
         showPopup(
-          `이벤트 참여 기회를<br/>모두 소진했어요.<br/>더 많은 친구를 초대해보세요!`
+          `이벤트 참여 기회를<br />모두 소진했어요.<br />더 많은 친구를 초대해보세요!`
         );
       }
     } else if (!spinning) {
@@ -907,7 +889,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   });
 
-  updateCanvasSize();
+  renderCanvas();
 });
 
 /*  */
@@ -1069,7 +1051,6 @@ async function fetchEventUserInfo(eventToken) {
     if (data && data.event_user) {
       document.getElementById("inviting-code").textContent =
         data.event_user.referral_code;
-
       if (browserLanguage && !browserLanguage.includes("ko")) {
         document.getElementById("inviting-count").textContent = `${
           data.referral_count || 0
@@ -1079,7 +1060,6 @@ async function fetchEventUserInfo(eventToken) {
           data.referral_count || 0
         }명`;
       }
-
       if (browserLanguage && !browserLanguage.includes("ko")) {
         document.getElementById("acting-count").textContent = `${
           data.event_user.total_roulette_spins || 0
@@ -1089,7 +1069,6 @@ async function fetchEventUserInfo(eventToken) {
           data.event_user.total_roulette_spins || 0
         }회`;
       }
-
       document.getElementById("accumulated-reward").innerHTML = `${
         data.total_apt || 0
       }
@@ -1097,7 +1076,6 @@ async function fetchEventUserInfo(eventToken) {
                       >APT</span
                     >
       `;
-
       if (browserLanguage && !browserLanguage.includes("ko")) {
         document.getElementById(
           "spin-status"
@@ -1133,7 +1111,7 @@ async function fetchEventUserInfo(eventToken) {
         data.event_user.max_roulette_spins -
           data.event_user.total_roulette_spins || 0;
       invitingCode = data.event_user.referral_code;
-      userAccountAddress = data.event_user.account_address;
+      accountAddress = data.event_user.account_address;
 
       return data.received_referral_code;
     }
