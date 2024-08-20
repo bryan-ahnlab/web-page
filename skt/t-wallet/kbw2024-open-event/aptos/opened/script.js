@@ -24,6 +24,13 @@ let spinLeftCount = 0;
 let userLang = "ko";
 
 document.addEventListener("DOMContentLoaded", async function () {
+  accessToken = sessionStorage.getItem("access-token");
+  eventToken = sessionStorage.getItem("event-token");
+
+  if (accessToken && eventToken) {
+    isLogined = true;
+  }
+
   /*  */
   function detectLangauge() {
     userLang = navigator.language || navigator.userLanguage;
@@ -149,8 +156,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   detectLangauge();
 
   /*  */
-
-  /*  */
   const currentUrl = window.location.href;
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -180,28 +185,41 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       const data = await response.json();
 
+      sessionStorage.setItem("access-token", data.access_token);
       return data.access_token;
     } catch (error) {
       console.error("Error fetching twallet signup:", error);
-      if (userLang && !userLang.includes("ko")) {
+      /* if (userLang && !userLang.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
         showPopup("네트워크 연결이 불안정해요.");
-      }
+      } */
+
+      // 현재 URL에서 appuid 파라미터를 제거
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.delete("appuid");
+      console.log(currentUrl);
+      console.log(currentUrl.searchParams);
+      // appuid가 제거된 URL로 리다이렉트
+      window.location.href = currentUrl.toString();
     }
   }
 
   if (appUidFromUrl) {
-    accessToken = await fetchTwalletSignup(appUidFromUrl);
-    console.log(`accessToken: ${accessToken}`);
-    if (accessToken) {
-      eventToken = await fetchTokenEvent(accessToken);
-    }
+    try {
+      accessToken = await fetchTwalletSignup(appUidFromUrl);
 
-    if (accessToken && eventToken) {
-      isLogined = true;
-    } else {
-      isLogined = false;
+      if (accessToken) {
+        eventToken = await fetchTokenEvent(accessToken);
+      }
+
+      if (accessToken && eventToken) {
+        isLogined = true;
+      } else {
+        isLogined = false;
+      }
+    } catch (error) {
+      console.error("Error fetching token:", error);
     }
   }
 
@@ -221,16 +239,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       );
 
       if (!response.ok) {
-        sessionStorage.removeItem("ivtcode");
+        sessionStorage.removeItem("ivt-code");
         throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      // 성공적으로 호출된 경우 패널 삭제
-      const invitedCodeContainer = document.getElementById(
-        "invited-code-pannel"
-      );
-      if (invitedCodeContainer) {
-        invitedCodeContainer.style.display = "none";
       }
     } catch (error) {
       console.error("Error registering referral code:", error);
@@ -243,10 +253,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   if (invitedCodeFromUrl) {
-    sessionStorage.setItem("ivtcode", invitedCodeFromUrl);
+    sessionStorage.setItem("ivt-code", invitedCodeFromUrl);
   }
 
-  invitedCode = sessionStorage.getItem("ivtcode");
+  invitedCode = sessionStorage.getItem("ivt-code");
 
   if (eventToken && invitedCode) {
     await registerReferralCode(invitedCode);
@@ -922,6 +932,7 @@ async function fetchTokenEvent(accessToken) {
 
     const data = await response.json();
 
+    sessionStorage.setItem("event-token", data.event_token);
     return data.event_token;
   } catch (error) {
     console.error("Error fetching token event:", error);
@@ -1087,6 +1098,14 @@ async function fetchUserInfo(eventToken) {
               </span>
               </span>
               `;
+      }
+
+      // 성공적으로 호출된 경우 패널 삭제
+      const invitedCodeContainer = document.getElementById(
+        "invited-code-pannel"
+      );
+      if (invitedCodeContainer) {
+        invitedCodeContainer.style.display = "none";
       }
 
       spinLeftCount =
