@@ -435,26 +435,34 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (connectWalletButton) {
     connectWalletButton.addEventListener("click", async function () {
       if (!isLogggedIn) {
-        let choicePopupMessage = "";
-        let choicePopupTexts = [];
-        if (browserLanguage && !browserLanguage.includes("ko")) {
-          choicePopupMessage = "Would you like to<br/>connect T Wallet?";
-          choicePopupTexts = ["Connect PASS", "Connect KYC", "Exit"];
+        const userAgent =
+          navigator.userAgent || navigator.vendor || window.opera;
+
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(userAgent);
+        if (!isMobile) {
+          window.location.href = fetchTwalletPassUrl;
         } else {
-          choicePopupMessage = "T Wallet을 연결하시겠습니까?";
-          choicePopupTexts = ["PASS 연결하기", "KYC 연결하기", "나가기"];
+          let choicePopupMessage = "";
+          let choicePopupTexts = [];
+          if (browserLanguage && !browserLanguage.includes("ko")) {
+            choicePopupMessage = "Would you like to<br/>connect T Wallet?";
+            choicePopupTexts = ["Connect PASS", "Connect KYC", "Exit"];
+          } else {
+            choicePopupMessage = "T Wallet을 연결하시겠습니까?";
+            choicePopupTexts = ["PASS 연결하기", "KYC 연결하기", "나가기"];
+          }
+          showChoicePopup(choicePopupMessage, choicePopupTexts, [
+            function () {
+              window.location.href = fetchTwalletPassUrl;
+            },
+            function () {
+              window.location.href = fetchTwalletPassUrl;
+            },
+            function () {
+              closePopup();
+            },
+          ]);
         }
-        showChoicePopup(choicePopupMessage, choicePopupTexts, [
-          function () {
-            window.location.href = fetchTwalletPassUrl;
-          },
-          function () {
-            window.location.href = fetchTwalletPassUrl;
-          },
-          function () {
-            closePopup();
-          },
-        ]);
       } else {
         const currentUrl = new URL(window.location.href);
 
