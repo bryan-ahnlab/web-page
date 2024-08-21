@@ -26,6 +26,50 @@ let accessToken = "";
 let eventToken = "";
 
 document.addEventListener("DOMContentLoaded", async function () {
+  const agreeAllCheckbox = document.getElementById("agree-all");
+  const serviceCheckbox = document.getElementById("agree-service");
+  const privacyCheckbox = document.getElementById("agree-privacy");
+  const kycButton = document.getElementById("kyc-button");
+  const emailInput = document.getElementById("email-input");
+
+  const serviceTermsLink = document.getElementById("service-terms-link");
+  const privacyPolicyLink = document.getElementById("privacy-policy-link");
+
+  /* TODO */
+  serviceTermsLink.href = "https://example.com/kr/service-terms";
+  privacyPolicyLink.href = "https://example.com/kr/privacy-policy";
+
+  agreeAllCheckbox.addEventListener("change", function () {
+    const isChecked = agreeAllCheckbox.checked;
+    serviceCheckbox.checked = isChecked;
+    privacyCheckbox.checked = isChecked;
+    updateButtonState();
+  });
+
+  function updateAgreeAllCheckbox() {
+    agreeAllCheckbox.checked =
+      serviceCheckbox.checked && privacyCheckbox.checked;
+    updateButtonState();
+  }
+
+  function updateButtonState() {
+    const isEmailValid = validateEmail(emailInput.value);
+    if (agreeAllCheckbox.checked && isEmailValid) {
+      kycButton.classList.add("active");
+      kycButton.disabled = false;
+    } else {
+      kycButton.classList.remove("active");
+      kycButton.disabled = true;
+    }
+  }
+
+  serviceCheckbox.addEventListener("change", updateAgreeAllCheckbox);
+  privacyCheckbox.addEventListener("change", updateAgreeAllCheckbox);
+
+  updateButtonState();
+
+  /*  */
+
   url = sessionStorage.getItem("url");
   email = sessionStorage.getItem("email");
   userId = sessionStorage.getItem("user-id");
@@ -40,10 +84,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.location.href = currentUrl.toString();
   }
 
-  console.log(
-    `url, email, userId, recovery: ${url}, ${email}, ${userId}, ${recovery}`
-  );
-
   // Function to detect language and switch to English if needed
   async function detectLangauge() {
     browserLanguage = navigator.language || navigator.userLanguage;
@@ -53,15 +93,27 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   function switchToEnglish() {
-    document.querySelector(".kyc-input-title").textContent =
+    document.getElementById("start-kyc-title").textContent =
+      "Start KYC verification.";
+    document.getElementById("agree-all-label").textContent =
+      "Agree to all terms.";
+    document.getElementById("service-terms-title").textContent =
+      "T wallet Service Terms";
+    document.getElementById("agree-service-label").innerHTML =
+      "[Required] T&nbsp;wallet Service&nbsp;Terms&nbsp;of&nbsp;Use";
+    document.getElementById("agree-privacy-label").innerHTML =
+      "[Required] T&nbsp;wallet Privacy&nbsp;Policy";
+    document.getElementById("email-input-title").textContent =
       "Please enter your email.";
-    document.querySelector(".kyc-button").textContent = "Verify";
+    document.getElementById("kyc-button").textContent = "Verify";
+    document.getElementById("close-popup").textContent = "Confirm";
+
+    /* TODO */
+    serviceTermsLink.href = "https://example.com/kr/service-terms";
+    privacyPolicyLink.href = "https://example.com/kr/privacy-policy";
   }
 
   detectLangauge();
-
-  const emailInput = document.getElementById("email-input");
-  const kycButton = document.getElementById("kyc-button");
 
   emailInput.addEventListener("input", () => {
     const emailValue = emailInput.value;
@@ -288,7 +340,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <div class="kyc-status-title">KYC approval completed.</div>
                 <div class="kyc-status-text">Please&nbsp;proceed after&nbsp;checking&nbsp;the&nbsp;authentication in&nbsp;the&nbsp;email&nbsp;sent.</div>
             </div>
-            <div class="button-container">
+            <div class="email-button-container">
                   <button class="kyc-button">Next</button>
             </div>
             `;
@@ -299,7 +351,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <div class="kyc-status-title">KYC 승인이 완료되었습니다.</div>
                 <div class="kyc-status-text">전송된&nbsp;이메일에서&nbsp;인증&nbsp;확인&nbsp;후 진행해&nbsp;주세요.</div>
             </div>
-            <div class="button-container">
+            <div class="email-button-container">
                   <button class="kyc-button">다음</button>
             </div>
             `;
@@ -312,7 +364,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <div class="kyc-status-title">KYC approval completed.</div>
                 <div class="kyc-status-text">Please&nbsp;check the&nbsp;authentication in&nbsp;the&nbsp;email&nbsp;sent and press&nbsp;the&nbsp;[Next]&nbsp;button at&nbsp;the&nbsp;bottom.</div>                                
             </div>
-            <div class="button-container">
+            <div class="email-button-container">
                   <button class="kyc-button active" id="generate-kyc-wallet-button">Next</button>
             </div>
             `;
@@ -323,7 +375,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <div class="kyc-status-title">KYC 승인이 완료되었습니다.</div>
                 <div class="kyc-status-text">전송된&nbsp;이메일에서&nbsp;인증&nbsp;확인&nbsp;후 하단의&nbsp;[다음]&nbsp;버튼을&nbsp;눌러주세요.</div>                
             </div>
-            <div class="button-container">
+            <div class="email-button-container">
                   <button class="kyc-button active" id="generate-kyc-wallet-button">다음</button>
             </div>
             `;
@@ -352,7 +404,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             <img src=${successImage} alt="Done" />
             <div class="kyc-status-title">T wallet is connected successfully.</div>
           </div>
-          <div class="button-container">
+          <div class="email-button-container">
             <button class="kyc-button active" id="redirect-kyc-wallet-button">Confirm</button>
           </div>
           `;
@@ -362,7 +414,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             <img src=${successImage} alt="Done" />
             <div class="kyc-status-title">T wallet 연결에 성공했어요.</div>            
           </div>
-          <div class="button-container">
+          <div class="email-button-container">
             <button class="kyc-button active" id="redirect-kyc-wallet-button">확인</button>
           </div>
           `;

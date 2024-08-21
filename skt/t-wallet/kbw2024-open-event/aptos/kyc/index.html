@@ -55,7 +55,46 @@
         box-sizing: border-box;
       }
 
-      .kyc-input-title {
+      /*  */
+
+      .terms-container {
+        margin-bottom: 48px;
+      }
+
+      .terms-all-agree {
+        display: flex;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+
+      .terms-detail-title {
+        font-size: 18px;
+        font-weight: 700;
+
+        min-height: 25px;
+      }
+
+      .terms-individual {
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+      }
+
+      .checkbox-round {
+        margin-right: 14px;
+        cursor: pointer;
+      }
+
+      hr {
+        border: none;
+        height: 1px;
+        background-color: #e0e0e0;
+        margin: 10px 0;
+      }
+
+      /*  */
+
+      .email-input-title {
         font-size: 18px;
         font-weight: 700;
         margin-bottom: 20px;
@@ -63,13 +102,13 @@
         min-height: 25px;
       }
 
-      .input-container {
+      .email-input-container {
         margin-bottom: 25px;
 
         min-height: 45px;
       }
 
-      .input-container input {
+      .email-input-container input {
         width: 100%;
         padding: 12px;
         font-size: 16px;
@@ -79,16 +118,16 @@
         outline: none;
       }
 
-      .input-container input::placeholder {
+      .email-input-container input::placeholder {
         color: #ccc;
       }
 
-      .button-container {
+      .email-button-container {
         display: flex;
         justify-content: center;
       }
 
-      .button-container button {
+      .email-button-container button {
         width: 100%;
         padding: 15px;
         font-size: 16px;
@@ -101,7 +140,7 @@
         transition: background-color 0.3s, cursor 0.3s;
       }
 
-      .button-container button.active {
+      .email-button-container button.active {
         background-color: #3617ce;
         cursor: pointer;
       }
@@ -198,29 +237,94 @@
         line-height: 24px;
         word-break: keep-all;
       }
+
+      a {
+        text-decoration: underline;
+        color: inherit;
+        text-underline-offset: 5px;
+      }
+      /* a:hover {
+        text-decoration: none;
+      } */
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="kyc-input-title" id="kyc-input-title">
-        e-mail을 입력하세요
-      </div>
-      <div class="input-container">
-        <input
-          type="email"
-          id="email-input"
-          placeholder="example@email.com"
-          required
-        />
-      </div>
-      <div class="button-container">
-        <button class="kyc-button" id="kyc-button" disabled>인증하기</button>
-      </div>
-      <div id="status-container" class="status-container"></div>
+      <section>
+        <div class="terms-container">
+          <div
+            class="terms-detail-title"
+            id="start-kyc-title"
+            style="margin: 18px 0px 48px"
+          >
+            KYC 인증을 시작합니다.
+          </div>
+          <div class="terms-all-agree">
+            <input type="checkbox" id="agree-all" class="checkbox-round" />
+            <label
+              for="agree-all"
+              class="terms-detail-title"
+              id="agree-all-label"
+              >모든 약관에 동의합니다.</label
+            >
+          </div>
+          <hr />
+          <div
+            class="terms-detail-title"
+            id="service-terms-title"
+            style="margin: 18px 0px"
+          >
+            T wallet 서비스 약관
+          </div>
+          <div class="terms-individual">
+            <input type="checkbox" id="agree-service" class="checkbox-round" />
+            <label
+              for="agree-service"
+              id="agree-service-label"
+              style="line-height: 28px; cursor: pointer"
+            >
+              [필수] T wallet
+              <a href="#" id="service-terms-link" target="_blank">
+                서비스 이용약관</a
+              >
+            </label>
+          </div>
+          <div class="terms-individual">
+            <input type="checkbox" id="agree-privacy" class="checkbox-round" />
+            <label
+              for="agree-privacy"
+              id="agree-privacy-label"
+              style="line-height: 28px; cursor: pointer"
+            >
+              [필수] T wallet
+              <a href="#" id="privacy-policy-link" target="_blank">
+                개인정보 처리방침</a
+              >
+            </label>
+          </div>
+        </div>
+      </section>
 
-      <!--  -->
+      <section>
+        <div class="email-input-container">
+          <div class="email-input-title" id="email-input-title">
+            e-mail을 입력하세요.
+          </div>
+          <input
+            type="email"
+            id="email-input"
+            placeholder="example@email.com"
+            required
+          />
+        </div>
+        <div class="email-button-container">
+          <button class="kyc-button" id="kyc-button" disabled>인증하기</button>
+        </div>
+      </section>
 
-      <!--  -->
+      <section>
+        <div id="status-container" class="status-container"></div>
+      </section>
     </div>
 
     <div id="popup" class="popup-overlay" style="display: none">
