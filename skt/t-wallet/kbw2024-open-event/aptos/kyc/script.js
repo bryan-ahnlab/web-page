@@ -5,10 +5,10 @@ const fetchTwalletKycTokenUrl = baseUrl + "v1/twallet/kyc/token";
 const fetchTwalletEventTokenUrl = baseUrl + "v1/twallet/event/token";
 const fetchMpcGenerateWalletKycUrl = baseUrl + "v1/mpc/generate/wallet/kyc";
 
-const loadingAnimation = "./assets/loading_animation.svg";
-const closeImage = "./assets/close_image.svg";
-const doneImage = "./assets/done_image.svg";
-const successImage = "./assets/success_image.svg";
+const loadingAnimation = "./assets/images/loading_animation.svg";
+const closeImage = "./assets/images/close_image.svg";
+const doneImage = "./assets/images/done_image.svg";
+const successImage = "./assets/images/success_image.svg";
 
 /* TODO */
 /* DEV */

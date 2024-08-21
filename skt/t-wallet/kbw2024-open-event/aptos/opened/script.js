@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   function switchToEnglish() {
     document.querySelector(".title-event-text-1").src =
-      "assets/images/title_event_text_en_1.svg";
+      "./assets/images/title_event_text_en_1.svg";
     document.querySelector(".title-event-text-2").src =
-      "assets/images/title_event_text_en_2.svg";
+      "./assets/images/title_event_text_en_2.svg";
     document.querySelector(".content-event-text-1").innerHTML =
       "Invite&nbsp;friends&nbsp;and play&nbsp;together to&nbsp;get&nbsp;Aptos";
     document.querySelector(".content-event-text-2").innerHTML =
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     ).innerHTML = `<span class="current-information-content-text"
                 ><img
                   class="current-information-content-image"
-                  src="assets/images/checked_icon.svg"
+                  src="./assets/images/checked_icon.svg"
                 />
                 Get&nbsp;3&nbsp;Spins&nbsp;for&nbsp;Connecting</span
               >
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     ).innerHTML = `<span class="current-information-content-text"
     ><img
       class="current-information-content-image"
-      src="assets/images/checked_icon.svg"
+      src="./assets/images/checked_icon.svg"
     />
     3&nbsp;More&nbsp;Spins</span
   >
