@@ -111,8 +111,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     /*  */
     document.querySelector(".third-section .current-title-text").innerHTML =
       "More&nbsp;Invites&nbsp;= More&nbsp;Rewards!";
-    document.querySelector(".event-description").textContent =
-      "Top 100 Inviters Get Extra Aptos";
+    document.querySelector(".event-description").innerHTML =
+      "Top&nbsp;100&nbsp;Inviters Get&nbsp;Extra&nbsp;Aptos";
     document.querySelector(".ranking-title").textContent = "Top 100 Inviters";
 
     const tableHeaderItems = document.querySelectorAll(".ranking-table th");
@@ -435,7 +435,26 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (connectWalletButton) {
     connectWalletButton.addEventListener("click", async function () {
       if (!isLogggedIn) {
-        window.location.href = fetchTwalletPassUrl;
+        let choicePopupMessage = "";
+        let choicePopupTexts = [];
+        if (browserLanguage && !browserLanguage.includes("ko")) {
+          choicePopupMessage = "Would you like to<br/>connect T Wallet?";
+          choicePopupTexts = ["Connect PASS", "Connect KYC", "Exit"];
+        } else {
+          choicePopupMessage = "T Wallet을 연결하시겠습니까?";
+          choicePopupTexts = ["PASS 연결하기", "KYC 연결하기", "나가기"];
+        }
+        showChoicePopup(choicePopupMessage, choicePopupTexts, [
+          function () {
+            window.location.href = fetchTwalletPassUrl;
+          },
+          function () {
+            window.location.href = fetchTwalletPassUrl;
+          },
+          function () {
+            closePopup();
+          },
+        ]);
       } else {
         const currentUrl = new URL(window.location.href);
 
@@ -459,6 +478,43 @@ document.addEventListener("DOMContentLoaded", async function () {
         );
       }
     });
+  }
+
+  function showChoicePopup(message, texts, functions) {
+    const popupOverlay = document.createElement("div");
+    popupOverlay.className = "popup-overlay";
+    popupOverlay.id = "choice-popup";
+
+    const popupContent = document.createElement("div");
+    popupContent.className = "popup-content";
+
+    const messageElement = document.createElement("span");
+    messageElement.className = "popup-html";
+    messageElement.innerHTML = message;
+    popupContent.appendChild(messageElement);
+
+    texts.forEach((text, index) => {
+      const button = document.createElement("button");
+      button.textContent = text;
+
+      button.className = "popup-button";
+
+      button.addEventListener("click", () => {
+        functions[index]();
+      });
+
+      popupContent.appendChild(button);
+    });
+
+    popupOverlay.appendChild(popupContent);
+    document.body.appendChild(popupOverlay);
+
+    popupOverlay.style.display = "flex";
+  }
+
+  function closePopup() {
+    const popup = document.getElementById("choice-popup");
+    popup.remove();
   }
 
   const inviteWalletButton = document.getElementById("invite-event");
@@ -856,6 +912,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const closePopupButton = document.getElementById("close-popup");
 
   closePopupButton.addEventListener("click", function () {
+    const popup = document.getElementById("popup");
     popup.style.display = "none";
   });
 
