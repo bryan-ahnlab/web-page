@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T wallet KBW 2024 Event</title>
+    <link
+      rel="icon"
+      href="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/images/favicon.ico"
+    />
+    <style>
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://abcwallet-web.s3.ap-northeast-2.amazonaws.com/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/fonts/GmarketSansTTFLight.ttf")
+          format("truetype");
+        font-weight: 300;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://abcwallet-web.s3.ap-northeast-2.amazonaws.com/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/fonts/GmarketSansTTFMedium.ttf")
+          format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://abcwallet-web.s3.ap-northeast-2.amazonaws.com/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/assets/fonts/GmarketSansTTFBold.ttf")
+          format("truetype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Gmarket Sans", sans-serif;
+        background-color: #fff;
+        color: #333;
+
+        overflow: overlay;
+        min-width: 320px;
+      }
+      * {
+        -webkit-tap-highlight-color: transparent; /* WebKit 기반 브라우저 */
+        -moz-tap-highlight-color: transparent; /* Firefox (지원하지 않음, 예시로 포함) */
+        -ms-tap-highlight-color: transparent; /* Microsoft Edge (구버전, 지원하지 않음, 예시로 포함) */
+      }
+      ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      /*  */
+      .container {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .kyc-input-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+
+        min-height: 25px;
+      }
+
+      .input-container {
+        margin-bottom: 25px;
+
+        min-height: 45px;
+      }
+
+      .input-container input {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        outline: none;
+      }
+
+      .input-container input::placeholder {
+        color: #ccc;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .button-container button {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #ddd;
+        border: none;
+        border-radius: 25px;
+        cursor: not-allowed;
+        font-weight: 700;
+        transition: background-color 0.3s, cursor 0.3s;
+      }
+
+      .button-container button.active {
+        background-color: #3617ce;
+        cursor: pointer;
+      }
+      /*  */
+      .status-container {
+        margin-top: 28px;
+      }
+      /*  */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        display: none;
+      }
+
+      .popup-content {
+        background-color: #fff;
+        padding: 28px 20px 20px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 300px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .popup-html {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+      }
+
+      .popup-content button {
+        display: flex;
+        padding: 16px 0px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        background: #3617ce;
+        border: none;
+        gap: 10px;
+        width: 100%;
+        cursor: pointer;
+
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-top: 20px;
+      }
+      /*  */
+
+      .kyc-status-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 25px;
+      }
+
+      .kyc-status-container img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+      }
+
+      .kyc-status-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 14px;
+        line-height: 24px;
+        text-align: center;
+      }
+
+      .kyc-status-text {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+        line-height: 24px;
+        word-break: keep-all;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="kyc-input-title" id="kyc-input-title">
+        e-mail을 입력하세요
+      </div>
+      <div class="input-container">
+        <input
+          type="email"
+          id="email-input"
+          placeholder="example@email.com"
+          required
+        />
+      </div>
+      <div class="button-container">
+        <button class="kyc-button" id="kyc-button" disabled>인증하기</button>
+      </div>
+      <div id="status-container" class="status-container"></div>
+
+      <!--  -->
+
+      <!--  -->
+    </div>
+
+    <div id="popup" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <span class="popup-html" id="popup-html"></span>
+        <button id="close-popup">확인</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

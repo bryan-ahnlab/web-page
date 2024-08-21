@@ -1,6 +1,9 @@
 const baseUrl = "https://dev-kbw-event.myabcwallet.com/";
 
 const fetchTwalletPassUrl = baseUrl + "v1/twallet/pass";
+/* TODO */
+const fetchTwalletKycUrl = "./../kyc/process";
+/* const fetchTwalletKycUrl = "./../kyc/index.html"; */
 const fetchTwalletSignupUrl = baseUrl + "v1/twallet/signup";
 const fetchTwalletEventTokenUrl = baseUrl + "v1/twallet/event/token";
 const fetchAbcwalletEventTokenUrl = baseUrl + "v1/abcwallet/event/token";
@@ -416,10 +419,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  // 페이지 로드 시 초기 수량 업데이트
   fetchEventRemainingAmount();
 
-  // 5초마다 수량 업데이트
   setInterval(fetchEventRemainingAmount, 5000);
 
   /*  */
@@ -435,7 +436,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (connectWalletButton) {
     connectWalletButton.addEventListener("click", async function () {
       if (!isLogggedIn) {
-        const userAgent =
+        /* const userAgent =
           navigator.userAgent || navigator.vendor || window.opera;
 
         const isMobile =
@@ -447,32 +448,32 @@ document.addEventListener("DOMContentLoaded", async function () {
           /iPad|Tablet|PlayBook/i.test(userAgent) ||
           (isMobile && !/Phone/.test(userAgent));
 
-        const isPC = !isMobile && !isTablet;
+        const isPC = !isMobile && !isTablet; */
 
-        if (isPC) {
+        /* if (isPC) {
           window.location.href = fetchTwalletPassUrl;
+        } else { */
+        let choicePopupMessage = "";
+        let choicePopupTexts = [];
+        if (browserLanguage && !browserLanguage.includes("ko")) {
+          choicePopupMessage = "Would you like to<br/>connect T Wallet?";
+          choicePopupTexts = ["Connect PASS", "Connect KYC", "Exit"];
         } else {
-          let choicePopupMessage = "";
-          let choicePopupTexts = [];
-          if (browserLanguage && !browserLanguage.includes("ko")) {
-            choicePopupMessage = "Would you like to<br/>connect T Wallet?";
-            choicePopupTexts = ["Connect PASS", "Connect KYC", "Exit"];
-          } else {
-            choicePopupMessage = "T Wallet을 연결하시겠습니까?";
-            choicePopupTexts = ["PASS 연결하기", "KYC 연결하기", "나가기"];
-          }
-          showChoicePopup(choicePopupMessage, choicePopupTexts, [
-            function () {
-              window.location.href = fetchTwalletPassUrl;
-            },
-            function () {
-              window.location.href = fetchTwalletPassUrl;
-            },
-            function () {
-              closePopup();
-            },
-          ]);
+          choicePopupMessage = "T Wallet을 연결하시겠습니까?";
+          choicePopupTexts = ["PASS 연결하기", "KYC 연결하기", "나가기"];
         }
+        showChoicePopup(choicePopupMessage, choicePopupTexts, [
+          function () {
+            window.location.href = fetchTwalletPassUrl;
+          },
+          function () {
+            window.location.href = fetchTwalletKycUrl;
+          },
+          function () {
+            closePopup();
+          },
+        ]);
+        /* } */
       } else {
         const currentUrl = new URL(window.location.href);
 
