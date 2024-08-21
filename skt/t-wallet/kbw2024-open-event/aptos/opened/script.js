@@ -2,8 +2,11 @@ const baseUrl = "https://dev-kbw-event.myabcwallet.com/";
 
 const fetchTwalletPassUrl = baseUrl + "v1/twallet/pass";
 /* TODO */
-const fetchTwalletKycUrl = "./../kyc/process";
-/* const fetchTwalletKycUrl = "./../kyc/index.html"; */
+/* DEV */
+const fetchTwalletKycUrl = "./../kyc/index.html";
+/* PRODUCTION */
+/* const fetchTwalletKycUrl = "./../kyc/process"; */
+
 const fetchTwalletSignupUrl = baseUrl + "v1/twallet/signup";
 const fetchTwalletEventTokenUrl = baseUrl + "v1/twallet/event/token";
 const fetchAbcwalletEventTokenUrl = baseUrl + "v1/abcwallet/event/token";

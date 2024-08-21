@@ -12,9 +12,9 @@ const successImage = "./assets/success_image.svg";
 
 /* TODO */
 /* DEV */
-/* const eventPath = "/skt/t-wallet/kbw2024-open-event/aptos/opened/index.html"; */
+const eventPath = "/skt/t-wallet/kbw2024-open-event/aptos/opened/index.html";
 /* PRODUCTION */
-const eventPath = "/event/season3";
+/* const eventPath = "/event/season3"; */
 
 let url = "";
 let email = "";
@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.location.href = currentUrl.toString();
   }
 
-  console.log(url, email, userId, recovery);
+  console.log(
+    `url, email, userId, recovery: ${url}, ${email}, ${userId}, ${recovery}`
+  );
 
   // Function to detect language and switch to English if needed
   async function detectLangauge() {
@@ -153,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const emailValue = emailInput.value;
       if (validateEmail(emailValue)) {
         const response = await fetchTwalletKycUser(emailValue);
-        console.log(response);
+        console.log(`response: ${JSON.stringify(response)}`);
 
         if (browserLanguage && !browserLanguage.includes("ko")) {
           document.querySelector(".kyc-button").textContent = "Initialize";
