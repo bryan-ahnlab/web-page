@@ -438,8 +438,18 @@ document.addEventListener("DOMContentLoaded", async function () {
         const userAgent =
           navigator.userAgent || navigator.vendor || window.opera;
 
-        const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(userAgent);
-        if (!isMobile) {
+        const isMobile =
+          /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|WPDesktop|Windows Phone/i.test(
+            userAgent
+          );
+
+        const isTablet =
+          /iPad|Tablet|PlayBook/i.test(userAgent) ||
+          (isMobile && !/Phone/.test(userAgent));
+
+        const isPC = !isMobile && !isTablet;
+
+        if (isPC) {
           window.location.href = fetchTwalletPassUrl;
         } else {
           let choicePopupMessage = "";
