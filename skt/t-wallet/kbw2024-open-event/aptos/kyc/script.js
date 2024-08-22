@@ -198,18 +198,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     intervalFetchTwalletKycUserStatus(userId);
   }
 
+  async function initializeStatus() {
+    sessionStorage.removeItem("url");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("user-id");
+    sessionStorage.removeItem("recovery");
+    sessionStorage.removeItem("access-token");
+    sessionStorage.removeItem("event-token");
+    window.location.reload();
+  }
+
   kycButton.addEventListener("click", async () => {
     if (
       kycButton.textContent === "Initialize" ||
       kycButton.textContent === "초기화"
     ) {
-      sessionStorage.removeItem("url");
-      sessionStorage.removeItem("email");
-      sessionStorage.removeItem("user-id");
-      sessionStorage.removeItem("recovery");
-      sessionStorage.removeItem("access-token");
-      sessionStorage.removeItem("event-token");
-      window.location.reload();
+      await initializeStatus();
     } else {
       const emailValue = emailInput.value;
       if (validateEmail(emailValue)) {
@@ -265,6 +269,34 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       console.log(`data: ${JSON.stringify(data)}`);
 
+      document.querySelector(".terms-container").style.display = "none";
+      document.querySelector(".email-input-container").style.display = "none";
+      document.querySelector(".email-button-container").style.display = "none";
+
+      const statusContainer = document.getElementById("status-container");
+      const resetMessage = document.createElement("div");
+
+      resetMessage.style.padding = "20px";
+      resetMessage.style.width = "100%";
+      resetMessage.style.boxSizing = "border-box";
+      resetMessage.style.position = "fixed";
+      resetMessage.style.bottom = "28px";
+      resetMessage.style.left = "0px";
+      resetMessage.style.textAlign = "center";
+      resetMessage.style.fontSize = "14px";
+      resetMessage.style.color = "#666";
+      resetMessage.style.lineHeight = "24px";
+      resetMessage.style.wordBreak = "keep-all";
+      resetMessage.style.fontWeight = "500";
+
+      if (browserLanguage && !browserLanguage.includes("ko")) {
+        resetMessage.innerHTML =
+          'If you failed authentication or wish to restart, please <span id="reset-link" style="text-decoration: underline; color: #3617ce; text-underline-offset: 4px; cursor: pointer">proceed with authentication again</span>.';
+      } else {
+        resetMessage.innerHTML =
+          '인증에 실패했거나 처음부터 다시 인증 진행을 원하시면 <span id="reset-link" style="text-decoration: underline; color: #3617ce; text-underline-offset: 4px; cursor: pointer">인증을 다시 진행</span> 해주세요.';
+      }
+
       if (
         status === "requested" ||
         status === "pending" ||
@@ -286,6 +318,14 @@ document.addEventListener("DOMContentLoaded", async function () {
       ) {
         showStatusComponent("AuthentificationApproved");
       }
+
+      statusContainer.appendChild(resetMessage);
+
+      document
+        .getElementById("reset-link")
+        .addEventListener("click", async () => {
+          await initializeStatus();
+        });
     } catch (error) {
       console.error("Error checking status:", error);
       if (browserLanguage && !browserLanguage.includes("ko")) {
@@ -299,7 +339,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   function intervalFetchTwalletKycUserStatus(userId) {
     statusCheckInterval = setInterval(() => {
       fetchTwalletKycUserStatus(userId);
-    }, 5000);
+    }, 500000);
   }
 
   function showStatusComponent(status) {
@@ -447,6 +487,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         },
         body: JSON.stringify({ kyc_user_id: userId }),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const data = await response.json();
 
