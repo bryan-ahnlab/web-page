@@ -45,9 +45,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   const serviceTermsLink = document.getElementById("service-terms-link");
   const privacyPolicyLink = document.getElementById("privacy-policy-link");
 
-  /* TODO */
-  serviceTermsLink.href = "https://example.com/kr/service-terms";
-  privacyPolicyLink.href = "https://example.com/kr/privacy-policy";
+  serviceTermsLink.href =
+    "https://api.id.myabcwallet.com/query/terms?language=1&service=256";
+  privacyPolicyLink.href =
+    "https://api.id.myabcwallet.com/query/privacy-policy?language=1&service=256";
 
   agreeAllCheckbox.addEventListener("change", function () {
     const isChecked = agreeAllCheckbox.checked;
@@ -103,18 +104,20 @@ document.addEventListener("DOMContentLoaded", async function () {
       "Agree to all terms.";
     document.getElementById("service-terms-title").textContent =
       "T wallet Service Terms";
-    document.getElementById("agree-service-label").innerHTML =
-      "[Required] T&nbsp;wallet Service&nbsp;Terms&nbsp;of&nbsp;Use";
-    document.getElementById("agree-privacy-label").innerHTML =
-      "[Required] T&nbsp;wallet Privacy&nbsp;Policy";
+    document.getElementById(
+      "agree-service-label"
+    ).innerHTML = `[Required] T&nbsp;wallet <a href="https://api.id.myabcwallet.com/query/terms?language=2&service=256" id="service-terms-link" target="_blank">
+               Service&nbsp;Terms&nbsp;of&nbsp;Use</a
+              >`;
+    document.getElementById(
+      "agree-privacy-label"
+    ).innerHTML = `[Required] T&nbsp;wallet <a href="https://api.id.myabcwallet.com/query/privacy-policy?language=2&service=256" id="service-terms-link" target="_blank">
+               Privacy&nbsp;Policy</a
+              >`;
     document.getElementById("email-input-title").textContent =
       "Please enter your email.";
     document.getElementById("kyc-button").textContent = "Verify";
     document.getElementById("close-popup").textContent = "Confirm";
-
-    /* TODO */
-    serviceTermsLink.href = "https://example.com/kr/service-terms";
-    privacyPolicyLink.href = "https://example.com/kr/privacy-policy";
   }
 
   detectLangauge();
