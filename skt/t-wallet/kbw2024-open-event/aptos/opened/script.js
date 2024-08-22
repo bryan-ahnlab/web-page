@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.querySelector(".content-event-button-text").textContent =
       "Connect T wallet";
     document.querySelector(".invite-code-text").innerHTML =
-      "If&nbsp;you&nbsp;have&nbsp;the&nbsp;invitation&nbsp;code, please&nbsp;enter&nbsp;here.";
+      "If&nbsp;you&nbsp;have the&nbsp;invitation&nbsp;code, please&nbsp;enter&nbsp;here.";
     document.querySelector(".invite-code-input").placeholder = "e.g. D43X98AD";
     document.querySelector(".invite-code-button").textContent = "Confirm";
     document.querySelector(".close-popup").textContent = "Confirm";
