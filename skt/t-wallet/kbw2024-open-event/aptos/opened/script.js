@@ -460,10 +460,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         let choicePopupTexts = [];
         if (browserLanguage && !browserLanguage.includes("ko")) {
           choicePopupMessage = "Would you like to<br/>connect T Wallet?";
-          choicePopupTexts = ["Connect PASS", "Connect KYC", "Exit"];
+          choicePopupTexts = [
+            "Connect with PASS",
+            "Connect with Passport",
+            "Close",
+          ];
         } else {
           choicePopupMessage = "T Wallet을 연결하시겠습니까?";
-          choicePopupTexts = ["PASS 연결하기", "KYC 연결하기", "나가기"];
+          choicePopupTexts = ["PASS로 연결하기", "여권으로 연결하기", "닫기"];
         }
         showChoicePopup(choicePopupMessage, choicePopupTexts, [
           function () {
@@ -510,16 +514,40 @@ document.addEventListener("DOMContentLoaded", async function () {
     const popupContent = document.createElement("div");
     popupContent.className = "popup-content";
 
-    const messageElement = document.createElement("span");
-    messageElement.className = "popup-html";
-    messageElement.innerHTML = message;
-    popupContent.appendChild(messageElement);
+    let messageElement;
+
+    if (
+      message === "T Wallet을 연결하시겠습니까?" ||
+      message === "Would you like to<br/>connect T Wallet?"
+    ) {
+      messageElement = document.createElement("img");
+      messageElement.className = "popup-image";
+      messageElement.src = "./assets/images/title_wallet_logo.svg";
+
+      messageElementContainer = document.createElement("div");
+      messageElementContainer.className = "popup-image-container";
+      messageElementContainer.appendChild(messageElement);
+
+      popupContent.appendChild(messageElementContainer);
+    } else {
+      messageElement = document.createElement("span");
+      messageElement.className = "popup-html";
+      messageElement.innerHTML = message;
+      popupContent.appendChild(messageElement);
+    }
 
     texts.forEach((text, index) => {
       const button = document.createElement("button");
       button.textContent = text;
 
-      button.className = "popup-button";
+      if (text === "닫기" || text === "Close") {
+        button.className = "popup-empty-button";
+      } else {
+        button.className = "popup-button";
+      }
+      if (index > 0) {
+        button.style.marginTop = "8px";
+      }
 
       button.addEventListener("click", () => {
         functions[index]();

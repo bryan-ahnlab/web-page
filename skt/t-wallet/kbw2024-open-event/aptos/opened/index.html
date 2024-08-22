@@ -938,8 +938,65 @@
         font-weight: 400;
         line-height: 28px;
       }
+      .popup-image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .popup-image {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-      .popup-content button {
+      .popup-empty-button {
+        display: flex;
+        padding: 16px 0px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        background: transparent;
+        border: none;
+        gap: 10px;
+        width: 100%;
+        cursor: pointer;
+
+        color: #3617ce;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-top: 20px;
+      }
+
+      .popup-button {
+        display: flex;
+        padding: 16px 0px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        background: #3617ce;
+        border: none;
+        gap: 10px;
+        width: 100%;
+        cursor: pointer;
+
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-top: 20px;
+      }
+      .close-popup {
         display: flex;
         padding: 16px 0px;
         justify-content: center;
@@ -1258,7 +1315,7 @@
     <div id="popup" class="popup-overlay" style="display: none">
       <div class="popup-content">
         <span class="popup-html" id="popup-html"></span>
-        <button id="close-popup">확인</button>
+        <button id="close-popup" class="close-popup">확인</button>
       </div>
     </div>
 

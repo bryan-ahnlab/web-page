@@ -310,7 +310,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             <div class="kyc-status-container">
                 <img src=${loadingAnimation} alt="Loading" />
                 <div class="kyc-status-title">Waiting for&nbsp;KYC&nbsp;certification.</div>
-                <div class="kyc-status-text">Leaving&nbsp;or&nbsp;exiting the&nbsp;screen will&nbsp;maintain&nbsp;the&nbsp;progress.</div>
+                <div class="kyc-status-text">Even&nbsp;if you&nbsp;leave the&nbsp;screen, the&nbsp;progress&nbsp;will&nbsp;be&nbsp;maintained.</div>
             </div>
             `;
       } else {
@@ -318,7 +318,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             <div class="kyc-status-container">
                 <img src=${loadingAnimation} alt="Loading" />
                 <div class="kyc-status-title">KYC 인증을 대기하고 있어요.</div>
-                <span class="kyc-status-text">화면을&nbsp;나가거나&nbsp;종료해도 진행&nbsp;상태는&nbsp;유지됩니다.</span>                
+                <span class="kyc-status-text">화면을&nbsp;나가더라도 진행&nbsp;상태는&nbsp;유지됩니다.</span>                
             </div>
             `;
       }
