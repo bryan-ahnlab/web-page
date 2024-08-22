@@ -50,15 +50,28 @@
       }
       /*  */
       .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
+        height: 100%;
         padding: 20px;
         box-sizing: border-box;
       }
 
       /*  */
 
+      section {
+        max-width: 480px;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      /*  */
+
       .terms-container {
-        margin-bottom: 48px;
+        margin-bottom: 68px;
       }
 
       .terms-all-agree {
@@ -324,7 +337,7 @@
           <div
             class="terms-detail-title"
             id="start-kyc-title"
-            style="margin: 18px 0px 48px"
+            style="margin: 18px 0px 68px 0px"
           >
             KYC 인증을 시작합니다.
           </div>
