@@ -707,9 +707,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const tempAssetsPath = "./assets/images/";
   const images = {
-    aptos_01: tempAssetsPath + "aptos_01_image.svg",
-    aptos_02: tempAssetsPath + "aptos_02_image.svg",
-    aptos_03: tempAssetsPath + "aptos_03_image.svg",
+    aptos_01: tempAssetsPath + "aptos_01_image.png",
+    aptos_02: tempAssetsPath + "aptos_02_image.png",
+    aptos_03: tempAssetsPath + "aptos_03_image.png",
     icoDownArrowRed: tempAssetsPath + "roulette_arrow_icon.svg",
   };
 
