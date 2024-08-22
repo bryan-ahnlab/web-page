@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       "If&nbsp;you&nbsp;have&nbsp;the&nbsp;invitation&nbsp;code, please&nbsp;enter&nbsp;here.";
     document.querySelector(".invite-code-input").placeholder = "e.g. D43X98AD";
     document.querySelector(".invite-code-button").textContent = "Confirm";
+    document.querySelector(".close-popup").textContent = "Confirm";
     /*  */
     document.querySelector(".balance-text-1").textContent = "Unclaimed";
     document.querySelector(".balance-text-4").innerHTML =
