@@ -234,6 +234,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
       );
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
 
       if (
@@ -285,6 +289,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
 
       const data = await response.json();
+
       if (data && data.account_address) {
         accountAddress = data.account_address;
       }
@@ -1010,6 +1015,10 @@ async function fetchTwalletEventToken(accessToken) {
         "Content-Type": "application/json",
       },
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
     const data = await response.json();
 

@@ -142,6 +142,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         body: JSON.stringify({ email: email }),
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
 
       url = data.url;
@@ -263,6 +267,10 @@ document.addEventListener("DOMContentLoaded", async function () {
           },
         }
       );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const data = await response.json();
       const status = data.status;
@@ -515,6 +523,10 @@ document.addEventListener("DOMContentLoaded", async function () {
           "Content-Type": "application/json",
         },
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const data = await response.json();
 
