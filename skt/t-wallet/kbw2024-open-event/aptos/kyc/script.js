@@ -26,6 +26,16 @@ let accessToken = "";
 let eventToken = "";
 
 document.addEventListener("DOMContentLoaded", async function () {
+  url = sessionStorage.getItem("url");
+  email = sessionStorage.getItem("email");
+  userId = sessionStorage.getItem("user-id");
+  recovery = sessionStorage.getItem("recovery");
+
+  accessToken = sessionStorage.getItem("access-token");
+  eventToken = sessionStorage.getItem("event-token");
+
+  /*  */
+
   const agreeAllCheckbox = document.getElementById("agree-all");
   const serviceCheckbox = document.getElementById("agree-service");
   const privacyCheckbox = document.getElementById("agree-privacy");
@@ -54,12 +64,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   function updateButtonState() {
     const isEmailValid = validateEmail(emailInput.value);
-    if (agreeAllCheckbox.checked && isEmailValid) {
+    if ((agreeAllCheckbox.checked && isEmailValid) || email) {
       kycButton.classList.add("active");
       kycButton.disabled = false;
+      kycButton.style.cursor = "pointer";
     } else {
       kycButton.classList.remove("active");
       kycButton.disabled = true;
+      kycButton.style.cursor = "not-allowed";
     }
   }
 
@@ -69,14 +81,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   updateButtonState();
 
   /*  */
-
-  url = sessionStorage.getItem("url");
-  email = sessionStorage.getItem("email");
-  userId = sessionStorage.getItem("user-id");
-  recovery = sessionStorage.getItem("recovery");
-
-  accessToken = sessionStorage.getItem("access-token");
-  eventToken = sessionStorage.getItem("event-token");
 
   if (accessToken && eventToken) {
     const currentUrl = new URL(window.location.href);
@@ -118,11 +122,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   emailInput.addEventListener("input", () => {
     const emailValue = emailInput.value;
     if (validateEmail(emailValue)) {
-      kycButton.classList.add("active");
-      kycButton.disabled = false;
+      updateButtonState();
     } else {
-      kycButton.classList.remove("active");
-      kycButton.disabled = true;
+      updateButtonState();
     }
   });
 
@@ -178,6 +180,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     kycButton.classList.add("active");
     kycButton.disabled = false;
+    kycButton.style.cursor = "pointer";
 
     if (browserLanguage && !browserLanguage.includes("ko")) {
       document.querySelector(".kyc-button").textContent = "Initialize";
@@ -186,6 +189,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     emailInput.disabled = true;
+    emailInput.style.cursor = "not-allowed";
 
     fetchTwalletKycUserStatus(userId);
     intervalFetchTwalletKycUserStatus(userId);
@@ -216,6 +220,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         emailInput.disabled = true;
+        emailInput.style.cursor = "not-allowed";
       }
     }
   });
