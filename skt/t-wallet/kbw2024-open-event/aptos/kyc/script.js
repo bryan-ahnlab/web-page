@@ -299,7 +299,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       if (browserLanguage && !browserLanguage.includes("ko")) {
         resetMessage.innerHTML =
-          'If you failed authentication or wish to restart, please <span id="reset-link" style="text-decoration: underline; color: #3617ce; text-underline-offset: 4px; cursor: pointer">proceed with authentication again</span>.';
+          'If&nbsp;you&nbsp;failed&nbsp;authentication&nbsp;or wish&nbsp;to&nbsp;restart, please&nbsp;<span id="reset-link" style="text-decoration: underline; color: #3617ce; text-underline-offset: 4px; cursor: pointer">proceed&nbsp;again</span>.';
       } else {
         resetMessage.innerHTML =
           '인증에 실패했거나 처음부터 다시 인증 진행을 원하시면 <span id="reset-link" style="text-decoration: underline; color: #3617ce; text-underline-offset: 4px; cursor: pointer">인증을 다시 진행</span> 해주세요.';
