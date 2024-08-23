@@ -925,6 +925,22 @@ document.addEventListener("DOMContentLoaded", async function () {
         },
       });
 
+      if (response.status === 592) {
+        if (browserLanguage && !browserLanguage.includes("ko")) {
+          showPopup("The event is not currently ongoing.");
+        } else {
+          showPopup("이벤트 기간이 아닙니다.");
+        }
+        return null;
+      } else if (response.status === 593) {
+        if (browserLanguage && !browserLanguage.includes("ko")) {
+          showPopup("You are not eligible to participate in this event.");
+        } else {
+          showPopup("이벤트 참여 대상자가 아닙니다.");
+        }
+        return null;
+      }
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
