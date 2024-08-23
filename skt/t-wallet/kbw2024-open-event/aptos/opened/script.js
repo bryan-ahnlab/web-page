@@ -249,6 +249,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         } */
         sessionStorage.removeItem("ivt-code");
         return false;
+      } else if (data.detail && data.detail === "Referrer code not found") {
+        /* if (browserLanguage && !browserLanguage.includes("ko")) {
+          showPopup("You cannot register with a wrong code.");
+        } else {
+          showPopup("잘못된 코드로<br />등록할 수 없습니다.");
+        } */
+        sessionStorage.removeItem("ivt-code");
+        return false;
       } else if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -327,11 +335,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching ranking data:", error);
-      if (browserLanguage && !browserLanguage.includes("ko")) {
+      /* if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
         showPopup("네트워크 연결이 불안정해요.");
-      }
+      } */
     }
   }
 
@@ -421,11 +429,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching remaining amount:", error);
-      if (browserLanguage && !browserLanguage.includes("ko")) {
+      /* if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
         showPopup("네트워크 연결이 불안정해요.");
-      }
+      } */
     }
   }
 
@@ -502,7 +510,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (browserLanguage && !browserLanguage.includes("ko")) {
               showTooltip(connectWalletButton, "Copied!");
             } else {
-              showTooltip(connectWalletButton, "복사되었습니다.");
+              showTooltip(connectWalletButton, "복사 되었어요.");
             }
           },
           function (error) {
@@ -584,7 +592,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (browserLanguage && !browserLanguage.includes("ko")) {
               showTooltip(inviteWalletButton, "Copied!");
             } else {
-              showTooltip(inviteWalletButton, "복사되었습니다.");
+              showTooltip(inviteWalletButton, "복사 되었어요.");
             }
           },
           function (error) {
@@ -613,7 +621,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (browserLanguage && !browserLanguage.includes("ko")) {
               showTooltip(copyLinkButton, "Copied!");
             } else {
-              showTooltip(copyLinkButton, "복사되었습니다.");
+              showTooltip(copyLinkButton, "복사 되었어요.");
             }
           },
           function (error) {
@@ -634,10 +642,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     tooltip.style.position = "absolute";
     tooltip.style.backgroundColor = "#333";
     tooltip.style.color = "#fff";
-    tooltip.style.padding = "5px 10px";
+    tooltip.style.padding = "12px";
     tooltip.style.borderRadius = "5px";
-    tooltip.style.fontSize = "14px";
+    tooltip.style.fontSize = "13px";
+    tooltip.style.fontWeight = "400";
     tooltip.style.zIndex = "10";
+    tooltip.style.fontFamily = "Gmarket Sans";
 
     const elementRect = element.getBoundingClientRect();
 
@@ -670,14 +680,37 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const inviteCodeInput = document.getElementById("invite-code-input");
 
+  inviteCodeInput.addEventListener("focus", function () {
+    inviteCodeInput.setAttribute(
+      "data-placeholder",
+      inviteCodeInput.getAttribute("placeholder")
+    );
+    inviteCodeInput.setAttribute("placeholder", "");
+  });
+
+  inviteCodeInput.addEventListener("blur", function () {
+    inviteCodeInput.setAttribute(
+      "placeholder",
+      inviteCodeInput.getAttribute("data-placeholder")
+    );
+  });
+
   inviteCodeInput.addEventListener("input", function () {
-    let value = inviteCodeInput.value.replace(/\s+/g, "");
+    let value = inviteCodeInput.value
+      .replace(/\s+/g, "")
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, "");
 
     if (value.length > 8) {
       value = value.slice(0, 8);
     }
 
     inviteCodeInput.value = value;
+
+    const messageElement = document.getElementById("verify-error-message");
+    if (messageElement) {
+      messageElement.remove();
+    }
   });
 
   /*  */
