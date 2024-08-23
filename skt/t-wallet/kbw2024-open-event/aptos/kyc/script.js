@@ -524,15 +524,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         },
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const data = await response.json();
 
       if (data.detail && data.detail === "User not found") {
         eventToken = await fetchMpcGenerateWalletKyc(accessToken);
         return eventToken;
+      } else if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       } else {
         sessionStorage.setItem("event-token", data.event_token);
         return data.event_token;

@@ -235,10 +235,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const data = await response.json();
 
       if (
@@ -252,6 +248,8 @@ document.addEventListener("DOMContentLoaded", async function () {
           showPopup("자신의 코드로<br />등록할 수 없습니다.");
         }
         sessionStorage.removeItem("ivt-code");
+      } else if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
       console.error("Error registering referral code:", error);
@@ -1017,15 +1015,13 @@ async function fetchTwalletEventToken(accessToken) {
       },
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
     const data = await response.json();
 
     if (data.detail && data.detail === "User not found") {
       eventToken = await fetchMpcGenerateWalletPass(accessToken);
       return eventToken;
+    } else if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     } else {
       sessionStorage.setItem("event-token", data.event_token);
       return data.event_token;
