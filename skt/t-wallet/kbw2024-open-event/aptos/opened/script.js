@@ -278,8 +278,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   /* eventToken = sessionStorage.getItem("event-token"); */
 
   if (eventToken && invitedCode && !receivedReferralCode) {
-    receivedReferralCode = await fetchEventUserInfo(eventToken);
     await fetchEventReferral(invitedCode);
+    receivedReferralCode = await fetchEventUserInfo(eventToken);
   }
 
   /*  */
@@ -437,7 +437,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  fetchEventRemainingAmount();
+  await fetchEventRemainingAmount();
 
   setInterval(fetchEventRemainingAmount, 5000);
 
@@ -742,7 +742,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           inviteCodeButton.style.backgroundColor = "#E3E4E8";
           inviteCodeButton.style.width = "100px";
           inviteCodeButton.style.cursor = "not-allowed";
-
+          inviteCodeButton.disabled = true;
           inviteCodeText.innerHTML =
             "초대해 준 친구에게<br />혜택이 돌아갔어요!";
 
@@ -946,19 +946,19 @@ document.addEventListener("DOMContentLoaded", async function () {
   /*  */
 
   const spin = async () => {
+    /* const randomSpin = Math.floor(Math.random() * list.length); */
+    let selectedIndex = await fetchEventPlayRoulette(eventToken);
+
+    if (selectedIndex === null) {
+      return;
+    }
+
     spinning = true;
     updateButtonState();
 
     rotate = 0; // 초기화
     canvas.style.transition = "none"; // 초기화
     canvas.style.transform = `rotate(${rotate}deg)`; // 초기화
-
-    const randomSpin = Math.floor(Math.random() * list.length);
-    let selectedIndex = await fetchEventPlayRoulette(eventToken);
-
-    if (!selectedIndex) {
-      selectedIndex = randomSpin;
-    }
 
     const spins = 30;
     const degreesPerSpin = 360;
@@ -998,6 +998,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         showPopup(`짝짝짝!<br />${selectedItem.text}에 당첨되었어요!`);
       }
       await fetchEventUserInfo(eventToken);
+      await fetchEventRemainingAmount();
     }
   };
 
@@ -1024,7 +1025,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   /*  */
 
-  spinButton.addEventListener("click", () => {
+  spinButton.addEventListener("click", async () => {
     if (!isLogggedIn) {
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("Please connect T wallet.");
@@ -1037,18 +1038,22 @@ document.addEventListener("DOMContentLoaded", async function () {
       } else {
         showPopup(`이벤트가<br />선착순 마감되었습니다.`);
       }
-    } else if (!spinOpportunity) {
-      if (browserLanguage && !browserLanguage.includes("ko")) {
-        showPopup(
-          "You've used all your event<br />participation chances.<br />Try invite more friends!"
-        );
-      } else {
-        showPopup(
-          `이벤트 참여 기회를<br />모두 소진했어요.<br />더 많은 친구를 초대해보세요!`
-        );
+    } else {
+      receivedReferralCode = await fetchEventUserInfo(eventToken);
+
+      if (!spinOpportunity) {
+        if (browserLanguage && !browserLanguage.includes("ko")) {
+          showPopup(
+            "You've used all your event<br />participation chances.<br />Try invite more friends!"
+          );
+        } else {
+          showPopup(
+            `이벤트 참여 기회를<br />모두 소진했어요.<br />더 많은 친구를 초대해보세요!`
+          );
+        }
+      } else if (!spinning) {
+        spin();
       }
-    } else if (!spinning) {
-      spin();
     }
   });
 
