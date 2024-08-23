@@ -242,15 +242,17 @@ document.addEventListener("DOMContentLoaded", async function () {
         data.detail ===
           "Referrer code cannot be the same as the user's account address"
       ) {
-        if (browserLanguage && !browserLanguage.includes("ko")) {
+        /* if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You cannot register with your own code.");
         } else {
           showPopup("자신의 코드로<br />등록할 수 없습니다.");
-        }
+        } */
         sessionStorage.removeItem("ivt-code");
+        return false;
       } else if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+      return true;
     } catch (error) {
       console.error("Error registering referral code:", error);
       if (browserLanguage && !browserLanguage.includes("ko")) {
@@ -258,6 +260,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       } else {
         showPopup("네트워크 연결이 불안정해요.");
       }
+      return false;
     }
   }
 
@@ -665,67 +668,83 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const inviteCodeButton = document.getElementById("verify-invite-code");
 
+  const inviteCodeInput = document.getElementById("invite-code-input");
+
+  inviteCodeInput.addEventListener("input", function () {
+    let value = inviteCodeInput.value.replace(/\s+/g, "");
+
+    if (value.length > 8) {
+      value = value.slice(0, 8);
+    }
+
+    inviteCodeInput.value = value;
+  });
+
+  /*  */
+
   if (inviteCodeButton) {
     inviteCodeButton.addEventListener("click", async function () {
       const inviteCodeInput = document.getElementById("invite-code-input");
       const inviteCodeText = document.getElementById("invite-code-text");
       const invitedCodePannel = document.getElementById("invited-code-pannel");
 
-      const codePattern = /^[A-Z0-9]{8}$/;
+      if (inviteCodeInput.value) {
+        const codePattern = /^[A-Z0-9]{8}$/;
 
-      if (!codePattern.test(inviteCodeInput.value)) {
-        isVerified = false;
-      } else {
-        isVerified = true;
-        await fetchEventReferral(inviteCodeInput.value);
-      }
-
-      let messageElement = document.getElementById("verify-error-message");
-
-      if (isVerified) {
-        if (messageElement) {
-          messageElement.remove();
+        if (!codePattern.test(inviteCodeInput.value)) {
+          isVerified = false;
+        } else {
+          isVerified = await fetchEventReferral(inviteCodeInput.value);
         }
 
-        inviteCodeButton.textContent = "등록완료";
-        inviteCodeButton.style.border = "#E3E4E8";
-        inviteCodeButton.style.backgroundColor = "#E3E4E8";
-        inviteCodeButton.style.width = "100px";
-        inviteCodeButton.style.cursor = "not-allowed";
+        let messageElement = document.getElementById("verify-error-message");
 
-        inviteCodeText.innerHTML = "초대해 준 친구에게<br />혜택이 돌아갔어요!";
-
-        inviteCodeInput.disabled = true;
-        inviteCodeInput.style.color = "#B1B1B1";
-
-        inviteCodeButton.style.display = "flex";
-        inviteCodeButton.style.padding = "16px";
-        inviteCodeButton.style.justifyContent = "center";
-        inviteCodeButton.style.alignItems = "center";
-        inviteCodeButton.style.color = "#ABAEBA";
-        inviteCodeButton.style.textAlign = "center";
-        inviteCodeButton.style.fontFamily = "Gmarket Sans";
-        inviteCodeButton.style.fontSize = "14px";
-        inviteCodeButton.style.fontStyle = "normal";
-        inviteCodeButton.style.fontWeight = "500";
-        inviteCodeButton.style.lineHeight = "normal";
-      } else {
-        if (!messageElement) {
-          messageElement = document.createElement("span");
-
-          if (browserLanguage && !browserLanguage.includes("ko")) {
-            messageElement.textContent = "Please check your code again.";
-          } else {
-            messageElement.textContent = "코드를 다시 확인해주세요.";
+        if (isVerified) {
+          if (messageElement) {
+            messageElement.remove();
           }
 
-          messageElement.style.color = "#FF0000"; // 빨간색 텍스트
-          messageElement.style.marginTop = "10px"; // 약간의 여백 추가
-          messageElement.style.marginLeft = "10px"; // 약간의 여백 추가
-          messageElement.style.display = "block";
-          messageElement.id = "verify-error-message"; // id 설정
+          inviteCodeButton.textContent = "등록완료";
+          inviteCodeButton.style.border = "#E3E4E8";
+          inviteCodeButton.style.backgroundColor = "#E3E4E8";
+          inviteCodeButton.style.width = "100px";
+          inviteCodeButton.style.cursor = "not-allowed";
 
-          invitedCodePannel.appendChild(messageElement);
+          inviteCodeText.innerHTML =
+            "초대해 준 친구에게<br />혜택이 돌아갔어요!";
+
+          inviteCodeInput.disabled = true;
+          inviteCodeInput.style.color = "#B1B1B1";
+
+          inviteCodeButton.style.display = "flex";
+          inviteCodeButton.style.padding = "16px";
+          inviteCodeButton.style.justifyContent = "center";
+          inviteCodeButton.style.alignItems = "center";
+          inviteCodeButton.style.color = "#ABAEBA";
+          inviteCodeButton.style.textAlign = "center";
+          inviteCodeButton.style.fontFamily = "Gmarket Sans";
+          inviteCodeButton.style.fontSize = "14px";
+          inviteCodeButton.style.fontStyle = "normal";
+          inviteCodeButton.style.fontWeight = "500";
+          inviteCodeButton.style.lineHeight = "normal";
+        } else {
+          if (!messageElement) {
+            messageElement = document.createElement("span");
+
+            if (browserLanguage && !browserLanguage.includes("ko")) {
+              messageElement.textContent = "Please check your code again.";
+            } else {
+              messageElement.textContent = "코드를 다시 확인해주세요.";
+            }
+
+            messageElement.style.color = "#FF0000"; // 빨간색 텍스트
+            messageElement.style.marginTop = "10px"; // 약간의 여백 추가
+            messageElement.style.marginLeft = "10px"; // 약간의 여백 추가
+            messageElement.style.display = "block";
+            messageElement.id = "verify-error-message"; // id 설정
+
+            invitedCodePannel.appendChild(messageElement);
+          }
         }
       }
     });

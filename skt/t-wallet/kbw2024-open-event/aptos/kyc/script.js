@@ -293,13 +293,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       resetMessage.style.textAlign = "center";
       resetMessage.style.fontSize = "14px";
       resetMessage.style.color = "#666";
-      resetMessage.style.lineHeight = "24px";
+      resetMessage.style.lineHeight = "22px";
       resetMessage.style.wordBreak = "keep-all";
       resetMessage.style.fontWeight = "500";
 
       if (browserLanguage && !browserLanguage.includes("ko")) {
         resetMessage.innerHTML =
-          'If&nbsp;you&nbsp;failed&nbsp;authentication&nbsp;or wish&nbsp;to&nbsp;restart, please&nbsp;<span id="reset-link" style="text-decoration: underline; color: #3617ce; text-underline-offset: 4px; cursor: pointer">proceed&nbsp;again</span>.';
+          'If&nbsp;you&nbsp;failed&nbsp;verification&nbsp;or wish&nbsp;to&nbsp;restart, please&nbsp;<span id="reset-link" style="text-decoration: underline; color: #3617ce; text-underline-offset: 4px; cursor: pointer">proceed&nbsp;again</span>.';
       } else {
         resetMessage.innerHTML =
           '인증에 실패했거나 처음부터 다시 인증 진행을 원하시면 <span id="reset-link" style="text-decoration: underline; color: #3617ce; text-underline-offset: 4px; cursor: pointer">인증을 다시 진행</span> 해주세요.';
@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         statusContainer.innerHTML = `
             <div class="kyc-status-container">
                 <img src=${loadingAnimation} alt="Loading" />
-                <div class="kyc-status-title">Waiting for&nbsp;KYC&nbsp;certification.</div>
+                <div class="kyc-status-title">Waiting for&nbsp;KYC&nbsp;verification.</div>
                 <div class="kyc-status-text">Even&nbsp;if you&nbsp;leave the&nbsp;screen, the&nbsp;progress&nbsp;will&nbsp;be&nbsp;maintained.</div>
             </div>
             `;
@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         statusContainer.innerHTML = `
             <div class="kyc-status-container">
                 <img src=${closeImage} alt="Close" />
-                <div class="kyc-status-title">KYC certification failed.</div>
+                <div class="kyc-status-title">KYC verification failed.</div>
                 <div class="kyc-status-text">Please try again.</div>
             </div>
             `;
