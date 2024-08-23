@@ -211,6 +211,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
 
       if (accessToken && eventToken) {
+        receivedReferralCode = await fetchEventUserInfo(eventToken);
+
         isLogggedIn = true;
       } else {
         isLogggedIn = false;
@@ -277,9 +279,13 @@ document.addEventListener("DOMContentLoaded", async function () {
   invitedCode = sessionStorage.getItem("ivt-code");
   /* eventToken = sessionStorage.getItem("event-token"); */
 
-  if (eventToken && invitedCode && !receivedReferralCode) {
-    await fetchEventReferral(invitedCode);
+  if (eventToken && invitedCode) {
     receivedReferralCode = await fetchEventUserInfo(eventToken);
+
+    if (!receivedReferralCode) {
+      await fetchEventReferral(invitedCode);
+      receivedReferralCode = await fetchEventUserInfo(eventToken);
+    }
   }
 
   /*  */
@@ -962,6 +968,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   /*  */
 
   const spin = async () => {
+    rotate = 0; // 초기화
+    canvas.style.transition = "none"; // 초기화
+    canvas.style.transform = `rotate(${rotate}deg)`; // 초기화
+
     /* const randomSpin = Math.floor(Math.random() * list.length); */
     let selectedIndex = await fetchEventPlayRoulette(eventToken);
 
@@ -971,10 +981,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     spinning = true;
     updateButtonState();
-
-    rotate = 0; // 초기화
-    canvas.style.transition = "none"; // 초기화
-    canvas.style.transform = `rotate(${rotate}deg)`; // 초기화
 
     const spins = 30;
     const degreesPerSpin = 360;
