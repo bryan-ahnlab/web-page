@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   eventToken = sessionStorage.getItem("event-token");
 
   if (accessToken && eventToken) {
-    receivedReferralCode = await fetchEventUserInfo(eventToken);
+    isLogggedIn = true;
   }
 
   /*  */
@@ -212,6 +212,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       if (accessToken && eventToken) {
         receivedReferralCode = await fetchEventUserInfo(eventToken);
+
+        isLogggedIn = true;
+      } else {
+        isLogggedIn = false;
       }
     } catch (error) {
       console.error("Error fetching token:", error);
@@ -1188,7 +1192,10 @@ async function initWithAccessToken(accessToken) {
   }
 
   if (accessToken && eventToken) {
+    isLogggedIn = true;
     await handleStatus(eventToken);
+  } else {
+    isLogggedIn = false;
   }
 }
 
@@ -1266,7 +1273,6 @@ async function fetchEventUserInfo(eventToken) {
       } else {
         showPopup("이벤트 기간이 아닙니다.");
       }
-      isLogggedIn = false;
       return null;
     } else if (response.status === 593) {
       if (browserLanguage && !browserLanguage.includes("ko")) {
@@ -1274,12 +1280,10 @@ async function fetchEventUserInfo(eventToken) {
       } else {
         showPopup("이벤트 참여 대상자가 아닙니다.");
       }
-      isLogggedIn = false;
       return null;
     }
 
     if (!response.ok) {
-      isLogggedIn = false;
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
@@ -1350,7 +1354,6 @@ async function fetchEventUserInfo(eventToken) {
       invitingCode = data.event_user.referral_code;
       accountAddress = data.event_user.account_address;
 
-      isLogggedIn = true;
       return data.received_referral_code;
     }
   } catch (error) {
