@@ -310,6 +310,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         return null;
       } else if (response.status === 593) {
         isAllowed = false;
+        if (document.getElementById("inviting-code-pannel")) {
+          document.getElementById("inviting-code-pannel").style.display =
+            "none";
+        }
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You are not eligible to participate in this event.");
         } else {
@@ -975,6 +979,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         return null;
       } else if (response.status === 593) {
         isAllowed = false;
+        if (document.getElementById("inviting-code-pannel")) {
+          document.getElementById("inviting-code-pannel").style.display =
+            "none";
+        }
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You are not eligible to participate in this event.");
         } else {
@@ -1283,6 +1291,10 @@ async function fetchEventUserInfo(eventToken) {
       }
       return null;
     } else if (response.status === 593) {
+      isAllowed = false;
+      if (document.getElementById("inviting-code-pannel")) {
+        document.getElementById("inviting-code-pannel").style.display = "none";
+      }
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("You are not eligible to participate in this event.");
       } else {
