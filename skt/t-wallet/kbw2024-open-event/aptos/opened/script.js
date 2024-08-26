@@ -31,6 +31,7 @@ let aptosBalance = 0;
 let spinOpportunity = 0;
 let browserLanguage = "ko";
 let receivedReferralCode = "";
+let isAllowed = true;
 
 document.addEventListener("DOMContentLoaded", async function () {
   accessToken = sessionStorage.getItem("access-token");
@@ -308,6 +309,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         return null;
       } else if (response.status === 593) {
+        isAllowed = false;
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You are not eligible to participate in this event.");
         } else {
@@ -972,6 +974,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         return null;
       } else if (response.status === 593) {
+        isAllowed = false;
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You are not eligible to participate in this event.");
         } else {
@@ -1095,8 +1098,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } else {
       receivedReferralCode = await fetchEventUserInfo(eventToken);
-
-      if (!spinOpportunity) {
+      if (!isAllowed) {
+        if (browserLanguage && !browserLanguage.includes("ko")) {
+          showPopup("You are not eligible to participate in this event.");
+        } else {
+          showPopup("이벤트 참여 대상자가 아닙니다.");
+        }
+      } else if (!spinOpportunity) {
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup(
             "You've used all your event<br />participation chances.<br />Try invite more friends!"
