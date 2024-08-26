@@ -701,21 +701,32 @@ document.addEventListener("DOMContentLoaded", async function () {
     );
   });
 
+  let inviteCodeInputValue = "";
+
   inviteCodeInput.addEventListener("input", function () {
-    let value = inviteCodeInput.value
-      .replace(/\s+/g, "")
-      .toUpperCase()
-      .replace(/[^A-Z0-9]/g, "");
+    let value = inviteCodeInput.value;
 
     if (value.length > 8) {
-      value = value.slice(0, 8);
-    }
+      inviteCodeInput.value = inviteCodeInputValue;
+    } else {
+      value = value
+        .replace(/\s+/g, "")
+        .toUpperCase()
+        .replace(/[^A-Z0-9]/g, "");
 
-    inviteCodeInput.value = value;
+      const newValue = value.slice(0, 8);
 
-    const messageElement = document.getElementById("verify-error-message");
-    if (messageElement) {
-      messageElement.remove();
+      if (newValue !== inviteCodeInputValue) {
+        inviteCodeInputValue = newValue;
+        inviteCodeInput.value = inviteCodeInputValue;
+
+        const messageElement = document.getElementById("verify-error-message");
+        if (messageElement) {
+          messageElement.remove();
+        }
+      } else {
+        inviteCodeInput.value = inviteCodeInputValue;
+      }
     }
   });
 
@@ -1287,7 +1298,7 @@ async function fetchEventUserInfo(eventToken) {
         ).innerHTML = `내 이벤트 참여 기회 <span class="current-opportunity-bold-text">${
           data.event_user.max_roulette_spins -
             data.event_user.total_roulette_spins || 0
-        }회</span
+        }</span
                 >&nbsp;/&nbsp;${data.event_user.max_roulette_spins || 0}회
               </span>
               </span>
