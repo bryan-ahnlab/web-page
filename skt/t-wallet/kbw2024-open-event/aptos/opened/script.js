@@ -1,12 +1,10 @@
-const baseUrl = "https://dev-kbw-event.myabcwallet.com/";
+const baseUrl = "https://dev-kbw-event.myabcwallet.com/"; // Development
+/* const baseUrl = "https://kbw-event.myabcwallet.com/"; // Production */
+
+const fetchTwalletKycUrl = "./../kyc/index.html"; // Private
+/* const fetchTwalletKycUrl = "./../kyc/process"; // Public */
 
 const fetchTwalletPassUrl = baseUrl + "v1/twallet/pass";
-/* TODO */
-/* DEV */
-const fetchTwalletKycUrl = "./../kyc/index.html";
-/* PRODUCTION */
-/* const fetchTwalletKycUrl = "./../kyc/process"; */
-
 const fetchTwalletSignupUrl = baseUrl + "v1/twallet/signup";
 const fetchTwalletEventTokenUrl = baseUrl + "v1/twallet/event/token";
 const fetchAbcwalletEventTokenUrl = baseUrl + "v1/abcwallet/event/token";
@@ -20,18 +18,24 @@ const fetchEventPlayRouletteUrl = baseUrl + "v1/event/play/roulette";
 
 let isLogggedIn = false;
 let isVerified = false;
+let isPrevented = false;
+
+let browserLanguage = "ko";
+
+let appUid = "";
+
+let accessToken = "";
+let eventToken = "";
 
 let invitedCode = "";
 let invitingCode = "";
-let appUid = "";
-let accessToken = "";
-let eventToken = "";
-let accountAddress = "";
-let aptosBalance = 0;
-let spinOpportunity = 0;
-let browserLanguage = "ko";
 let receivedReferralCode = "";
-let isAllowed = true;
+
+let aptosBalance = 0;
+
+let spinOpportunity = 0;
+
+let accountAddress = "";
 
 document.addEventListener("DOMContentLoaded", async function () {
   accessToken = sessionStorage.getItem("access-token");
@@ -159,8 +163,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   /*  */
 
   const urlParams = new URLSearchParams(window.location.search);
-  const invitedCodeFromUrl = urlParams.get("ivtcode");
   const appUidFromUrl = urlParams.get("appuid");
+  const invitedCodeFromUrl = urlParams.get("ivtcode");
 
   /*  */
 
@@ -192,7 +196,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const data = await response.json();
 
       sessionStorage.setItem("access-token", data.access_token);
-      return data.access_token;
+      return data;
     } catch (error) {
       console.error("Error fetching twallet signup:", error);
       const currentUrl = new URL(window.location.href);
@@ -205,14 +209,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (appUidFromUrl) {
     try {
-      accessToken = await fetchTwalletSignup(appUidFromUrl);
+      let data = await fetchTwalletSignup(appUidFromUrl);
+      accessToken = data.access_token;
 
       if (accessToken) {
-        eventToken = await fetchTwalletEventToken(accessToken);
+        let data = await fetchTwalletEventToken(accessToken);
+        eventToken = data.event_token;
       }
 
       if (accessToken && eventToken) {
-        receivedReferralCode = await fetchEventUserInfo(eventToken);
+        let data = await fetchEventUserInfo(eventToken);
+        receivedReferralCode = data.received_referral_code;
 
         isLogggedIn = true;
       } else {
@@ -281,11 +288,13 @@ document.addEventListener("DOMContentLoaded", async function () {
   /* eventToken = sessionStorage.getItem("event-token"); */
 
   if (eventToken && invitedCode) {
-    receivedReferralCode = await fetchEventUserInfo(eventToken);
+    let data = await fetchEventUserInfo(eventToken);
+    receivedReferralCode = data.received_referral_code;
 
     if (!receivedReferralCode) {
       await fetchEventReferral(invitedCode);
-      receivedReferralCode = await fetchEventUserInfo(eventToken);
+      let data = await fetchEventUserInfo(eventToken);
+      receivedReferralCode = data.received_referral_code;
     }
   }
 
@@ -309,7 +318,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         return null;
       } else if (response.status === 593) {
-        isAllowed = false;
+        isPrevented = true;
         if (document.getElementById("inviting-code-pannel")) {
           document.getElementById("inviting-code-pannel").style.display =
             "none";
@@ -756,7 +765,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (inviteCodeButton) {
     inviteCodeButton.addEventListener("click", async function () {
-      receivedReferralCode = await fetchEventUserInfo(eventToken);
+      let data = await fetchEventUserInfo(eventToken);
+      receivedReferralCode = data.received_referral_code;
 
       if (!receivedReferralCode) {
         const inviteCodeInput = document.getElementById("invite-code-input");
@@ -978,7 +988,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         return null;
       } else if (response.status === 593) {
-        isAllowed = false;
+        isPrevented = true;
         if (document.getElementById("inviting-code-pannel")) {
           document.getElementById("inviting-code-pannel").style.display =
             "none";
@@ -1063,7 +1073,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       } else {
         showPopup(`짝짝짝!<br />${selectedItem.text}에 당첨되었어요!`);
       }
-      await fetchEventUserInfo(eventToken);
+      let data = await fetchEventUserInfo(eventToken);
+      receivedReferralCode = data.received_referral_code;
+
       await fetchEventRemainingAmount();
     }
   };
@@ -1105,8 +1117,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         showPopup(`이벤트가<br />선착순 마감되었습니다.`);
       }
     } else {
-      receivedReferralCode = await fetchEventUserInfo(eventToken);
-      if (!isAllowed) {
+      let data = await fetchEventUserInfo(eventToken);
+      receivedReferralCode = data.received_referral_code;
+      if (isPrevented) {
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You are not eligible to participate in this event.");
         } else {
@@ -1146,13 +1159,13 @@ async function fetchTwalletEventToken(accessToken) {
     const data = await response.json();
 
     if (data.detail && data.detail === "User not found") {
-      eventToken = await fetchMpcGenerateWalletPass(accessToken);
-      return eventToken;
+      let data = await fetchMpcGenerateWalletPass(accessToken);
+      return data;
     } else if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     } else {
       sessionStorage.setItem("event-token", data.event_token);
-      return data.event_token;
+      return data;
     }
   } catch (error) {
     console.error("Error fetching token event:", error);
@@ -1181,7 +1194,7 @@ async function fetchMpcGenerateWalletPass(accessToken) {
     const data = await response.json();
 
     sessionStorage.setItem("event-token", data.event_token);
-    return data.event_token;
+    return data;
   } catch (error) {
     console.error("Error fetching pass wallet generate:", error);
     if (browserLanguage && !browserLanguage.includes("ko")) {
@@ -1262,7 +1275,8 @@ async function handleStatus(eventToken) {
     `;
     }
 
-    receivedReferralCode = await fetchEventUserInfo(eventToken);
+    let data = await fetchEventUserInfo(eventToken);
+    receivedReferralCode = data.received_referral_code;
 
     if (receivedReferralCode) {
       invitedCodePannel.style.display = "none";
@@ -1291,7 +1305,7 @@ async function fetchEventUserInfo(eventToken) {
       }
       return null;
     } else if (response.status === 593) {
-      isAllowed = false;
+      isPrevented = true;
       if (document.getElementById("inviting-code-pannel")) {
         document.getElementById("inviting-code-pannel").style.display = "none";
       }
@@ -1374,7 +1388,7 @@ async function fetchEventUserInfo(eventToken) {
       invitingCode = data.event_user.referral_code;
       accountAddress = data.event_user.account_address;
 
-      return data.received_referral_code;
+      return data;
     }
   } catch (error) {
     console.error("Error fetching user info:", error);

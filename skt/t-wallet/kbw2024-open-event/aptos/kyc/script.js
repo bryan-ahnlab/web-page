@@ -1,4 +1,8 @@
-const baseUrl = "https://dev-kbw-event.myabcwallet.com/";
+const baseUrl = "https://dev-kbw-event.myabcwallet.com/"; // Development
+/* const baseUrl = "https://kbw-event.myabcwallet.com/"; // Production */
+
+const eventPath = "/skt/t-wallet/kbw2024-open-event/aptos/opened/index.html"; // Private
+/* const eventPath = "/event/season3"; // Public */
 
 const fetchTwalletKycUserUrl = baseUrl + "v1/twallet/kyc/user";
 const fetchTwalletKycTokenUrl = baseUrl + "v1/twallet/kyc/token";
@@ -9,12 +13,6 @@ const loadingAnimation = "./assets/images/loading_animation.svg";
 const closeImage = "./assets/images/close_image.svg";
 const doneImage = "./assets/images/done_image.svg";
 const successImage = "./assets/images/success_image.svg";
-
-/* TODO */
-/* DEV */
-const eventPath = "/skt/t-wallet/kbw2024-open-event/aptos/opened/index.html";
-/* PRODUCTION */
-/* const eventPath = "/event/season3"; */
 
 let url = "";
 let email = "";
