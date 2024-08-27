@@ -275,11 +275,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       return true;
     } catch (error) {
       console.error("Error registering referral code:", error);
-      if (browserLanguage && !browserLanguage.includes("ko")) {
+      /* if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
         showPopup("네트워크 연결이 불안정해요.");
-      }
+      } */
+      sessionStorage.removeItem("ivt-code");
       return false;
     }
   }
