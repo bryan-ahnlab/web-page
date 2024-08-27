@@ -878,28 +878,41 @@ document.addEventListener("DOMContentLoaded", async function () {
   let spinning = false;
 
   const renderCanvas = () => {
-    const canvasSize = 300;
-    const arrowLocation = (canvasSize / 400) * 1;
-    const arrowSize = (canvasSize / 400) * 60;
-    const radiusSize = (canvasSize / 400) * 85;
+    const displaySize = 300; // Display size in pixels
+    const resolutionMultiplier = 3; // Set resolution multiplier (3x higher resolution)
+    const canvasSize = displaySize * resolutionMultiplier; // Actual canvas size
+
+    const arrowLocation = (displaySize / 400) * -10;
+    const arrowSize = (displaySize / 400) * 65;
+    const radiusSize = (displaySize / 400) * 85;
     const radiusPadding = (radiusSize / 85) * 85;
-    const pieceImageSize = (canvasSize / 250) * 30;
+    const pieceImageSize = (displaySize / 250) * 30;
 
     selector.style.top = `${arrowLocation}px`;
     const selectorImg = new Image();
     selectorImg.src = images.icoDownArrowRed;
-    selectorImg.width = arrowSize;
+    /* selectorImg.width = arrowSize; */
     selectorImg.height = arrowSize;
     selector.appendChild(selectorImg);
 
+    // Set the actual canvas size
     canvas.width = canvasSize;
     canvas.height = canvasSize;
 
-    renderWheel(canvasSize, radiusSize, radiusPadding, pieceImageSize);
+    // Keep the CSS size as is
+    canvas.style.width = `${displaySize}px`;
+    canvas.style.height = `${displaySize}px`;
+
+    // Adjust the context scale
+    const ctx = canvas.getContext("2d");
+    ctx.scale(resolutionMultiplier, resolutionMultiplier);
+
+    // Render elements using displaySize
+    renderWheel(displaySize, radiusSize, radiusPadding, pieceImageSize);
   };
 
   const renderWheel = (
-    canvasSize,
+    displaySize,
     radiusSize,
     radiusPadding,
     pieceImageSize
@@ -915,7 +928,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         angle,
         arcSize,
         colors[i],
-        canvasSize,
+        displaySize,
         radiusSize,
         radiusPadding,
         pieceImageSize
@@ -930,15 +943,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     start,
     arc,
     color,
-    canvasSize,
+    displaySize,
     radiusSize,
     radiusPadding,
     pieceImageSize
   ) => {
     const ctx = canvas.getContext("2d");
     if (ctx) {
-      const x = canvas.width / 2;
-      const y = canvas.height / 2;
+      const x = displaySize / 2;
+      const y = displaySize / 2;
       const startAngle = start;
       const endAngle = start + arc;
 
@@ -963,8 +976,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         const baseSize = radiusSize * 2.33;
         const textRadius = baseSize - radiusPadding;
         ctx.translate(
-          baseSize + Math.cos(angle - arc / 2) * textRadius,
-          baseSize + Math.sin(angle - arc / 2) * textRadius
+          displaySize / 2 + Math.cos(angle - arc / 2) * textRadius,
+          displaySize / 2 + Math.sin(angle - arc / 2) * textRadius
         );
         ctx.rotate(angle - arc / 2 + Math.PI / 2);
         ctx.drawImage(img, -pieceImageSize / 2, -pieceImageSize / 2, 39, 47);
