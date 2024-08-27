@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   function intervalFetchTwalletKycUserStatus(userId) {
     statusCheckInterval = setInterval(() => {
       fetchTwalletKycUserStatus(userId);
-    }, 500000);
+    }, 5000);
   }
 
   function showStatusComponent(status) {
