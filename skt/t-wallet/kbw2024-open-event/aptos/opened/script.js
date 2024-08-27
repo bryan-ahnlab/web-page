@@ -17,7 +17,7 @@ const fetchEventUserUrl = baseUrl + "v1/event/user";
 const fetchEventPlayRouletteUrl = baseUrl + "v1/event/play/roulette";
 
 let isLogggedIn = false;
-let isVerified = false;
+let isRegistered = false;
 let isPrevented = false;
 
 let browserLanguage = "ko";
@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       "./assets/images/title_event_text_en_1.svg";
     document.querySelector(".title-event-text-2").src =
       "./assets/images/title_event_text_en_2.svg";
+    document.querySelector(".title-event-text-3").innerHTML =
+      "2024.&nbsp;9.&nbsp;1.(Sun)&nbsp;~&nbsp;9.&nbsp;30.(Mon)";
     document.querySelector(".content-event-text-1").innerHTML =
       "Invite&nbsp;friends&nbsp;and play&nbsp;together to&nbsp;get&nbsp;Aptos";
     document.querySelector(".content-event-text-2").innerHTML =
@@ -513,13 +515,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (browserLanguage && !browserLanguage.includes("ko")) {
           choicePopupMessage = "Would you like to<br/>connect T Wallet?";
           choicePopupTexts = [
-            "Connect with PASS",
-            "Connect with Passport",
+            "Start as a Korean",
+            "Start as a Foreigner",
             "Close",
           ];
         } else {
           choicePopupMessage = "T Wallet을 연결하시겠습니까?";
-          choicePopupTexts = ["PASS로 연결하기", "여권으로 연결하기", "닫기"];
+          choicePopupTexts = ["한국인 연결하기", "외국인 연결하기", "닫기"];
         }
         showChoicePopup(choicePopupMessage, choicePopupTexts, [
           function () {
@@ -598,7 +600,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         button.className = "popup-button";
       }
       if (index > 0) {
-        button.style.marginTop = "8px";
+        button.style.marginTop = "6px";
       }
 
       button.addEventListener("click", () => {
@@ -779,14 +781,14 @@ document.addEventListener("DOMContentLoaded", async function () {
           const codePattern = /^[A-Z0-9]{8}$/;
 
           if (!codePattern.test(inviteCodeInput.value)) {
-            isVerified = false;
+            isRegistered = false;
           } else {
-            isVerified = await fetchEventReferral(inviteCodeInput.value);
+            isRegistered = await fetchEventReferral(inviteCodeInput.value);
           }
 
           let messageElement = document.getElementById("verify-error-message");
 
-          if (isVerified) {
+          if (isRegistered) {
             if (messageElement) {
               messageElement.remove();
             }
@@ -1271,7 +1273,7 @@ async function handleStatus(eventToken) {
     `;
     } else {
       connectWalletButton.innerHTML = `
-      <span class="content-event-button-text">친구 초대 링크 복사하기</span>
+      <span class="content-event-button-text">초대 URL 복사하기</span>
     `;
     }
 

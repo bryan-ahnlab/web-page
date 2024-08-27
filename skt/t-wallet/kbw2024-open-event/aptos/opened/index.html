@@ -139,7 +139,7 @@
       }
       .first-section .title-event-text-2 {
         width: 281px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
       .first-section .title-event-text-3 {
         color: #5b5b5b;
@@ -150,7 +150,9 @@
         font-weight: 700;
         line-height: normal;
 
-        margin-bottom: 22px;
+        margin-bottom: 20px;
+
+        min-width: 320px;
       }
 
       .first-section .title-event-image {
@@ -189,7 +191,7 @@
 
       .first-section .content-event-button {
         display: flex;
-        padding: 16px 0px;
+        padding: 14px 0px;
         justify-content: center;
         align-items: center;
 
@@ -800,7 +802,7 @@
         line-height: normal;
         letter-spacing: -0.14px;
         /* text-align: left; */
-        padding: 16px 10px;
+        padding: 16px 5px;
         border: none;
         text-align: center;
       }
@@ -815,7 +817,7 @@
         line-height: normal;
         letter-spacing: -0.14px;
         /* text-align: left; */
-        padding: 10px 10px;
+        padding: 10px 5px;
         border: none;
         text-align: center;
       }
@@ -827,8 +829,8 @@
       .third-section .ranking-table th:nth-child(1),
       .third-section .ranking-table td:nth-child(1) {
         box-sizing: border-box;
-        min-width: 50px; /* 첫 번째 열의 너비 설정 */
-        width: calc(50 / 300 * 100%);
+        min-width: 40px; /* 첫 번째 열의 너비 설정 */
+        width: calc(40 / 300 * 100%);
       }
 
       .third-section .ranking-table th:nth-child(2),
@@ -842,8 +844,8 @@
       .third-section .ranking-table th:nth-child(3),
       .third-section .ranking-table td:nth-child(3) {
         box-sizing: border-box;
-        min-width: 70px; /* 세 번째 열의 너비 설정 */
-        width: calc(70 / 300 * 100%);
+        min-width: 80px; /* 세 번째 열의 너비 설정 */
+        width: calc(80 / 300 * 100%);
       }
 
       .third-section .ranking-table th:nth-child(4),
@@ -938,12 +940,17 @@
       .popup-content {
         background-color: #fff;
         padding: 28px 20px 20px 20px;
-        border-radius: 10px;
+        border-radius: 16px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
         max-width: 300px;
         width: 100%;
         box-sizing: border-box;
+
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
       }
 
       .popup-html {
@@ -963,7 +970,7 @@
         align-items: center;
       }
       .popup-image {
-        width: 100px;
+        width: 120px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -971,7 +978,7 @@
 
       .popup-empty-button {
         display: flex;
-        padding: 16px 0px;
+        padding: 14px 0px;
         justify-content: center;
         align-items: center;
         border-radius: 12px;
@@ -981,7 +988,7 @@
         width: 100%;
         cursor: pointer;
 
-        color: #3617ce;
+        color: #000000;
         text-align: center;
         font-family: "Gmarket Sans";
         font-size: 17px;
@@ -990,11 +997,12 @@
         line-height: normal;
 
         margin-top: 20px;
+        width: 232px;
       }
 
       .popup-button {
         display: flex;
-        padding: 16px 0px;
+        padding: 14px 0px;
         justify-content: center;
         align-items: center;
         border-radius: 12px;
@@ -1012,11 +1020,13 @@
         font-weight: 400;
         line-height: normal;
 
-        margin-top: 20px;
+        margin-top: 28px;
+
+        width: 232px;
       }
       .close-popup {
         display: flex;
-        padding: 16px 0px;
+        padding: 14px 0px;
         justify-content: center;
         align-items: center;
         border-radius: 12px;
@@ -1035,6 +1045,7 @@
         line-height: normal;
 
         margin-top: 20px;
+        width: 232px;
       }
       /*  */
     </style>
@@ -1059,7 +1070,7 @@
           class="title-event-text-2"
         />
         <span class="title-event-text-3">
-          2024.&nbsp;09.&nbsp;01&nbsp;~&nbsp;09.&nbsp;30
+          2024.&nbsp;9.&nbsp;1.(일)&nbsp;~&nbsp;9.&nbsp;30.(월)
         </span>
         <img
           src="./assets/images/title_event_image.png"
@@ -1067,11 +1078,11 @@
           class="title-event-image"
         />
         <span class="content-event-text-1"
-          >친구에게&nbsp;앱토스&nbsp;선물하고<br />앱토스&nbsp;받아가세요</span
+          >친구&nbsp;초대하고&nbsp;<br />함께&nbsp;앱토스&nbsp;받아&nbsp;보세요</span
         >
         <span class="content-event-text-2"
-          >T&nbsp;wallet&nbsp;연동하고&nbsp;더&nbsp;많은&nbsp;친구를
-          초대할수록&nbsp;쏟아지는&nbsp;혜택!</span
+          >T&nbsp;wallet&nbsp;연동하고&nbsp;친구&nbsp;초대할수록
+          쏟아지는&nbsp;혜택!</span
         >
         <button class="content-event-button" id="connect-wallet-button">
           <img
@@ -1108,15 +1119,14 @@
       <div class="second-container">
         <div class="balance-container">
           <div class="balance-title-container">
-            <span class="balance-text-1">잔여 수량</span>
+            <span class="balance-text-1">남은 앱토스</span>
           </div>
           <div class="balance-content-container">
             <span class="balance-text-2" id="balance-text"
               >0<span class="balance-text-3">&nbsp;APT</span></span
             >
             <span class="balance-text-4"
-              >* 잔여&nbsp;수량&nbsp;모두&nbsp;소진&nbsp;시
-              이벤트가&nbsp;종료됩니다.</span
+              >* 앱토스&nbsp;소진&nbsp;시 이벤트가&nbsp;종료됩니다.</span
             >
           </div>
         </div>
@@ -1163,10 +1173,10 @@
                   class="current-information-content-image"
                   src="./assets/images/checked_icon.svg"
                 />
-                T wallet 연동만 해도</span
+                T wallet 연동(최초 1회)만 해도</span
               >
               <span class="current-information-content-text"
-                >룰렛 돌리기 3번 제공 (최초 1회)</span
+                >룰렛 기회 3번 제공</span
               >
             </div>
             <div class="current-information-content-2">
@@ -1175,10 +1185,10 @@
                   class="current-information-content-image"
                   src="./assets/images/checked_icon.svg"
                 />
-                내 초대 코드로 새로운 친구를 초대할</span
+                내 초대 코드로 새로운 친구 초대할</span
               >
               <span class="current-information-content-text"
-                >때마다 룰렛 돌리기 3번 추가 제공</span
+                >때마다 룰렛 기회 3번 추가 제공</span
               >
             </div>
 
@@ -1210,7 +1220,7 @@
                   </div>
                   <div class="current-content-event-box">
                     <span class="current-content-event-box-text"
-                      >누적<br />리워드</span
+                      >누적<br />앱토스</span
                     >
                     <span
                       class="current-content-event-box-bold-text"
@@ -1250,7 +1260,7 @@
                     class="current-content-invitation-button"
                     id="copy-link"
                   >
-                    초대 링크 복사
+                    초대 URL 복사하기
                   </button>
                 </div>
               </div>
@@ -1268,12 +1278,10 @@
               class="current-title-image"
               src="./assets/images/event_2_title_image.svg"
             />
-            <span class="current-title-text"
-              >초대할수록<br />더 많은 혜택!</span
-            >
+            <span class="current-title-text">초대할수록 커지는&nbsp;혜택!</span>
           </div>
           <span class="event-description"
-            >초대왕 100명에게 앱토스 추가 지급</span
+            >초대왕 100명에게 앱토스 추가 증정</span
           >
           <span class="ranking-title">초대왕 랭킹 100</span>
           <div class="ranking-table-container">
@@ -1281,8 +1289,8 @@
               <thead>
                 <tr>
                   <th>순위</th>
-                  <th>지갑주소</th>
-                  <th>초대 수</th>
+                  <th>지갑 주소</th>
+                  <th>초대 인원</th>
                   <th>추가 혜택</th>
                 </tr>
               </thead>
@@ -1297,36 +1305,33 @@
     <section class="footer-section">
       <div class="footer-container">
         <div class="notice-container">
-          <span class="notice-container-title">꼭! 읽어주세요</span>
+          <span class="notice-container-title">꼭! 확인해 주세요</span>
           <div class="notice-container-content">
             <ul>
-              <li>이 이벤트는 선착순 마감 시 종료됩니다.</li>
+              <li>이 이벤트는 앱토스 소진 시 종료됩니다.</li>
               <li>
-                이벤트 대상 조건(국적 등)에 해당하지 않거나 미션을 완료하지 못한
-                경우 경품 증정이 취소될 수 있습니다.
+                이벤트 대상 조건(국적 등)에 해당하지 않거나 혜택 증정 조건을
+                충족하지 못한 경우 경품 증정이 취소될 수 있습니다.
               </li>
               <li>
                 초대 코드 등록(초대 수락)은 1인 1회만 가능하며, 초대를 이미
-                수락한 상태에서 다른 초대를 수락할 수 없습니다.
+                수락한 상태에서 다른 초대를 수락하실 수 없습니다.
               </li>
               <li>
-                초대 코드가 포함된 초대 링크를 통해 이벤트 페이지에 최초 지갑
+                초대 코드가 포함된 초대 URL을 통해 이벤트 페이지에서 최초 지갑
                 연결 시 자동으로 초대가 수락됩니다.
               </li>
-              <li>본인의 초대 코드는 등록할 수 없습니다.</li>
+              <li>본인의 초대 코드를 직접 등록하실 수 없습니다.</li>
+              <li>이벤트가 종료되면 남은 룰렛기회도 자동으로 사라집니다.</li>
               <li>
-                이벤트가 종료되었을 경우 남아있는 룰렛 참여 기회가 자동
-                소멸됩니다.
+                네트워크 상황에 따라 룰렛을 돌린 후 경품을 받으실 때까지 시간이
+                걸릴 수 있습니다.
               </li>
               <li>
-                네트워크 상황에 따라 룰렛을 돌린 후 경품 증정에 다소 시간이
-                소요될 수 있습니다.
-              </li>
-              <li>
-                초대왕 이벤트의 초대 수가 동일할 경우 먼저 도달한 참가자의
+                초대왕 이벤트에서는 초대 인원이 같을 경우 먼저 달성한 고객님의
                 순위가 올라갑니다.
               </li>
-              <li>초대왕 이벤트 경품은 이벤트 종료 후 일괄 증정됩니다.</li>
+              <li>초대왕 경품은 이벤트 종료 후 일괄 증정됩니다.</li>
             </ul>
           </div>
         </div>
