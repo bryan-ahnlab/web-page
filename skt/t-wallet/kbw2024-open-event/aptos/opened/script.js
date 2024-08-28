@@ -537,26 +537,34 @@ document.addEventListener("DOMContentLoaded", async function () {
         ]);
         /* } */
       } else {
-        const currentUrl = new URL(window.location.href);
+        if (!isPrevented) {
+          const currentUrl = new URL(window.location.href);
 
-        currentUrl.searchParams.delete("appuid");
+          currentUrl.searchParams.delete("appuid");
 
-        const inviteCode = invitingCode;
-        currentUrl.searchParams.set("ivtcode", inviteCode);
+          const inviteCode = invitingCode;
+          currentUrl.searchParams.set("ivtcode", inviteCode);
 
-        const linkTextToCopy = currentUrl.toString();
-        navigator.clipboard.writeText(linkTextToCopy).then(
-          function () {
-            if (browserLanguage && !browserLanguage.includes("ko")) {
-              showTooltip(connectWalletButton, "Copied!");
-            } else {
-              showTooltip(connectWalletButton, "복사 되었어요.");
+          const linkTextToCopy = currentUrl.toString();
+          navigator.clipboard.writeText(linkTextToCopy).then(
+            function () {
+              if (browserLanguage && !browserLanguage.includes("ko")) {
+                showTooltip(connectWalletButton, "Copied!");
+              } else {
+                showTooltip(connectWalletButton, "복사 되었어요.");
+              }
+            },
+            function (error) {
+              console.error("Error copying clipboard:", error);
             }
-          },
-          function (error) {
-            console.error("Error copying clipboard:", error);
+          );
+        } else {
+          if (browserLanguage && !browserLanguage.includes("ko")) {
+            showPopup("You are not eligible to participate in this event.");
+          } else {
+            showPopup("이벤트 참여 대상자가 아닙니다.");
           }
-        );
+        }
       }
     });
   }
@@ -627,18 +635,26 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (inviteWalletButton) {
     inviteWalletButton.addEventListener("click", function () {
       if (invitingCode) {
-        navigator.clipboard.writeText(invitingCode).then(
-          function () {
-            if (browserLanguage && !browserLanguage.includes("ko")) {
-              showTooltip(inviteWalletButton, "Copied!");
-            } else {
-              showTooltip(inviteWalletButton, "복사 되었어요.");
+        if (!isPrevented) {
+          navigator.clipboard.writeText(invitingCode).then(
+            function () {
+              if (browserLanguage && !browserLanguage.includes("ko")) {
+                showTooltip(inviteWalletButton, "Copied!");
+              } else {
+                showTooltip(inviteWalletButton, "복사 되었어요.");
+              }
+            },
+            function (error) {
+              console.error("Error copying clipboard:", error);
             }
-          },
-          function (error) {
-            console.error("Error copying clipboard:", error);
+          );
+        } else {
+          if (browserLanguage && !browserLanguage.includes("ko")) {
+            showPopup("You are not eligible to participate in this event.");
+          } else {
+            showPopup("이벤트 참여 대상자가 아닙니다.");
           }
-        );
+        }
       }
     });
   }
@@ -650,24 +666,32 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (copyLinkButton) {
     copyLinkButton.addEventListener("click", function () {
       if (isLogggedIn) {
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.delete("appuid");
-        const inviteCode = invitingCode;
-        currentUrl.searchParams.set("ivtcode", inviteCode);
+        if (!isPrevented) {
+          const currentUrl = new URL(window.location.href);
+          currentUrl.searchParams.delete("appuid");
+          const inviteCode = invitingCode;
+          currentUrl.searchParams.set("ivtcode", inviteCode);
 
-        const linkTextToCopy = currentUrl.toString();
-        navigator.clipboard.writeText(linkTextToCopy).then(
-          function () {
-            if (browserLanguage && !browserLanguage.includes("ko")) {
-              showTooltip(copyLinkButton, "Copied!");
-            } else {
-              showTooltip(copyLinkButton, "복사 되었어요.");
+          const linkTextToCopy = currentUrl.toString();
+          navigator.clipboard.writeText(linkTextToCopy).then(
+            function () {
+              if (browserLanguage && !browserLanguage.includes("ko")) {
+                showTooltip(copyLinkButton, "Copied!");
+              } else {
+                showTooltip(copyLinkButton, "복사 되었어요.");
+              }
+            },
+            function (error) {
+              console.error("Error copying clipboard:", error);
             }
-          },
-          function (error) {
-            console.error("Error copying clipboard:", error);
+          );
+        } else {
+          if (browserLanguage && !browserLanguage.includes("ko")) {
+            showPopup("You are not eligible to participate in this event.");
+          } else {
+            showPopup("이벤트 참여 대상자가 아닙니다.");
           }
-        );
+        }
       }
     });
   }
