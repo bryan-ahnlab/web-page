@@ -535,11 +535,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching token event:", error);
-      if (browserLanguage && !browserLanguage.includes("ko")) {
+      /* if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
         showPopup("네트워크 연결이 불안정해요.");
-      }
+      } */
     }
   }
 
@@ -563,11 +563,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.event_token;
     } catch (error) {
       console.error("Error fetching kyc wallet generate:", error);
-      if (browserLanguage && !browserLanguage.includes("ko")) {
+      /* if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
         showPopup("네트워크 연결이 불안정해요.");
-      }
+      } */
     }
   }
 });

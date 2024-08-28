@@ -326,6 +326,31 @@ document.addEventListener("DOMContentLoaded", async function () {
           document.getElementById("inviting-code-pannel").style.display =
             "none";
         }
+        if (document.getElementById("current-opportunity-content")) {
+          document.getElementById("current-opportunity-content").style.display =
+            "none";
+        }
+        if (document.getElementById("current-content-container")) {
+          document.getElementById("current-content-container").style.display =
+            "none";
+        }
+        if (document.getElementById("invited-code-pannel")) {
+          document.getElementById("invited-code-pannel").style.display = "none";
+        }
+        if (document.getElementById("connect-wallet-button")) {
+          document.getElementById("connect-wallet-button").style.display =
+            "none";
+        }
+        if (document.getElementById("current-information-content-2")) {
+          document.getElementById(
+            "current-information-content-2"
+          ).style.marginBottom = "0px";
+        }
+        if (document.getElementById("content-event-text-2")) {
+          document.getElementById("content-event-text-2").style.marginBottom =
+            "0px";
+        }
+
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You are not eligible to participate in this event.");
         } else {
@@ -345,11 +370,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } catch (error) {
       console.error("Error fetching user account address:", error);
-      if (browserLanguage && !browserLanguage.includes("ko")) {
+      /* if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
         showPopup("네트워크 연결이 불안정해요.");
-      }
+      } */
     }
   }
 
@@ -462,7 +487,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       const data = await response.json();
 
-      if (data && data.apt) {
+      if (data && (data.apt || data.apt === 0)) {
         aptosBalance = data.apt;
         const formattedApt = Number(data.apt.toFixed(1)).toLocaleString();
         balanceTextElement.innerHTML = `${formattedApt}<span class="balance-text-3">&nbsp;APT</span>`;
@@ -1033,6 +1058,31 @@ document.addEventListener("DOMContentLoaded", async function () {
           document.getElementById("inviting-code-pannel").style.display =
             "none";
         }
+        if (document.getElementById("current-opportunity-content")) {
+          document.getElementById("current-opportunity-content").style.display =
+            "none";
+        }
+        if (document.getElementById("current-content-container")) {
+          document.getElementById("current-content-container").style.display =
+            "none";
+        }
+        if (document.getElementById("invited-code-pannel")) {
+          document.getElementById("invited-code-pannel").style.display = "none";
+        }
+        if (document.getElementById("connect-wallet-button")) {
+          document.getElementById("connect-wallet-button").style.display =
+            "none";
+        }
+        if (document.getElementById("current-information-content-2")) {
+          document.getElementById(
+            "current-information-content-2"
+          ).style.marginBottom = "0px";
+        }
+        if (document.getElementById("content-event-text-2")) {
+          document.getElementById("content-event-text-2").style.marginBottom =
+            "0px";
+        }
+
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You are not eligible to participate in this event.");
         } else {
@@ -1050,11 +1100,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       return data.score_index;
     } catch (error) {
       console.error("Error fetching spin result:", error);
-      if (browserLanguage && !browserLanguage.includes("ko")) {
+      /* if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The network connection is unstable.");
       } else {
         showPopup("네트워크 연결이 불안정해요.");
-      }
+      } */
       return null;
     }
   };
@@ -1209,11 +1259,11 @@ async function fetchTwalletEventToken(accessToken) {
     }
   } catch (error) {
     console.error("Error fetching token event:", error);
-    if (browserLanguage && !browserLanguage.includes("ko")) {
+    /* if (browserLanguage && !browserLanguage.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
       showPopup("네트워크 연결이 불안정해요.");
-    }
+    } */
   }
 }
 
@@ -1237,11 +1287,11 @@ async function fetchMpcGenerateWalletPass(accessToken) {
     return data;
   } catch (error) {
     console.error("Error fetching pass wallet generate:", error);
-    if (browserLanguage && !browserLanguage.includes("ko")) {
+    /* if (browserLanguage && !browserLanguage.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
       showPopup("네트워크 연결이 불안정해요.");
-    }
+    } */
   }
 }
 
@@ -1288,11 +1338,11 @@ async function fetchAbcwalletEventToken(accessToken) {
     return data.event_token;
   } catch (error) {
     console.error("Error fetching token event:", error);
-    if (browserLanguage && !browserLanguage.includes("ko")) {
+    /* if (browserLanguage && !browserLanguage.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
       showPopup("네트워크 연결이 불안정해요.");
-    }
+    } */
   }
 }
 
@@ -1349,6 +1399,30 @@ async function fetchEventUserInfo(eventToken) {
       if (document.getElementById("inviting-code-pannel")) {
         document.getElementById("inviting-code-pannel").style.display = "none";
       }
+      if (document.getElementById("current-opportunity-content")) {
+        document.getElementById("current-opportunity-content").style.display =
+          "none";
+      }
+      if (document.getElementById("current-content-container")) {
+        document.getElementById("current-content-container").style.display =
+          "none";
+      }
+      if (document.getElementById("invited-code-pannel")) {
+        document.getElementById("invited-code-pannel").style.display = "none";
+      }
+      if (document.getElementById("connect-wallet-button")) {
+        document.getElementById("connect-wallet-button").style.display = "none";
+      }
+      if (document.getElementById("current-information-content-2")) {
+        document.getElementById(
+          "current-information-content-2"
+        ).style.marginBottom = "0px";
+      }
+      if (document.getElementById("content-event-text-2")) {
+        document.getElementById("content-event-text-2").style.marginBottom =
+          "0px";
+      }
+
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("You are not eligible to participate in this event.");
       } else {
@@ -1432,10 +1506,10 @@ async function fetchEventUserInfo(eventToken) {
     }
   } catch (error) {
     console.error("Error fetching user info:", error);
-    if (browserLanguage && !browserLanguage.includes("ko")) {
+    /* if (browserLanguage && !browserLanguage.includes("ko")) {
       showPopup("The network connection is unstable.");
     } else {
       showPopup("네트워크 연결이 불안정해요.");
-    }
+    } */
   }
 }
