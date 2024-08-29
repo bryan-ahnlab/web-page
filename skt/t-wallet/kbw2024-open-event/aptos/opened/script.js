@@ -1,8 +1,8 @@
 const baseUrl = "https://dev-kbw-event.myabcwallet.com/"; // Development
 /* const baseUrl = "https://kbw-event.myabcwallet.com/"; // Production */
 
-const fetchTwalletKycUrl = "./../kyc/index.html"; // Private
-/* const fetchTwalletKycUrl = "./../kyc/process"; // Public */
+/* const fetchTwalletKycUrl = "./../kyc/index.html"; // Private */
+const fetchTwalletKycUrl = "./../kyc/process"; // Public
 
 const fetchTwalletPassUrl = baseUrl + "v1/twallet/pass";
 const fetchTwalletSignupUrl = baseUrl + "v1/twallet/signup";
