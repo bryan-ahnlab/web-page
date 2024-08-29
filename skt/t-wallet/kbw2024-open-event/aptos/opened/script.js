@@ -45,7 +45,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (accessToken && eventToken) {
     loginType = sessionStorage.getItem("login-type");
+
     gtag("event", "login_success", { type: loginType });
+
     isLogggedIn = true;
   }
 
@@ -358,7 +360,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         return response;
       } else if (response.status === 593) {
         isPrevented = true;
+
         gtag("event", "invalid_user", {});
+        gtag("event", "click_popup_noparticipant​", {});
+
         if (document.getElementById("inviting-code-pannel")) {
           document.getElementById("inviting-code-pannel").style.display =
             "none";
@@ -556,7 +561,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (connectWalletButton) {
     connectWalletButton.addEventListener("click", async function () {
       if (!isLogggedIn) {
-        gtag("event", "event_start_wallet_connect", {});
+        gtag("event", "event_start_twallet_connect", {});
+
         /* const userAgent =
           navigator.userAgent || navigator.vendor || window.opera;
 
@@ -590,19 +596,29 @@ document.addEventListener("DOMContentLoaded", async function () {
         showChoicePopup(choicePopupMessage, choicePopupTexts, [
           function () {
             sessionStorage.setItem("login-type", "pass");
+
+            gtag("event", "click_popup_tw_ko​", {});
+
             window.location.href = fetchTwalletPassUrl;
           },
           function () {
             sessionStorage.setItem("login-type", "kyc");
+
+            gtag("event", "click_popup_tw_fo​", {});
+
             window.location.href = fetchTwalletKycUrl;
           },
           function () {
+            gtag("event", "click_popup_tw_close​", {});
+
             closePopup();
           },
         ]);
         /* } */
       } else {
         if (!isPrevented) {
+          gtag("event", "click_refferal_linkcopy​", {});
+
           const currentUrl = new URL(window.location.href);
 
           currentUrl.searchParams.delete("appuid");
@@ -701,6 +717,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     inviteWalletButton.addEventListener("click", function () {
       if (invitingCode) {
         if (!isPrevented) {
+          gtag("event", "click_refferal_codecopy​", {});
+
           navigator.clipboard.writeText(invitingCode).then(
             function () {
               if (browserLanguage && !browserLanguage.includes("ko")) {
@@ -732,6 +750,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     copyLinkButton.addEventListener("click", function () {
       if (isLogggedIn) {
         if (!isPrevented) {
+          gtag("event", "click_refferal_linkcopy​", {});
+
           const currentUrl = new URL(window.location.href);
           currentUrl.searchParams.delete("appuid");
           const inviteCode = invitingCode;
@@ -874,6 +894,8 @@ document.addEventListener("DOMContentLoaded", async function () {
           if (!codePattern.test(inviteCodeInput.value)) {
             isRegistered = false;
           } else {
+            gtag("event", "click_refferal_regist​", {});
+
             isRegistered = await fetchEventReferral(inviteCodeInput.value);
           }
 
@@ -1124,7 +1146,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         return null;
       } else if (response.status === 593) {
         isPrevented = true;
-        gtag("event", "invalid_user", {});
+
+        /* gtag("event", "invalid_user", {}); */
+        /* gtag("event", "click_popup_noparticipant​", {}); */
+
         if (document.getElementById("inviting-code-pannel")) {
           document.getElementById("inviting-code-pannel").style.display =
             "none";
@@ -1230,6 +1255,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const selectedItem = list[selectedIndex];
     if (selectedItem) {
       gtag("event", "spin_wheel", { amount: selectedItem.text });
+      gtag("event", "click_popup_rewards​", { amount: selectedItem.text });
+
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup(`Congratulations!<br />You've won ${selectedItem.text}!`);
       } else {
@@ -1268,12 +1295,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   spinButton.addEventListener("click", async () => {
     if (!isLogggedIn) {
+      gtag("event", "click_popup_noconnect​", {});
+
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("Please connect T wallet.");
       } else {
         showPopup("T wallet을 연결해주세요.");
       }
     } else if (aptosBalance <= 0) {
+      gtag("event", "click_popup_closed​", {});
+
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The event has ended.");
       } else {
@@ -1291,6 +1322,8 @@ document.addEventListener("DOMContentLoaded", async function () {
           showPopup("이벤트 참여 대상자가 아닙니다.");
         }
       } else if (!spinOpportunity) {
+        gtag("event", "click_popup_nochance​", {});
+
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup(
             "You've used all your event<br />participation chances.<br />Try invite more friends!"
@@ -1501,7 +1534,10 @@ async function fetchEventUserInfo(eventToken) {
       return response;
     } else if (response.status === 593) {
       isPrevented = true;
-      gtag("event", "invalid_user", {});
+
+      /* gtag("event", "invalid_user", {}); */
+      /* gtag("event", "click_popup_noparticipant​", {}); */
+
       if (document.getElementById("inviting-code-pannel")) {
         document.getElementById("inviting-code-pannel").style.display = "none";
       }

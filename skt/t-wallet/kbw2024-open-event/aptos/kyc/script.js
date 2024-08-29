@@ -24,6 +24,8 @@ let accessToken = "";
 let eventToken = "";
 
 document.addEventListener("DOMContentLoaded", async function () {
+  gtag("event", "page_kyc_start​", {});
+
   url = sessionStorage.getItem("url");
   email = sessionStorage.getItem("email");
   userId = sessionStorage.getItem("user-id");
@@ -219,6 +221,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     } else {
       const emailValue = emailInput.value;
       if (validateEmail(emailValue)) {
+        gtag("event", "click_kyc_email_verify​", {});
+
         const response = await fetchTwalletKycUser(emailValue);
         console.log(`response: ${JSON.stringify(response)}`);
 
@@ -308,20 +312,28 @@ document.addEventListener("DOMContentLoaded", async function () {
         status === "pending" ||
         status === "faceauthRequested"
       ) {
+        gtag("event", "page_kyc_pending​", {});
+
         showStatusComponent("Standby");
       } else if (
         status === "rejected" ||
         status === "emailExpired" ||
         status === "faceauthRejected"
       ) {
+        gtag("event", "page_kyc_fail​", {});
+
         showStatusComponent("Rejected");
       } else if (status === "emailRequested") {
+        gtag("event", "page_kyc_approval​", {});
+
         showStatusComponent("AuthentificationStanby");
       } else if (
         status === "emailApproved" ||
         status === "faceauthApproved" ||
         status === "walletCreated"
       ) {
+        gtag("event", "page_kyc_email_request​", {});
+
         showStatusComponent("AuthentificationApproved");
       }
 
@@ -330,6 +342,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       document
         .getElementById("reset-link")
         .addEventListener("click", async () => {
+          gtag("event", "click_kyc_reset​", {});
+
           await initializeStatus();
         });
     } catch (error) {
@@ -444,6 +458,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
           accessToken = await fetchTwalletKycToken(userId);
           if (accessToken) {
+            gtag("event", "click_kyc_email_request_btn​", {});
+
             eventToken = await fetchTwalletEventToken(accessToken);
           }
 
@@ -452,6 +468,8 @@ document.addEventListener("DOMContentLoaded", async function () {
           }
         });
     } else if (status === "Created") {
+      gtag("event", "page_kyc_success​", {});
+
       if (browserLanguage && !browserLanguage.includes("ko")) {
         statusContainer.innerHTML = `
           <div class="kyc-status-container">
@@ -477,6 +495,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       document
         .getElementById("redirect-kyc-wallet-button")
         .addEventListener("click", async () => {
+          gtag("event", "click_kyc_sucess_btn​", {});
+
           const currentUrl = new URL(window.location.href);
           currentUrl.pathname = eventPath;
           window.location.href = currentUrl.toString();
