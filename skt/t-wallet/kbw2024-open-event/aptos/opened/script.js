@@ -225,7 +225,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       if (accessToken && eventToken) {
         let data = await fetchEventUserInfo(eventToken);
-        receivedReferralCode = data.received_referral_code || "";
+
+        if (data.received_referral_code) {
+          receivedReferralCode = data.received_referral_code;
+        }
 
         isLogggedIn = true;
       } else {
@@ -296,12 +299,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (eventToken && invitedCode) {
     let data = await fetchEventUserInfo(eventToken);
-    receivedReferralCode = data.received_referral_code || "";
+
+    if (data.received_referral_code) {
+      receivedReferralCode = data.received_referral_code;
+    }
 
     if (!receivedReferralCode) {
       await fetchEventReferral(invitedCode);
       let data = await fetchEventUserInfo(eventToken);
-      receivedReferralCode = data.received_referral_code || "";
+
+      if (data.received_referral_code) {
+        receivedReferralCode = data.received_referral_code;
+      }
     }
   }
 
@@ -826,7 +835,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (inviteCodeButton) {
     inviteCodeButton.addEventListener("click", async function () {
       let data = await fetchEventUserInfo(eventToken);
-      receivedReferralCode = data.received_referral_code || "";
+
+      if (data.received_referral_code) {
+        receivedReferralCode = data.received_referral_code;
+      }
 
       if (!receivedReferralCode) {
         const inviteCodeInput = document.getElementById("invite-code-input");
@@ -1174,7 +1186,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         showPopup(`짝짝짝!<br />${selectedItem.text}에 당첨되었어요!`);
       }
       let data = await fetchEventUserInfo(eventToken);
-      receivedReferralCode = data.received_referral_code || "";
+
+      if (data.received_referral_code) {
+        receivedReferralCode = data.received_referral_code;
+      }
 
       await fetchEventRemainingAmount();
     }
@@ -1218,7 +1233,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } else {
       let data = await fetchEventUserInfo(eventToken);
-      receivedReferralCode = data.received_referral_code || "";
+
+      if (data.received_referral_code) {
+        receivedReferralCode = data.received_referral_code;
+      }
+
       if (isPrevented) {
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("You are not eligible to participate in this event.");
@@ -1378,7 +1397,10 @@ async function handleStatus(eventToken) {
     }
 
     let data = await fetchEventUserInfo(eventToken);
-    receivedReferralCode = data.received_referral_code || "";
+
+    if (data.received_referral_code) {
+      receivedReferralCode = data.received_referral_code;
+    }
 
     if (receivedReferralCode) {
       invitedCodePannel.style.display = "none";
