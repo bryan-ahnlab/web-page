@@ -1303,10 +1303,12 @@ async function fetchMpcGenerateWalletPass(accessToken) {
 /* Common */
 
 function showPopup(message) {
-  const popupOverlay = document.getElementById("popup");
-  const popupContent = document.getElementById("popup-html");
-  popupContent.innerHTML = message;
-  popupOverlay.style.display = "flex";
+  const popup = document.getElementById("popup");
+  if (popup.style.display === "none") {
+    const popupHtml = document.getElementById("popup-html");
+    popupHtml.innerHTML = message;
+    popup.style.display = "flex";
+  }
 }
 
 /* Mobile Application */
