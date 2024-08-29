@@ -27,6 +27,8 @@ let appUid = "";
 let accessToken = "";
 let eventToken = "";
 
+let loginType = "";
+
 let invitedCode = "";
 let invitingCode = "";
 let receivedReferralCode = "";
@@ -42,6 +44,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   eventToken = sessionStorage.getItem("event-token");
 
   if (accessToken && eventToken) {
+    loginType = sessionStorage.getItem("login-type");
     isLogggedIn = true;
   }
 
@@ -551,9 +554,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         showChoicePopup(choicePopupMessage, choicePopupTexts, [
           function () {
+            sessionStorage.setItem("login-type", "pass");
             window.location.href = fetchTwalletPassUrl;
           },
           function () {
+            sessionStorage.setItem("login-type", "kyc");
             window.location.href = fetchTwalletKycUrl;
           },
           function () {
