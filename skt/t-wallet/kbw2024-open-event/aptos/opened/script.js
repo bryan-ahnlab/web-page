@@ -321,6 +321,35 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
 
       if (response.status === 592) {
+        if (document.getElementById("inviting-code-pannel")) {
+          document.getElementById("inviting-code-pannel").style.display =
+            "none";
+        }
+        if (document.getElementById("current-opportunity-content")) {
+          document.getElementById("current-opportunity-content").style.display =
+            "none";
+        }
+        if (document.getElementById("current-content-container")) {
+          document.getElementById("current-content-container").style.display =
+            "none";
+        }
+        if (document.getElementById("invited-code-pannel")) {
+          document.getElementById("invited-code-pannel").style.display = "none";
+        }
+        if (document.getElementById("connect-wallet-button")) {
+          document.getElementById("connect-wallet-button").style.display =
+            "none";
+        }
+        if (document.getElementById("current-information-content-2")) {
+          document.getElementById(
+            "current-information-content-2"
+          ).style.marginBottom = "0px";
+        }
+        if (document.getElementById("content-event-text-2")) {
+          document.getElementById("content-event-text-2").style.marginBottom =
+            "0px";
+        }
+
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("The event is not currently ongoing.");
         } else {
@@ -1058,6 +1087,35 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
 
       if (response.status === 592) {
+        if (document.getElementById("inviting-code-pannel")) {
+          document.getElementById("inviting-code-pannel").style.display =
+            "none";
+        }
+        if (document.getElementById("current-opportunity-content")) {
+          document.getElementById("current-opportunity-content").style.display =
+            "none";
+        }
+        if (document.getElementById("current-content-container")) {
+          document.getElementById("current-content-container").style.display =
+            "none";
+        }
+        if (document.getElementById("invited-code-pannel")) {
+          document.getElementById("invited-code-pannel").style.display = "none";
+        }
+        if (document.getElementById("connect-wallet-button")) {
+          document.getElementById("connect-wallet-button").style.display =
+            "none";
+        }
+        if (document.getElementById("current-information-content-2")) {
+          document.getElementById(
+            "current-information-content-2"
+          ).style.marginBottom = "0px";
+        }
+        if (document.getElementById("content-event-text-2")) {
+          document.getElementById("content-event-text-2").style.marginBottom =
+            "0px";
+        }
+
         if (browserLanguage && !browserLanguage.includes("ko")) {
           showPopup("The event is not currently ongoing.");
         } else {
@@ -1408,6 +1466,33 @@ async function fetchEventUserInfo(eventToken) {
     });
 
     if (response.status === 592) {
+      if (document.getElementById("inviting-code-pannel")) {
+        document.getElementById("inviting-code-pannel").style.display = "none";
+      }
+      if (document.getElementById("current-opportunity-content")) {
+        document.getElementById("current-opportunity-content").style.display =
+          "none";
+      }
+      if (document.getElementById("current-content-container")) {
+        document.getElementById("current-content-container").style.display =
+          "none";
+      }
+      if (document.getElementById("invited-code-pannel")) {
+        document.getElementById("invited-code-pannel").style.display = "none";
+      }
+      if (document.getElementById("connect-wallet-button")) {
+        document.getElementById("connect-wallet-button").style.display = "none";
+      }
+      if (document.getElementById("current-information-content-2")) {
+        document.getElementById(
+          "current-information-content-2"
+        ).style.marginBottom = "0px";
+      }
+      if (document.getElementById("content-event-text-2")) {
+        document.getElementById("content-event-text-2").style.marginBottom =
+          "0px";
+      }
+
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup("The event is not currently ongoing.");
       } else {
