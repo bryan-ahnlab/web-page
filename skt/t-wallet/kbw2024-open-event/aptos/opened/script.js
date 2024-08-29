@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (accessToken && eventToken) {
     loginType = sessionStorage.getItem("login-type");
+    gtag("event", "login_success", { type: loginType });
     isLogggedIn = true;
   }
 
@@ -325,6 +326,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         return null;
       } else if (response.status === 593) {
         isPrevented = true;
+        gtag("event", "invalid_user", {});
         if (document.getElementById("inviting-code-pannel")) {
           document.getElementById("inviting-code-pannel").style.display =
             "none";
@@ -522,6 +524,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (connectWalletButton) {
     connectWalletButton.addEventListener("click", async function () {
       if (!isLogggedIn) {
+        gtag("event", "event_start_wallet_connect", {});
         /* const userAgent =
           navigator.userAgent || navigator.vendor || window.opera;
 
@@ -1059,6 +1062,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         return null;
       } else if (response.status === 593) {
         isPrevented = true;
+        gtag("event", "invalid_user", {});
         if (document.getElementById("inviting-code-pannel")) {
           document.getElementById("inviting-code-pannel").style.display =
             "none";
@@ -1163,6 +1167,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const selectedItem = list[selectedIndex];
     if (selectedItem) {
+      gtag("event", "spin_wheel", { amount: selectedItem.text });
       if (browserLanguage && !browserLanguage.includes("ko")) {
         showPopup(`Congratulations!<br />You've won ${selectedItem.text}!`);
       } else {
@@ -1401,6 +1406,7 @@ async function fetchEventUserInfo(eventToken) {
       return null;
     } else if (response.status === 593) {
       isPrevented = true;
+      gtag("event", "invalid_user", {});
       if (document.getElementById("inviting-code-pannel")) {
         document.getElementById("inviting-code-pannel").style.display = "none";
       }
