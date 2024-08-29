@@ -225,9 +225,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (accessToken && eventToken) {
         let data = await fetchEventUserInfo(eventToken);
 
-        if (data.received_referral_code) {
-          receivedReferralCode = data.received_referral_code;
-        }
+        receivedReferralCode = data.received_referral_code;
 
         isLogggedIn = true;
       } else {
@@ -299,17 +297,13 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (eventToken && invitedCode) {
     let data = await fetchEventUserInfo(eventToken);
 
-    if (data.received_referral_code) {
-      receivedReferralCode = data.received_referral_code;
-    }
+    receivedReferralCode = data.received_referral_code;
 
     if (!receivedReferralCode) {
       await fetchEventReferral(invitedCode);
       let data = await fetchEventUserInfo(eventToken);
 
-      if (data.received_referral_code) {
-        receivedReferralCode = data.received_referral_code;
-      }
+      receivedReferralCode = data.received_referral_code;
     }
   }
 
@@ -331,7 +325,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         } else {
           showPopup("이벤트 기간이 아닙니다.");
         }
-        return null;
+        return response;
       } else if (response.status === 593) {
         isPrevented = true;
         if (document.getElementById("inviting-code-pannel")) {
@@ -368,7 +362,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         } else {
           showPopup("이벤트 참여 대상자가 아닙니다.");
         }
-        return null;
+        return response;
       }
 
       if (!response.ok) {
@@ -833,9 +827,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     inviteCodeButton.addEventListener("click", async function () {
       let data = await fetchEventUserInfo(eventToken);
 
-      if (data.received_referral_code) {
-        receivedReferralCode = data.received_referral_code;
-      }
+      receivedReferralCode = data.received_referral_code;
 
       if (!receivedReferralCode) {
         const inviteCodeInput = document.getElementById("invite-code-input");
@@ -1182,9 +1174,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
       let data = await fetchEventUserInfo(eventToken);
 
-      if (data.received_referral_code) {
-        receivedReferralCode = data.received_referral_code;
-      }
+      receivedReferralCode = data.received_referral_code;
 
       await fetchEventRemainingAmount();
     }
@@ -1229,9 +1219,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     } else {
       let data = await fetchEventUserInfo(eventToken);
 
-      if (data.received_referral_code) {
-        receivedReferralCode = data.received_referral_code;
-      }
+      receivedReferralCode = data.received_referral_code;
 
       if (isPrevented) {
         if (browserLanguage && !browserLanguage.includes("ko")) {
@@ -1393,9 +1381,7 @@ async function handleStatus(eventToken) {
 
     let data = await fetchEventUserInfo(eventToken);
 
-    if (data.received_referral_code) {
-      receivedReferralCode = data.received_referral_code;
-    }
+    receivedReferralCode = data.received_referral_code;
 
     if (receivedReferralCode) {
       invitedCodePannel.style.display = "none";
@@ -1422,7 +1408,7 @@ async function fetchEventUserInfo(eventToken) {
       } else {
         showPopup("이벤트 기간이 아닙니다.");
       }
-      return null;
+      return response;
     } else if (response.status === 593) {
       isPrevented = true;
       if (document.getElementById("inviting-code-pannel")) {
@@ -1457,7 +1443,7 @@ async function fetchEventUserInfo(eventToken) {
       } else {
         showPopup("이벤트 참여 대상자가 아닙니다.");
       }
-      return null;
+      return response;
     }
 
     if (!response.ok) {
