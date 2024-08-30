@@ -961,7 +961,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   ];
 
   let rotate = 0;
-  let easeOut = 3;
+  let easeOut = 6;
   let spinning = false;
 
   const renderCanvas = () => {
