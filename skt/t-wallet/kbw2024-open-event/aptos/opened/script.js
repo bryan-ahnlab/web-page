@@ -508,7 +508,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   await fetchEventRanking();
 
-  setInterval(fetchEventRanking, 30000);
+  /* setInterval(fetchEventRanking, 30000); */
 
   /*  */
 
@@ -546,7 +546,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   await fetchEventRemainingAmount();
 
-  setInterval(fetchEventRemainingAmount, 5000);
+  /* setInterval(fetchEventRemainingAmount, 5000); */
 
   /*  */
 
@@ -1191,7 +1191,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
+      const data = await response.json();      
 
       return data.score_index;
     } catch (error) {
@@ -1232,6 +1232,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     canvas.style.transition = `transform ${easeOut}s ease-in-out`;
     canvas.style.transform = `rotate(${rotate}deg)`;
+
+    await fetchEventRanking();
+    await fetchEventRemainingAmount();
 
     setTimeout(() => {
       spinning = false;
