@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("title-event-image").src =
       "./assets/images/title_event_closed_en_image.svg";
     document.getElementById("content-event-text-1").innerHTML =
-      "The Season 3 Event has been";
+      "The&nbsp;Season&nbsp;3&nbsp;Event has&nbsp;been";
     document.getElementById("content-event-text-2").innerHTML =
       "successfully completed";
     document.getElementById("event-message-1").innerHTML =
