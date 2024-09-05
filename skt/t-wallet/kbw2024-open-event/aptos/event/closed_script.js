@@ -126,6 +126,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   /*  */
 
+  const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+  const popupContent = document.getElementById("event-description");
+
+  if (isMobile) {
+    popupContent.style.padding = `0px 5px 0px 25px`;
+  } else {
+    popupContent.style.margin = `0px 15px 0px 35px`;
+  }
+
+  /*  */
+
   populateRankingTable(data.rankings);
 
   function populateRankingTable(rankings) {
