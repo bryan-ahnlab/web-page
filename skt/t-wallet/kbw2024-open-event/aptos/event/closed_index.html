@@ -183,6 +183,7 @@
             width: 100%;
             text-align: center;
             min-width: 290px;
+            white-space: pre-wrap;
 
             word-break: break-all;
         }
@@ -197,7 +198,6 @@
             text-align: center;
             min-width: 290px;
 
-            margin-bottom: 22px;
             word-break: break-all;
         }
 
@@ -790,7 +790,7 @@
 
         .third-section .ranking-table tbody {
             display: block;
-            max-height: 378px;
+            max-height: 360px;
             overflow-y: overlay;
         }
 
@@ -1096,28 +1096,33 @@
     <section class="first-section">
         <div class="first-container">
             <img src="./assets/images/title_wallet_logo.svg" alt="title_wallet_logo" class="title-wallet-logo" />
-            <img src="./assets/images/title_event_text_ko_1.svg" alt="title_event_text_1" class="title-event-text-1" />
-            <img src="./assets/images/title_event_text_ko_2.svg" alt="title_event_text_2" class="title-event-text-2" />
+            <img src="./assets/images/title_event_text_ko_1.svg" id="title-event-text-1" alt="title_event_text_1"
+                class="title-event-text-1" />
+            <img src="./assets/images/title_event_text_ko_2.svg" id="title-event-text-2" alt="title_event_text_2"
+                class="title-event-text-2" />
             <span class="title-event-text-3"></span>
-            <img src="./assets/images/title_event_closed_ko_image.svg" alt="title_event_image"
+            <img src="./assets/images/title_event_closed_ko_image.svg" id="title-event-image" alt="title_event_image"
                 class="title-event-image" />
-            <span class="content-event-text-1">Season3 이벤트가</span>
-            <span class="content-event-text-2">성황리에 종료되었습니다.</span>
-            <span
+            <span id="content-event-text-1" class="content-event-text-1">Season3 이벤트가</span>
+            <span id="content-event-text-2" class="content-event-text-2">성황리에 종료되었습니다.</span>
+            <span id="event-message-1"
                 style="margin-top: 22px; color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; width: 100%; max-width: 500px; min-width: 290px;">이벤트에
-                참여해주신 분들께 진심으로 감사드리며, 이벤트 마감과 경품 지급에 대한 안내 드립니다.</span>
+                참여해주신 분들께 진심으로 감사드리며, 이벤트 마감과 경품 지급에 대한 안내 드립니다.
+            </span>
             <ul id="event-description"
-                style="text-align: left; color: #333333; font-size: 14px; margin-top: 15px; line-height: 20px; padding: 0px 15px 0px 35px; word-break: break-all; width: 100%; max-width: 500px;  min-width: 290px; gap: 15px; display: flex; flex-direction: column; box-sizing: border-box;">
-                <li>초대왕 이벤트는 2024. 09. 05. 기준으로 완료되었으며, 초대왕 랭킹 경품까지 분배가 확정되었습니다.</li>
-                <li>시간차로 인해 룰렛 돌리기 종료 후 룰렛을 돌린 고객님들께는 경품 증정이 되지 않습니다.</li>
-                <li>초대왕 이벤트 경품은 2024. 09. 07. 자정에 일괄 증정될 예정입니다.</li>
+                style="text-align: left; color: #333333; font-size: 14px; margin-top: 15px; margin-bottom: 20px; line-height: 20px; padding: 0px 15px 0px 35px; width: 100%; max-width: 500px; min-width: 290px; display: flex; gap: 15px; flex-direction: column;">
+                <li id="event-description-1">초대왕 이벤트는 2024. 09. 05. 기준으로 완료되었으며, 초대왕 랭킹 경품까지 분배가 확정되었습니다.</li>
+                <li id="event-description-2">시간차로 인해 룰렛 돌리기 종료 후 룰렛을 돌린 고객님들께는 경품 증정이 되지 않습니다.</li>
+                <li id="event-description-3">초대왕 이벤트 경품은 2024. 09. 07. 자정에 일괄 증정될 예정입니다.</li>
             </ul>
-            <span
-                style="color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; word-break: break-all; width: 100%; max-width: 500px; min-width: 290px;">이벤트
-                진행이 다소 매끄럽지 않았던 부분에 대해 불편을 드려 사과의 말씀 드립니다. 더 좋은 서비스를 제공할 수 있도록 노력하겠습니다.</span>
-            <span
-                style="color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; word-break: break-all; width: 100%; max-width: 500px; min-width: 290px;">앞으로
-                있을 시즌 이벤트에도 많은 관심 부탁드립니다.</span>
+            <span id="event-message-2"
+                style="color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; width: 100%; max-width: 500px; min-width: 290px;">
+                이벤트 진행이 다소 매끄럽지 않았던 부분에 대해 불편을 드려 사과의 말씀 드립니다. 더 좋은 서비스를 제공할 수 있도록 노력하겠습니다.
+            </span>
+            <span id="event-message-3"
+                style="color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; width: 100%; max-width: 500px; min-width: 290px;">
+                앞으로 있을 시즌 이벤트에도 많은 관심 부탁드립니다.
+            </span>
         </div>
     </section>
 
@@ -1125,11 +1130,13 @@
         <div class="second-container">
             <div class="balance-container">
                 <div class="balance-title-container">
-                    <span class="balance-text-1">받은 앱토스 확인하기:</span>
+                    <span id="balance-text-1" class="balance-text-1">받은 앱토스 확인하기:</span>
                 </div>
                 <div class="balance-content-container">
-                    <a href="https://www.twallet.ai/" target="_blank" class="balance-text-4">T wallet</a>
-                    <a href="https://myabcwallet.io/download/" target="_blank" class="balance-text-4">ABC Wallet</a>
+                    <a href="https://www.twallet.ai/" target="_blank" id="twallet-link" class="balance-text-4">T
+                        wallet</a>
+                    <a href="https://myabcwallet.io/download/" target="_blank" id="abcwallet-link"
+                        class="balance-text-4">ABC Wallet</a>
                 </div>
             </div>
         </div>
@@ -1138,15 +1145,15 @@
     <section class="third-section">
         <div class="third-container">
             <div class="ranking-container">
-                <span class="ranking-title">초대왕 랭킹 100</span>
+                <span id="ranking-title" class="ranking-title">초대왕 랭킹 100</span>
                 <div class="ranking-table-container">
                     <table class="ranking-table">
                         <thead>
                             <tr>
-                                <th>순위</th>
-                                <th>지갑 주소</th>
-                                <th>초대 인원</th>
-                                <th>추가 혜택</th>
+                                <th id="rank-header">순위</th>
+                                <th id="wallet-header">지갑 주소</th>
+                                <th id="invite-header">초대 인원</th>
+                                <th id="extra-header">추가 혜택</th>
                             </tr>
                         </thead>
                         <tbody class="ranking-table-body" id="ranking-table-body"></tbody>
@@ -1155,6 +1162,7 @@
             </div>
         </div>
     </section>
+
     <script src="closed_script.js"></script>
     <script src="./assets/data/ranking.json" type="text/javascript"></script>
 </body>
