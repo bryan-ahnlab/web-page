@@ -175,33 +175,30 @@
         }
 
         .first-section .content-event-text-1 {
-            color: #000;
-            text-align: center;
+            color: #3617CD;
+            font-size: 20px;
             font-family: "Gmarket Sans";
-            font-size: 25px;
-            font-style: normal;
             font-weight: 700;
-            line-height: 32px;
+            line-height: 26px;
+            width: 100%;
+            text-align: center;
+            min-width: 290px;
 
-            margin-bottom: 12px;
-            white-space: normal;
-            overflow-wrap: break-word;
-            word-break: keep-all;
+            word-break: break-all;
         }
 
         .first-section .content-event-text-2 {
-            color: #000;
-            text-align: center;
+            color: #3617CD;
+            font-size: 20px;
             font-family: "Gmarket Sans";
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 24px;
+            font-weight: 700;
+            line-height: 26px;
+            width: 100%;
+            text-align: center;
+            min-width: 290px;
 
-            margin-bottom: 20px;
-            white-space: normal;
-            overflow-wrap: break-word;
-            word-break: keep-all;
+            margin-bottom: 22px;
+            word-break: break-all;
         }
 
         .first-section .content-event-button {
@@ -322,7 +319,7 @@
 
         /* Second Section */
         .second-section {
-            margin: 20px auto 40px;
+            margin: 0px auto;
         }
 
         .second-section .second-container {
@@ -333,7 +330,7 @@
 
         .second-section .balance-container {
             display: flex;
-            padding: 40px 0px;
+            padding: 20px 0px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -352,7 +349,7 @@
         .second-section .balance-content-container {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 20px;
             align-items: center;
             justify-content: center;
             padding: 0px 12px;
@@ -362,12 +359,11 @@
             color: #000;
             text-align: center;
             font-family: "Gmarket Sans";
-            font-size: 18px;
+            font-size: 15px;
             font-style: normal;
             font-weight: 400;
-            line-height: 28px;
 
-            margin-bottom: 8px;
+            margin-bottom: 20px;
         }
 
         .second-section .balance-text-2 {
@@ -395,14 +391,16 @@
         }
 
         .second-section .balance-text-4 {
-            color: #000;
+            color: #3617CD;
             text-align: center;
             font-family: "Gmarket Sans";
             font-size: 15px;
             font-style: normal;
-            font-weight: 400;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 4px;
             line-height: 22px;
-            word-break: keep-all;
+            cursor: pointer;
         }
 
         .second-section .current-container {
@@ -710,7 +708,7 @@
         }
 
         .third-section {
-            margin: 20px auto 0px;
+            margin: 40px auto 0px;
         }
 
         .third-section .third-container {
@@ -721,7 +719,7 @@
 
         .third-section .ranking-container {
             display: flex;
-            padding: 60px 0px;
+            padding: 50px 0px 70px 0px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -1113,29 +1111,26 @@
             <img src="./assets/images/title_wallet_logo.svg" alt="title_wallet_logo" class="title-wallet-logo" />
             <img src="./assets/images/title_event_text_ko_1.svg" alt="title_event_text_1" class="title-event-text-1" />
             <img src="./assets/images/title_event_text_ko_2.svg" alt="title_event_text_2" class="title-event-text-2" />
-            <span class="title-event-text-3">
-                2024.&nbsp;9.&nbsp;1.(일)&nbsp;~&nbsp;9.&nbsp;30.(월)
-            </span>
-            <img src="./assets/images/title_event_image.png" alt="title_event_image" class="title-event-image" />
-            <span class="content-event-text-1">친구&nbsp;초대하고&nbsp;<br />함께&nbsp;앱토스&nbsp;받아&nbsp;보세요</span>
-            <span class="content-event-text-2" id="content-event-text-2">T&nbsp;wallet&nbsp;연동하고&nbsp;친구&nbsp;초대할수록
-                쏟아지는&nbsp;혜택!</span>
-            <button class="content-event-button" id="connect-wallet-button">
-                <img class="content-event-button-image" src="./assets/images/title_wallet_favicon.svg"
-                    alt="title_wallet_favicon" />
-                <span class="content-event-button-text">T wallet 연결하기</span>
-            </button>
-            <div class="invite-code-container" style="display: none" id="invited-code-pannel">
-                <span class="invite-code-text" id="invite-code-text">
-                    친구에게 받은<br />초대 코드가 있으면 입력해주세요.
-                </span>
-                <div class="invite-code-input-wrapper">
-                    <input type="text" class="invite-code-input" id="invite-code-input" placeholder="예) D43X98AD" />
-                    <button class="invite-code-button" id="verify-invite-code">
-                        확인
-                    </button>
-                </div>
-            </div>
+            <span class="title-event-text-3"></span>
+            <img src="./assets/images/title_event_closed_ko_image.svg" alt="title_event_image"
+                class="title-event-image" />
+            <span class="content-event-text-1">Season3 이벤트가</span>
+            <span class="content-event-text-2">성황리에 종료되었습니다.</span>
+            <span
+                style="margin-top: 22px; color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; width: 100%; max-width: 500px; min-width: 290px;">이벤트에
+                참여해주신 분들께 진심으로 감사드리며, 이벤트 마감과 경품 지급에 대한 안내 드립니다.</span>
+            <ul
+                style="text-align: left; color: #333333; font-size: 14px; margin-top: 15px; line-height: 20px; padding: 0px 15px 0px 35px; word-break: break-all; width: 100%; max-width: 500px;  min-width: 290px; gap: 15px; display: flex; flex-direction: column; box-sizing: border-box;">
+                <li>초대왕 이벤트는 2024. 09. 05. 기준으로 완료되었으며, 초대왕 랭킹 경품까지 분배가 확정되었습니다.</li>
+                <li>시간차로 인해 룰렛 돌리기 종료 후 룰렛을 돌린 고객님들께는 경품 증정이 되지 않습니다.</li>
+                <li>초대왕 이벤트 경품은 2024. 09. 07. 자정에 일괄 증정될 예정입니다.</li>
+            </ul>
+            <span
+                style="color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; word-break: break-all; width: 100%; max-width: 500px; min-width: 290px;">이벤트
+                진행이 다소 매끄럽지 않았던 부분에 대해 불편을 드려 사과의 말씀 드립니다. 더 좋은 서비스를 제공할 수 있도록 노력하겠습니다.</span>
+            <span
+                style="color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; word-break: break-all; width: 100%; max-width: 500px; min-width: 290px;">앞으로
+                있을 시즌 이벤트에도 많은 관심 부탁드립니다.</span>
         </div>
     </section>
 
@@ -1143,89 +1138,11 @@
         <div class="second-container">
             <div class="balance-container">
                 <div class="balance-title-container">
-                    <span class="balance-text-1">남은 앱토스</span>
+                    <span class="balance-text-1">받은 앱토스 확인하기:</span>
                 </div>
                 <div class="balance-content-container">
-                    <span class="balance-text-2" id="balance-text">0<span class="balance-text-3">&nbsp;APT</span></span>
-                    <span class="balance-text-4">* 앱토스&nbsp;소진&nbsp;시 이벤트가&nbsp;종료됩니다.</span>
-                </div>
-            </div>
-
-            <div class="current-container">
-                <div class="current-title-container">
-                    <img class="current-title-image" src="./assets/images/event_1_title_image.svg" />
-                    <span class="current-title-text">친구 초대하고<br />100% 당첨 룰렛 돌리기</span>
-                </div>
-
-                <!-- Roulette Section -->
-                <div class="roulette-container">
-                    <div class="relative flex">
-                        <span id="selector" class="absolute z-10"></span>
-                        <canvas id="rouletteCanvas" width="0" height="0"></canvas>
-                        <div class="center-content rounded-full">
-                            <button id="spinButton" class="button text-white rounded-full bg-blue"
-                                style="border: 8px solid #edebf7">
-                                <span class="font-bold font-20px">START</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="current-status-container">
-                    <div class="current-opportunity-content" id="current-opportunity-content">
-                        <span class="current-opportunity-text" id="spin-status">
-                            내 이벤트 참여 기회
-                            <span class="current-opportunity-bold-text">0</span>&nbsp;/&nbsp;0회
-                        </span>
-                    </div>
-                    <div class="current-information-content-1">
-                        <span class="current-information-content-text"><img class="current-information-content-image"
-                                src="./assets/images/checked_icon.svg" />
-                            T wallet 연동(최초 1회)만 해도</span>
-                        <span class="current-information-content-text">룰렛 기회 3번 제공</span>
-                    </div>
-                    <div class="current-information-content-2" id="current-information-content-2">
-                        <span class="current-information-content-text"><img class="current-information-content-image"
-                                src="./assets/images/checked_icon.svg" />
-                            내 초대 코드로 새로운 친구 초대할</span>
-                        <span class="current-information-content-text">때마다 룰렛 기회 3번 추가 제공</span>
-                    </div>
-
-                    <div class="current-content-container" id="current-content-container">
-                        <div class="current-content-event-container">
-                            <span class="current-content-event-text">내 이벤트 참여 현황</span>
-                            <div class="current-content-event-box-container">
-                                <div class="current-content-event-box">
-                                    <span class="current-content-event-box-text">초대<br />수락한 친구</span>
-                                    <span class="current-content-event-box-bold-text" id="inviting-count">0명</span>
-                                </div>
-                                <div class="current-content-event-box">
-                                    <span class="current-content-event-box-text">이벤트<br />참여 횟수</span>
-                                    <span class="current-content-event-box-bold-text" id="acting-count">0회</span>
-                                </div>
-                                <div class="current-content-event-box">
-                                    <span class="current-content-event-box-text">누적<br />앱토스</span>
-                                    <span class="current-content-event-box-bold-text" id="accumulated-reward">0
-                                        <span class="current-content-event-box-bold-unit-text">APT</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="current-content-invitation-container" style="display: none"
-                            id="inviting-code-pannel">
-                            <div class="current-content-invitation-box">
-                                <span class="current-content-invitation-title">내 초대 코드</span>
-                                <div class="current-content-invitation-text-container" id="invite-event">
-                                    <span class="current-content-invitation-text" id="inviting-code"></span>
-                                    <img class="current-content-invitation-image" src="./assets/images/copy_icon.svg" />
-                                </div>
-                                <button class="current-content-invitation-button" id="copy-link">
-                                    초대 URL 복사하기
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <a class="balance-text-4">T wallet</a>
+                    <a class="balance-text-4">ABC Wallet</a>
                 </div>
             </div>
         </div>
@@ -1234,11 +1151,6 @@
     <section class="third-section">
         <div class="third-container">
             <div class="ranking-container">
-                <div class="current-title-container">
-                    <img class="current-title-image" src="./assets/images/event_2_title_image.svg" />
-                    <span class="current-title-text">초대할수록 커지는&nbsp;혜택!</span>
-                </div>
-                <span class="event-description">초대왕 100명에게 앱토스 추가 증정</span>
                 <span class="ranking-title">초대왕 랭킹 100</span>
                 <div class="ranking-table-container">
                     <table class="ranking-table">
@@ -1256,53 +1168,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer Section -->
-    <section class="footer-section">
-        <div class="footer-container">
-            <div class="notice-container">
-                <span class="notice-container-title">꼭! 확인해 주세요</span>
-                <div class="notice-container-content">
-                    <ul>
-                        <li>이 이벤트는 앱토스 소진 시 종료됩니다.</li>
-                        <li>
-                            이벤트 대상 조건(국적 등)에 해당하지 않거나 혜택 증정 조건을
-                            충족하지 못한 경우 경품 증정이 취소될 수 있습니다.
-                        </li>
-                        <li>
-                            초대 코드 등록(초대 수락)은 1인 1회만 가능하며, 초대를 이미
-                            수락한 상태에서 다른 초대를 수락하실 수 없습니다.
-                        </li>
-                        <li>
-                            초대 코드가 포함된 초대 URL을 통해 이벤트 페이지에서 최초 지갑
-                            연결 시 자동으로 초대가 수락됩니다.
-                        </li>
-                        <li>본인의 초대 코드를 직접 등록하실 수 없습니다.</li>
-                        <li>이벤트가 종료되면 남은 룰렛기회도 자동으로 사라집니다.</li>
-                        <li>
-                            네트워크 상황에 따라 룰렛을 돌린 후 경품을 받으실 때까지 시간이
-                            걸릴 수 있습니다.
-                        </li>
-                        <li>
-                            초대왕 이벤트에서는 초대 인원이 같을 경우 먼저 달성한 고객님의
-                            순위가 올라갑니다.
-                        </li>
-                        <li>초대왕 경품은 이벤트 종료 후 일괄 증정됩니다.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="popup" class="popup-overlay" style="display: none">
-        <div class="popup-content">
-            <span class="popup-html" id="popup-html"></span>
-            <button id="close-popup" class="close-popup">확인</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-    <!-- <script src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/script.js"></script> -->
+    <script src="closed_script.js"></script>
 </body>
 
 </html>
