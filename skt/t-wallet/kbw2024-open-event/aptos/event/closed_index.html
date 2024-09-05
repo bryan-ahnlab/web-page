@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T wallet KBW 2024 Event</title>
+    <link rel="icon"
+        href="https://s3.ap-northeast-2.amazonaws.com/twallet.myabcwallet.com/event/assets/images/favicon.ico" />
+    <style>
+        @font-face {
+            font-family: "Gmarket Sans";
+            src: url("./assets/fonts/GmarketSansTTFLight.ttf") format("truetype");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Gmarket Sans";
+            src: url("./assets/fonts/GmarketSansTTFMedium.ttf") format("truetype");
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Gmarket Sans";
+            src: url("./assets/fonts/GmarketSansTTFBold.ttf") format("truetype");
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: "Gmarket Sans", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+
+            overflow: overlay;
+            min-width: 320px;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+            /* WebKit 기반 브라우저 */
+            -moz-tap-highlight-color: transparent;
+            /* Firefox (지원하지 않음, 예시로 포함) */
+            -ms-tap-highlight-color: transparent;
+            /* Microsoft Edge (구버전, 지원하지 않음, 예시로 포함) */
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        tbody::-webkit-scrollbar {
+            display: none;
+            /* Webkit 브라우저에서 스크롤바 숨기기 */
+        }
+
+        /* General layout and styling */
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .z-10 {
+            z-index: 10;
+        }
+
+        .center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .rounded-full {
+            border-radius: 50%;
+        }
+
+        .bg-black {
+            background-color: #000;
+        }
+
+        .bg-blue {
+            background-color: #3617ce;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .font-20px {
+            font-size: 20px;
+        }
+
+        .button {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* First Section */
+        .first-section {
+            margin: 20px auto 40px;
+            padding: 0px 12px;
+        }
+
+        .first-section .first-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px 74px;
+        }
+
+        .first-section .title-wallet-logo {
+            height: 20px;
+            margin-bottom: 24px;
+        }
+
+        .first-section .title-event-text-1 {
+            width: 265px;
+            margin-bottom: 15px;
+        }
+
+        .first-section .title-event-text-2 {
+            width: 281px;
+            margin-bottom: 16px;
+        }
+
+        .first-section .title-event-text-3 {
+            color: #5b5b5b;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+
+            margin-bottom: 20px;
+
+            min-width: 320px;
+        }
+
+        .first-section .title-event-image {
+            width: 248px;
+            margin-bottom: 20px;
+        }
+
+        .first-section .content-event-text-1 {
+            color: #3617CD;
+            font-size: 20px;
+            font-family: "Gmarket Sans";
+            font-weight: 700;
+            line-height: 26px;
+            width: 100%;
+            text-align: center;
+            min-width: 290px;
+            white-space: pre-wrap;
+        }
+
+        .first-section .content-event-text-2 {
+            color: #3617CD;
+            font-size: 20px;
+            font-family: "Gmarket Sans";
+            font-weight: 700;
+            line-height: 26px;
+            width: 100%;
+            text-align: center;
+            min-width: 290px;
+        }
+
+        .first-section .content-event-button {
+            display: flex;
+            padding: 14px 0px;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 12px;
+            background: #3617ce;
+
+            border: none;
+            gap: 10px;
+            width: 225px;
+            cursor: pointer;
+            min-height: 55px;
+
+            position: relative;
+        }
+
+        .first-section .content-event-button-image {
+            width: 24px;
+        }
+
+        .first-section .content-event-button-text {
+            color: #fff;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .first-section .invite-code-container {
+            box-sizing: border-box;
+            display: flex;
+            padding: 24px 20px;
+            flex-direction: column;
+            justify-content: center;
+
+            border-radius: 16px;
+            background: #fff;
+
+            margin-top: 32px;
+        }
+
+        .first-section .invite-code-text {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 25px;
+
+            margin-bottom: 16px;
+        }
+
+        .first-section .invite-code-input-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .first-section .invite-code-input {
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            background: #fff;
+
+            width: 100%;
+            height: 48px;
+
+            margin: 0px;
+            padding: 0px;
+            flex: 1;
+            min-width: 176px;
+            max-width: 205px;
+        }
+
+        .first-section .invite-code-input::placeholder {
+            color: #b1b1b1;
+        }
+
+        .first-section .invite-code-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #fff;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            border-radius: 12px;
+            background: #3617ce;
+
+            min-width: 90px;
+            padding: 0px 12px;
+            height: 48px;
+
+            border: 1px solid #3617ce;
+            cursor: pointer;
+        }
+
+        /*  */
+
+        /* Second Section */
+        .second-section {
+            margin: 0px auto;
+        }
+
+        .second-section .second-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .second-section .balance-container {
+            display: flex;
+            padding: 20px 0px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .second-section .balance-title-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .second-section .balance-content-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 12px;
+        }
+
+        .second-section .balance-text-1 {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+
+            margin-bottom: 20px;
+        }
+
+        .second-section .balance-text-2 {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+
+            margin-bottom: 20px;
+        }
+
+        .second-section .balance-text-3 {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+
+            margin-bottom: 20px;
+        }
+
+        .second-section .balance-text-4 {
+            color: #3617CD;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            line-height: 22px;
+            cursor: pointer;
+        }
+
+        .second-section .current-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background: transparent;
+            width: 100%;
+            padding: 38px 0px 10px;
+        }
+
+        .second-section .current-title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .second-section .current-title-image {
+            display: flex;
+            width: 140px;
+            margin-bottom: 14px;
+        }
+
+        .second-section .current-title-text {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: -0.5px;
+
+            margin-bottom: 6px;
+            padding: 0px 16px;
+        }
+
+        .second-section .roulette-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+            padding-top: 10px;
+        }
+
+        .second-section .current-status-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+        }
+
+        .second-section .current-opportunity-content {
+            display: flex;
+            padding: 8px 20px;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 12px;
+            background: #fff;
+
+            margin-bottom: 18px;
+        }
+
+        .second-section .current-opportunity-text {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 26px;
+        }
+
+        .second-section .current-opportunity-bold-text {
+            color: #3617ce;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .second-section .current-information-content-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 18px;
+        }
+
+        .second-section .current-information-content-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 50px;
+        }
+
+        .second-section .current-information-content-image {
+            width: 24px;
+            height: 24px;
+
+            margin-right: 5px;
+        }
+
+        .second-section .current-information-content-text {
+            display: flex;
+
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px;
+        }
+
+        .second-section .current-content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            max-width: 528px;
+        }
+
+        .second-section .current-content-event-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            max-width: 528px;
+        }
+
+        .second-section .current-content-event-text {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+
+            margin-bottom: 13px;
+        }
+
+        .second-section .current-content-event-box-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            gap: 4px;
+            width: 100%;
+            padding: 0px 16px;
+            box-sizing: border-box;
+        }
+
+        .second-section .current-content-event-box {
+            display: flex;
+            padding: 16px 0px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            border-radius: 10px;
+            background: #fff;
+            width: 100%;
+        }
+
+        .second-section .current-content-event-box-text {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px;
+        }
+
+        .second-section .current-content-event-box-bold-text {
+            color: #3617ce;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .second-section .current-content-event-box-bold-unit-text {
+            color: #3617ce;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .second-section .current-content-invitation-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 16px;
+
+            width: 100%;
+            background-color: transparent;
+            margin-top: 12px;
+            max-width: 528px;
+            box-sizing: border-box;
+        }
+
+        .second-section .current-content-invitation-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0px 16px 0px;
+
+            width: 100%;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .second-section .current-content-invitation-title {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            margin-bottom: 12px;
+        }
+
+        .second-section .current-content-invitation-text-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            gap: 4px;
+            margin-bottom: 16px;
+
+            cursor: pointer;
+            position: relative;
+        }
+
+        .second-section .current-content-invitation-text {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-decoration-line: underline;
+
+            text-underline-offset: 4px;
+        }
+
+        .second-section .current-content-invitation-image {
+            width: 18px;
+            height: 18px;
+        }
+
+        .second-section .current-content-invitation-button {
+            display: flex;
+            padding: 14px 28px;
+            justify-content: center;
+            align-items: center;
+
+            border: none;
+            border-radius: 12px;
+            background: #3617ce;
+            cursor: pointer;
+
+            color: #fff;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            position: relative;
+        }
+
+        .third-section {
+            margin: 40px auto 0px;
+        }
+
+        .third-section .third-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .third-section .ranking-container {
+            display: flex;
+            padding: 50px 0px 70px 0px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .third-section .current-title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .third-section .current-title-image {
+            display: flex;
+            width: 140px;
+            margin-bottom: 14px;
+        }
+
+        .third-section .current-title-text {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: -0.5px;
+
+            margin-bottom: 16px;
+            padding: 0px 16px;
+        }
+
+        .third-section .ranking-title {
+            color: #3617ce;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+
+            margin-bottom: 16px;
+        }
+
+        .third-section .ranking-table-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 528px;
+            width: 100%;
+            padding: 0px 12px;
+            box-sizing: border-box;
+        }
+
+        .third-section .ranking-table {
+            border-radius: 12px;
+            background: #edebf7;
+            box-sizing: border-box;
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        .third-section .ranking-table thead {
+            border-bottom: 1px solid #dcdcdc;
+        }
+
+        .third-section .ranking-table tbody {
+            display: block;
+            max-height: 360px;
+            overflow-y: overlay;
+        }
+
+        .third-section .ranking-table tbody::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .third-section .ranking-table tbody {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .third-section .ranking-table tbody::-webkit-scrollbar {
+            display: none;
+            /* Webkit 브라우저에서 스크롤바 숨기기 */
+        }
+
+        .third-section .ranking-table thead tr {
+            display: table;
+            width: 100%;
+        }
+
+        .third-section .ranking-table tbody tr {
+            display: table;
+            width: 100%;
+        }
+
+        .third-section .ranking-table th {
+            color: #4c4c4c;
+
+            font-family: "Gmarket Sans";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: -0.14px;
+            /* text-align: left; */
+            padding: 16px 5px;
+            border: none;
+            text-align: center;
+        }
+
+        .third-section .ranking-table td {
+            color: #4c4c4c;
+
+            font-family: "Gmarket Sans";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: -0.14px;
+            /* text-align: left; */
+            padding: 10px 5px;
+            border: none;
+            text-align: center;
+        }
+
+        .third-section .ranking-table-body {
+            padding: 16px 0px;
+        }
+
+        .third-section .ranking-table th:nth-child(1),
+        .third-section .ranking-table td:nth-child(1) {
+            box-sizing: border-box;
+            min-width: 40px;
+            /* 첫 번째 열의 너비 설정 */
+            width: calc(40 / 300 * 100%);
+        }
+
+        .third-section .ranking-table th:nth-child(2),
+        .third-section .ranking-table td:nth-child(2) {
+            box-sizing: border-box;
+            min-width: 90px;
+            /* 두 번째 열의 너비 설정 */
+            max-width: 90px;
+            width: calc(90 / 300 * 100%);
+        }
+
+        .third-section .ranking-table th:nth-child(3),
+        .third-section .ranking-table td:nth-child(3) {
+            box-sizing: border-box;
+            min-width: 80px;
+            /* 세 번째 열의 너비 설정 */
+            width: calc(80 / 300 * 100%);
+        }
+
+        .third-section .ranking-table th:nth-child(4),
+        .third-section .ranking-table td:nth-child(4) {
+            box-sizing: border-box;
+            min-width: 80px;
+            /* 네 번째 열의 너비 설정 */
+            width: calc(90 / 300 * 100%);
+        }
+
+        /*  */
+
+        .footer-section {
+            margin: 0px auto;
+        }
+
+        .footer-section .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-section .notice-container {
+            display: flex;
+            flex-direction: column;
+            padding: 60px 0px;
+            justify-content: center;
+            align-items: center;
+            background: #eee;
+
+            width: 100%;
+        }
+
+        .footer-section .notice-container-title {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+
+            margin: 0px 0px 28px 0px;
+        }
+
+        .footer-section .notice-container-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 528px;
+            padding: 0px 16px;
+            box-sizing: border-box;
+        }
+
+        .footer-section .notice-container-content ul {
+            color: #2b2b2b;
+            font-family: "Gmarket Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+
+            margin: 0px;
+            padding: 0px 5px 0px 15px;
+            gap: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section .notice-container-content li {
+            color: #2b2b2b;
+            font-family: "Gmarket Sans";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+        }
+
+        /*  */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 28px 20px 20px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+            box-sizing: border-box;
+
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup-html {
+            color: #000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px;
+            word-break: keep-all;
+        }
+
+        .popup-image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-image {
+            width: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-empty-button {
+            display: flex;
+            padding: 14px 0px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            background: transparent;
+            border: none;
+            gap: 10px;
+            width: 100%;
+            cursor: pointer;
+
+            color: #000000;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            margin-top: 20px;
+            width: 232px;
+        }
+
+        .popup-button {
+            display: flex;
+            padding: 14px 0px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            background: #3617ce;
+            border: none;
+            gap: 10px;
+            width: 100%;
+            cursor: pointer;
+
+            color: #fff;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            margin-top: 28px;
+
+            width: 232px;
+        }
+
+        .close-popup {
+            display: flex;
+            padding: 14px 0px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            background: #3617ce;
+            border: none;
+            gap: 10px;
+            width: 100%;
+            cursor: pointer;
+
+            color: #fff;
+            text-align: center;
+            font-family: "Gmarket Sans";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            margin-top: 20px;
+            width: 232px;
+        }
+
+        /*  */
+    </style>
+</head>
+
+<body>
+    <!-- Event Section -->
+    <section class="first-section">
+        <div class="first-container">
+            <img src="./assets/images/title_wallet_logo.svg" alt="title_wallet_logo" class="title-wallet-logo" />
+            <img src="./assets/images/title_event_text_ko_1.svg" id="title-event-text-1" alt="title_event_text_1"
+                class="title-event-text-1" />
+            <img src="./assets/images/title_event_text_ko_2.svg" id="title-event-text-2" alt="title_event_text_2"
+                class="title-event-text-2" />
+            <span class="title-event-text-3"></span>
+            <img src="./assets/images/title_event_closed_ko_image.svg" id="title-event-image" alt="title_event_image"
+                class="title-event-image" />
+            <span id="content-event-text-1" class="content-event-text-1">Season3 이벤트가</span>
+            <span id="content-event-text-2" class="content-event-text-2">성황리에 종료되었습니다.</span>
+            <span id="event-message-1"
+                style="margin-top: 22px; color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; width: 100%; max-width: 500px; min-width: 290px;">이벤트에
+                참여해주신 분들께 진심으로 감사드리며, 이벤트 마감과 경품 지급에 대한 안내 드립니다.
+            </span>
+            <ul id="event-description"
+                style="text-align: left; color: #333333; font-size: 14px; margin-top: 15px; margin-bottom: 20px; line-height: 20px; padding: 0px 15px 0px 35px; width: 100%; max-width: 500px; min-width: 290px; display: flex; gap: 15px; flex-direction: column;">
+                <li id="event-description-1">초대왕 이벤트는 2024. 09. 05. 기준으로 완료되었으며, 초대왕 랭킹 경품까지 분배가 확정되었습니다.</li>
+                <li id="event-description-2">시간차로 인해 룰렛 돌리기 종료 후 룰렛을 돌린 고객님들께는 경품 증정이 되지 않습니다.</li>
+                <li id="event-description-3">초대왕 이벤트 경품은 2024. 09. 07. 자정에 일괄 증정될 예정입니다.</li>
+            </ul>
+            <span id="event-message-2"
+                style="color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; width: 100%; max-width: 500px; min-width: 290px;">
+                이벤트 진행이 다소 매끄럽지 않았던 부분에 대해 불편을 드려 사과의 말씀 드립니다. 더 좋은 서비스를 제공할 수 있도록 노력하겠습니다.
+            </span>
+            <span id="event-message-3"
+                style="color: #000000; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; width: 100%; max-width: 500px; min-width: 290px;">
+                앞으로 있을 시즌 이벤트에도 많은 관심 부탁드립니다.
+            </span>
+        </div>
+    </section>
+
+    <section class="second-section">
+        <div class="second-container">
+            <div class="balance-container">
+                <div class="balance-title-container">
+                    <span id="balance-text-1" class="balance-text-1">받은 앱토스 확인하기:</span>
+                </div>
+                <div class="balance-content-container">
+                    <a href="https://www.twallet.ai/" target="_blank" id="twallet-link" class="balance-text-4">T
+                        wallet</a>
+                    <a href="https://myabcwallet.io/download/" target="_blank" id="abcwallet-link"
+                        class="balance-text-4">ABC Wallet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="third-section">
+        <div class="third-container">
+            <div class="ranking-container">
+                <span id="ranking-title" class="ranking-title">초대왕 랭킹 100</span>
+                <div class="ranking-table-container">
+                    <table class="ranking-table">
+                        <thead>
+                            <tr>
+                                <th id="rank-header">순위</th>
+                                <th id="wallet-header">지갑 주소</th>
+                                <th id="invite-header">초대 인원</th>
+                                <th id="extra-header">추가 혜택</th>
+                            </tr>
+                        </thead>
+                        <tbody class="ranking-table-body" id="ranking-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="closed_script.js"></script>
+    <script src="./assets/data/ranking.json" type="text/javascript"></script>
+</body>
+
+</html>

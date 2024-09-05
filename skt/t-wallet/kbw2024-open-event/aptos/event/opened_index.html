@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T wallet KBW 2024 Event</title>
+    <link
+      rel="icon"
+      href="https://s3.ap-northeast-2.amazonaws.com/twallet.myabcwallet.com/event/assets/images/favicon.ico"
+    />
+    <style>
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("./assets/fonts/GmarketSansTTFLight.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("./assets/fonts/GmarketSansTTFMedium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("./assets/fonts/GmarketSansTTFBold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Gmarket Sans", sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+
+        overflow: overlay;
+        min-width: 320px;
+      }
+      * {
+        -webkit-tap-highlight-color: transparent; /* WebKit 기반 브라우저 */
+        -moz-tap-highlight-color: transparent; /* Firefox (지원하지 않음, 예시로 포함) */
+        -ms-tap-highlight-color: transparent; /* Microsoft Edge (구버전, 지원하지 않음, 예시로 포함) */
+      }
+      ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      tbody::-webkit-scrollbar {
+        display: none; /* Webkit 브라우저에서 스크롤바 숨기기 */
+      }
+
+      /* General layout and styling */
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .relative {
+        position: relative;
+      }
+
+      .absolute {
+        position: absolute;
+      }
+
+      .z-10 {
+        z-index: 10;
+      }
+
+      .center-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .rounded-full {
+        border-radius: 50%;
+      }
+
+      .bg-black {
+        background-color: #000;
+      }
+
+      .bg-blue {
+        background-color: #3617ce;
+      }
+
+      .text-white {
+        color: #fff;
+      }
+
+      .font-bold {
+        font-weight: bold;
+      }
+      .font-20px {
+        font-size: 20px;
+      }
+
+      .button {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      /* First Section */
+      .first-section {
+        margin: 20px auto 40px;
+        padding: 0px 12px;
+      }
+
+      .first-section .first-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 74px;
+      }
+
+      .first-section .title-wallet-logo {
+        height: 20px;
+        margin-bottom: 24px;
+      }
+
+      .first-section .title-event-text-1 {
+        width: 265px;
+        margin-bottom: 15px;
+      }
+      .first-section .title-event-text-2 {
+        width: 281px;
+        margin-bottom: 16px;
+      }
+      .first-section .title-event-text-3 {
+        color: #5b5b5b;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-bottom: 20px;
+
+        min-width: 320px;
+      }
+
+      .first-section .title-event-image {
+        width: 248px;
+        margin-bottom: 20px;
+      }
+
+      .first-section .content-event-text-1 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+
+        margin-bottom: 12px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: keep-all;
+      }
+      .first-section .content-event-text-2 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+
+        margin-bottom: 20px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: keep-all;
+      }
+
+      .first-section .content-event-button {
+        display: flex;
+        padding: 14px 0px;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 12px;
+        background: #3617ce;
+
+        border: none;
+        gap: 10px;
+        width: 225px;
+        cursor: pointer;
+        min-height: 55px;
+
+        position: relative;
+      }
+      .first-section .content-event-button-image {
+        width: 24px;
+      }
+      .first-section .content-event-button-text {
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .first-section .invite-code-container {
+        box-sizing: border-box;
+        display: flex;
+        padding: 24px 20px;
+        flex-direction: column;
+        justify-content: center;
+
+        border-radius: 16px;
+        background: #fff;
+
+        margin-top: 32px;
+      }
+
+      .first-section .invite-code-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 25px;
+
+        margin-bottom: 16px;
+      }
+
+      .first-section .invite-code-input-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .first-section .invite-code-input {
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        background: #fff;
+
+        width: 100%;
+        height: 48px;
+
+        margin: 0px;
+        padding: 0px;
+        flex: 1;
+        min-width: 176px;
+        max-width: 205px;
+      }
+
+      .first-section .invite-code-input::placeholder {
+        color: #b1b1b1;
+      }
+
+      .first-section .invite-code-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        border-radius: 12px;
+        background: #3617ce;
+
+        min-width: 90px;
+        padding: 0px 12px;
+        height: 48px;
+
+        border: 1px solid #3617ce;
+        cursor: pointer;
+      }
+
+      /*  */
+
+      /* Second Section */
+      .second-section {
+        margin: 20px auto 40px;
+      }
+
+      .second-section .second-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .second-section .balance-container {
+        display: flex;
+        padding: 40px 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background: #ffffff;
+        width: 100%;
+      }
+      .second-section .balance-title-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      .second-section .balance-content-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 12px;
+      }
+
+      .second-section .balance-text-1 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+
+        margin-bottom: 8px;
+      }
+      .second-section .balance-text-2 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-bottom: 20px;
+      }
+      .second-section .balance-text-3 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-bottom: 20px;
+      }
+      .second-section .balance-text-4 {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        word-break: keep-all;
+      }
+
+      .second-section .current-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background: transparent;
+        width: 100%;
+        padding: 38px 0px 10px;
+      }
+
+      .second-section .current-title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .second-section .current-title-image {
+        display: flex;
+        width: 140px;
+        margin-bottom: 14px;
+      }
+      .second-section .current-title-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: -0.5px;
+
+        margin-bottom: 6px;
+        padding: 0px 16px;
+      }
+
+      .second-section .roulette-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+        padding-top: 10px;
+      }
+
+      .second-section .current-status-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+      }
+
+      .second-section .current-opportunity-content {
+        display: flex;
+        padding: 8px 20px;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 12px;
+        background: #fff;
+
+        margin-bottom: 18px;
+      }
+
+      .second-section .current-opportunity-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+      }
+      .second-section .current-opportunity-bold-text {
+        color: #3617ce;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .second-section .current-information-content-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 18px;
+      }
+      .second-section .current-information-content-2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 50px;
+      }
+
+      .second-section .current-information-content-image {
+        width: 24px;
+        height: 24px;
+
+        margin-right: 5px;
+      }
+
+      .second-section .current-information-content-text {
+        display: flex;
+
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+      }
+
+      .second-section .current-content-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        max-width: 528px;
+      }
+
+      .second-section .current-content-event-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        max-width: 528px;
+      }
+
+      .second-section .current-content-event-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-bottom: 13px;
+      }
+
+      .second-section .current-content-event-box-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        gap: 4px;
+        width: 100%;
+        padding: 0px 16px;
+        box-sizing: border-box;
+      }
+      .second-section .current-content-event-box {
+        display: flex;
+        padding: 16px 0px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        border-radius: 10px;
+        background: #fff;
+        width: 100%;
+      }
+      .second-section .current-content-event-box-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+      }
+      .second-section .current-content-event-box-bold-text {
+        color: #3617ce;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .second-section .current-content-event-box-bold-unit-text {
+        color: #3617ce;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .second-section .current-content-invitation-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 16px;
+
+        width: 100%;
+        background-color: transparent;
+        margin-top: 12px;
+        max-width: 528px;
+        box-sizing: border-box;
+      }
+      .second-section .current-content-invitation-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0px 16px 0px;
+
+        width: 100%;
+        border-radius: 12px;
+        background: #fff;
+      }
+      .second-section .current-content-invitation-title {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-bottom: 12px;
+      }
+      .second-section .current-content-invitation-text-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        gap: 4px;
+        margin-bottom: 16px;
+
+        cursor: pointer;
+        position: relative;
+      }
+      .second-section .current-content-invitation-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-decoration-line: underline;
+
+        text-underline-offset: 4px;
+      }
+      .second-section .current-content-invitation-image {
+        width: 18px;
+        height: 18px;
+      }
+      .second-section .current-content-invitation-button {
+        display: flex;
+        padding: 14px 28px;
+        justify-content: center;
+        align-items: center;
+
+        border: none;
+        border-radius: 12px;
+        background: #3617ce;
+        cursor: pointer;
+
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        position: relative;
+      }
+
+      .third-section {
+        margin: 20px auto 0px;
+      }
+
+      .third-section .third-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .third-section .ranking-container {
+        display: flex;
+        padding: 60px 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+        width: 100%;
+      }
+
+      .third-section .current-title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .third-section .current-title-image {
+        display: flex;
+        width: 140px;
+        margin-bottom: 14px;
+      }
+      .third-section .current-title-text {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: -0.5px;
+
+        margin-bottom: 16px;
+        padding: 0px 16px;
+      }
+
+      .third-section .event-description {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-bottom: 40px;
+        padding: 0px 16px;
+      }
+
+      .third-section .ranking-title {
+        color: #3617ce;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-bottom: 16px;
+      }
+
+      .third-section .ranking-table-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 528px;
+        width: 100%;
+        padding: 0px 12px;
+        box-sizing: border-box;
+      }
+
+      .third-section .ranking-table {
+        border-radius: 12px;
+        background: #edebf7;
+        box-sizing: border-box;
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+      }
+
+      .third-section .ranking-table thead {
+        border-bottom: 1px solid #dcdcdc;
+      }
+
+      .third-section .ranking-table tbody {
+        display: block;
+        max-height: 378px;
+        overflow-y: overlay;
+      }
+
+      .third-section .ranking-table tbody::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      .third-section .ranking-table tbody {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .third-section .ranking-table tbody::-webkit-scrollbar {
+        display: none; /* Webkit 브라우저에서 스크롤바 숨기기 */
+      }
+
+      .third-section .ranking-table thead tr {
+        display: table;
+        width: 100%;
+      }
+
+      .third-section .ranking-table tbody tr {
+        display: table;
+        width: 100%;
+      }
+
+      .third-section .ranking-table th {
+        color: #4c4c4c;
+
+        font-family: "Gmarket Sans";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.14px;
+        /* text-align: left; */
+        padding: 16px 5px;
+        border: none;
+        text-align: center;
+      }
+
+      .third-section .ranking-table td {
+        color: #4c4c4c;
+
+        font-family: "Gmarket Sans";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.14px;
+        /* text-align: left; */
+        padding: 10px 5px;
+        border: none;
+        text-align: center;
+      }
+
+      .third-section .ranking-table-body {
+        padding: 16px 0px;
+      }
+
+      .third-section .ranking-table th:nth-child(1),
+      .third-section .ranking-table td:nth-child(1) {
+        box-sizing: border-box;
+        min-width: 40px; /* 첫 번째 열의 너비 설정 */
+        width: calc(40 / 300 * 100%);
+      }
+
+      .third-section .ranking-table th:nth-child(2),
+      .third-section .ranking-table td:nth-child(2) {
+        box-sizing: border-box;
+        min-width: 90px; /* 두 번째 열의 너비 설정 */
+        max-width: 90px;
+        width: calc(90 / 300 * 100%);
+      }
+
+      .third-section .ranking-table th:nth-child(3),
+      .third-section .ranking-table td:nth-child(3) {
+        box-sizing: border-box;
+        min-width: 80px; /* 세 번째 열의 너비 설정 */
+        width: calc(80 / 300 * 100%);
+      }
+
+      .third-section .ranking-table th:nth-child(4),
+      .third-section .ranking-table td:nth-child(4) {
+        box-sizing: border-box;
+        min-width: 80px; /* 네 번째 열의 너비 설정 */
+        width: calc(90 / 300 * 100%);
+      }
+
+      /*  */
+
+      .footer-section {
+        margin: 0px auto;
+      }
+      .footer-section .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-section .notice-container {
+        display: flex;
+        flex-direction: column;
+        padding: 60px 0px;
+        justify-content: center;
+        align-items: center;
+        background: #eee;
+
+        width: 100%;
+      }
+
+      .footer-section .notice-container-title {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+
+        margin: 0px 0px 28px 0px;
+      }
+
+      .footer-section .notice-container-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 528px;
+        padding: 0px 16px;
+        box-sizing: border-box;
+      }
+
+      .footer-section .notice-container-content ul {
+        color: #2b2b2b;
+        font-family: "Gmarket Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+
+        margin: 0px;
+        padding: 0px 5px 0px 15px;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+      }
+      .footer-section .notice-container-content li {
+        color: #2b2b2b;
+        font-family: "Gmarket Sans";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+      }
+      /*  */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        display: none;
+      }
+
+      .popup-content {
+        background-color: #fff;
+        padding: 28px 20px 20px 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 300px;
+        width: 100%;
+        box-sizing: border-box;
+
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .popup-html {
+        color: #000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        word-break: keep-all;
+      }
+      .popup-image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .popup-image {
+        width: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .popup-empty-button {
+        display: flex;
+        padding: 14px 0px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        background: transparent;
+        border: none;
+        gap: 10px;
+        width: 100%;
+        cursor: pointer;
+
+        color: #000000;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-top: 20px;
+        width: 232px;
+      }
+
+      .popup-button {
+        display: flex;
+        padding: 14px 0px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        background: #3617ce;
+        border: none;
+        gap: 10px;
+        width: 100%;
+        cursor: pointer;
+
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-top: 28px;
+
+        width: 232px;
+      }
+      .close-popup {
+        display: flex;
+        padding: 14px 0px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        background: #3617ce;
+        border: none;
+        gap: 10px;
+        width: 100%;
+        cursor: pointer;
+
+        color: #fff;
+        text-align: center;
+        font-family: "Gmarket Sans";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin-top: 20px;
+        width: 232px;
+      }
+      /*  */
+    </style>
+  </head>
+  <body>
+    <!-- Event Section -->
+    <section class="first-section">
+      <div class="first-container">
+        <img
+          src="./assets/images/title_wallet_logo.svg"
+          alt="title_wallet_logo"
+          class="title-wallet-logo"
+        />
+        <img
+          src="./assets/images/title_event_text_ko_1.svg"
+          alt="title_event_text_1"
+          class="title-event-text-1"
+        />
+        <img
+          src="./assets/images/title_event_text_ko_2.svg"
+          alt="title_event_text_2"
+          class="title-event-text-2"
+        />
+        <span class="title-event-text-3">
+          2024.&nbsp;9.&nbsp;1.(일)&nbsp;~&nbsp;9.&nbsp;30.(월)
+        </span>
+        <img
+          src="./assets/images/title_event_image.png"
+          alt="title_event_image"
+          class="title-event-image"
+        />
+        <span class="content-event-text-1"
+          >친구&nbsp;초대하고&nbsp;<br />함께&nbsp;앱토스&nbsp;받아&nbsp;보세요</span
+        >
+        <span class="content-event-text-2" id="content-event-text-2"
+          >T&nbsp;wallet&nbsp;연동하고&nbsp;친구&nbsp;초대할수록
+          쏟아지는&nbsp;혜택!</span
+        >
+        <button class="content-event-button" id="connect-wallet-button">
+          <img
+            class="content-event-button-image"
+            src="./assets/images/title_wallet_favicon.svg"
+            alt="title_wallet_favicon"
+          />
+          <span class="content-event-button-text">T wallet 연결하기</span>
+        </button>
+        <div
+          class="invite-code-container"
+          style="display: none"
+          id="invited-code-pannel"
+        >
+          <span class="invite-code-text" id="invite-code-text">
+            친구에게 받은<br />초대 코드가 있으면 입력해주세요.
+          </span>
+          <div class="invite-code-input-wrapper">
+            <input
+              type="text"
+              class="invite-code-input"
+              id="invite-code-input"
+              placeholder="예) D43X98AD"
+            />
+            <button class="invite-code-button" id="verify-invite-code">
+              확인
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="second-section">
+      <div class="second-container">
+        <div class="balance-container">
+          <div class="balance-title-container">
+            <span class="balance-text-1">남은 앱토스</span>
+          </div>
+          <div class="balance-content-container">
+            <span class="balance-text-2" id="balance-text"
+              >0<span class="balance-text-3">&nbsp;APT</span></span
+            >
+            <span class="balance-text-4"
+              >* 앱토스&nbsp;소진&nbsp;시 이벤트가&nbsp;종료됩니다.</span
+            >
+          </div>
+        </div>
+
+        <div class="current-container">
+          <div class="current-title-container">
+            <img
+              class="current-title-image"
+              src="./assets/images/event_1_title_image.svg"
+            />
+            <span class="current-title-text"
+              >친구 초대하고<br />100% 당첨 룰렛 돌리기</span
+            >
+          </div>
+
+          <!-- Roulette Section -->
+          <div class="roulette-container">
+            <div class="relative flex">
+              <span id="selector" class="absolute z-10"></span>
+              <canvas id="rouletteCanvas" width="0" height="0"></canvas>
+              <div class="center-content rounded-full">
+                <button
+                  id="spinButton"
+                  class="button text-white rounded-full bg-blue"
+                  style="border: 8px solid #edebf7"
+                >
+                  <span class="font-bold font-20px">START</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="current-status-container">
+            <div
+              class="current-opportunity-content"
+              id="current-opportunity-content"
+            >
+              <span class="current-opportunity-text" id="spin-status">
+                내 이벤트 참여 기회
+                <span class="current-opportunity-bold-text">0</span
+                >&nbsp;/&nbsp;0회
+              </span>
+            </div>
+            <div class="current-information-content-1">
+              <span class="current-information-content-text"
+                ><img
+                  class="current-information-content-image"
+                  src="./assets/images/checked_icon.svg"
+                />
+                T wallet 연동(최초 1회)만 해도</span
+              >
+              <span class="current-information-content-text"
+                >룰렛 기회 3번 제공</span
+              >
+            </div>
+            <div
+              class="current-information-content-2"
+              id="current-information-content-2"
+            >
+              <span class="current-information-content-text"
+                ><img
+                  class="current-information-content-image"
+                  src="./assets/images/checked_icon.svg"
+                />
+                내 초대 코드로 새로운 친구 초대할</span
+              >
+              <span class="current-information-content-text"
+                >때마다 룰렛 기회 3번 추가 제공</span
+              >
+            </div>
+
+            <div
+              class="current-content-container"
+              id="current-content-container"
+            >
+              <div class="current-content-event-container">
+                <span class="current-content-event-text"
+                  >내 이벤트 참여 현황</span
+                >
+                <div class="current-content-event-box-container">
+                  <div class="current-content-event-box">
+                    <span class="current-content-event-box-text"
+                      >초대<br />수락한 친구</span
+                    >
+                    <span
+                      class="current-content-event-box-bold-text"
+                      id="inviting-count"
+                      >0명</span
+                    >
+                  </div>
+                  <div class="current-content-event-box">
+                    <span class="current-content-event-box-text"
+                      >이벤트<br />참여 횟수</span
+                    >
+                    <span
+                      class="current-content-event-box-bold-text"
+                      id="acting-count"
+                      >0회</span
+                    >
+                  </div>
+                  <div class="current-content-event-box">
+                    <span class="current-content-event-box-text"
+                      >누적<br />앱토스</span
+                    >
+                    <span
+                      class="current-content-event-box-bold-text"
+                      id="accumulated-reward"
+                      >0
+                      <span class="current-content-event-box-bold-unit-text"
+                        >APT</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="current-content-invitation-container"
+                style="display: none"
+                id="inviting-code-pannel"
+              >
+                <div class="current-content-invitation-box">
+                  <span class="current-content-invitation-title"
+                    >내 초대 코드</span
+                  >
+                  <div
+                    class="current-content-invitation-text-container"
+                    id="invite-event"
+                  >
+                    <span
+                      class="current-content-invitation-text"
+                      id="inviting-code"
+                    ></span>
+                    <img
+                      class="current-content-invitation-image"
+                      src="./assets/images/copy_icon.svg"
+                    />
+                  </div>
+                  <button
+                    class="current-content-invitation-button"
+                    id="copy-link"
+                  >
+                    초대 URL 복사하기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="third-section">
+      <div class="third-container">
+        <div class="ranking-container">
+          <div class="current-title-container">
+            <img
+              class="current-title-image"
+              src="./assets/images/event_2_title_image.svg"
+            />
+            <span class="current-title-text">초대할수록 커지는&nbsp;혜택!</span>
+          </div>
+          <span class="event-description"
+            >초대왕 100명에게 앱토스 추가 증정</span
+          >
+          <span class="ranking-title">초대왕 랭킹 100</span>
+          <div class="ranking-table-container">
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th>순위</th>
+                  <th>지갑 주소</th>
+                  <th>초대 인원</th>
+                  <th>추가 혜택</th>
+                </tr>
+              </thead>
+              <tbody class="ranking-table-body" id="ranking-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer-section">
+      <div class="footer-container">
+        <div class="notice-container">
+          <span class="notice-container-title">꼭! 확인해 주세요</span>
+          <div class="notice-container-content">
+            <ul>
+              <li>이 이벤트는 앱토스 소진 시 종료됩니다.</li>
+              <li>
+                이벤트 대상 조건(국적 등)에 해당하지 않거나 혜택 증정 조건을
+                충족하지 못한 경우 경품 증정이 취소될 수 있습니다.
+              </li>
+              <li>
+                초대 코드 등록(초대 수락)은 1인 1회만 가능하며, 초대를 이미
+                수락한 상태에서 다른 초대를 수락하실 수 없습니다.
+              </li>
+              <li>
+                초대 코드가 포함된 초대 URL을 통해 이벤트 페이지에서 최초 지갑
+                연결 시 자동으로 초대가 수락됩니다.
+              </li>
+              <li>본인의 초대 코드를 직접 등록하실 수 없습니다.</li>
+              <li>이벤트가 종료되면 남은 룰렛기회도 자동으로 사라집니다.</li>
+              <li>
+                네트워크 상황에 따라 룰렛을 돌린 후 경품을 받으실 때까지 시간이
+                걸릴 수 있습니다.
+              </li>
+              <li>
+                초대왕 이벤트에서는 초대 인원이 같을 경우 먼저 달성한 고객님의
+                순위가 올라갑니다.
+              </li>
+              <li>초대왕 경품은 이벤트 종료 후 일괄 증정됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="popup" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <span class="popup-html" id="popup-html"></span>
+        <button id="close-popup" class="close-popup">확인</button>
+      </div>
+    </div>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LD44R2RM1R"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-LD44R2RM1R");
+    </script>
+    <script src="script.js"></script>
+    <!-- <script src="https://d3t2jtphafqeye.cloudfront.net/web-page/skt/t-wallet/kbw2024-open-event/aptos/opened/script.js"></script> -->
+  </body>
+</html>
