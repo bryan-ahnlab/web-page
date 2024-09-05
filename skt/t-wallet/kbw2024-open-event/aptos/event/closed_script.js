@@ -104,4 +104,19 @@ document.addEventListener("DOMContentLoaded", async function () {
       rankingTableBody.appendChild(row);
     });
   }
+
+  /*  */
+
+  const twalletLink = document.getElementById("twallet-link");
+  const abcwalletLink = document.getElementById("abcwallet-link");
+  if (twalletLink) {
+    twalletLink.addEventListener("click", function () {
+      gtag("event", "click_twallet_link", {});
+    });
+  }
+  if (abcwalletLink) {
+    abcwalletLink.addEventListener("click", function () {
+      gtag("event", "click_abcwallet_link", {});
+    });
+  }
 });
