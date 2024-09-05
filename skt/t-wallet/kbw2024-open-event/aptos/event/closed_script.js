@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       "Thank you to all who participated in the event. Here are the details regarding the event’s conclusion and the distribution of rewards.";
 
     document.getElementById("event-description-1").innerHTML =
-      "The top Inviter event was completed as of September 5, 2024, and the distribution of rewards for the top Inviter ranking has been confirmed.";
+      "The top Inviter event was completed as of September 5th, 2024, and the distribution of rewards for the top Inviter ranking has been confirmed.";
     document.getElementById("event-description-2").innerHTML =
       "Customers who spun the roulette after the event ended, due to time differences, will not receive rewards.";
     document.getElementById("event-description-3").innerHTML =
