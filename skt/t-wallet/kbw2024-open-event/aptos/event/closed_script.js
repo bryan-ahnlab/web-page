@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("event-message-3").innerHTML = "";
 
     document.getElementById("balance-text-1").textContent =
-      "Check claimed Aptos:";
+      "Check $APT you've claimed:";
     document.getElementById("twallet-link").textContent = "T wallet";
     document.getElementById("abcwallet-link").textContent = "ABC Wallet";
 
